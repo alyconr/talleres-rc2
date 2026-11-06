@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "spec_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di",
+  "revision": 1,
+  "title": "Spike: ?API de WhatsApp Cloud directa o un proveedor (Twilio, 360dialog)?",
+  "mode": "research",
+  "business_objective": "Decidir qu? alternativa integrar para conversaciones y confirmaciones por WhatsApp, con evidencia sobre viabilidad en Colombia, costo total y carga operativa para talleres multitenant.",
+  "problem_statement": "El proyecto requiere WhatsApp para chats de clientes y confirmaciones de citas, pero el proveedor est? pendiente. Se debe comparar integrar directamente WhatsApp Cloud API de Meta frente a Twilio y 360dialog, considerando diferencias en alta de n?meros y talleres, webhooks, plantillas, soporte, precios y requisitos de operaci?n.",
+  "scope": [
+    "Comparar WhatsApp Cloud API directa, Twilio y 360dialog con los mismos criterios y supuestos de volumen.",
+    "Verificar disponibilidad y requisitos oficiales para operar desde Colombia, alta y propiedad de n?meros, plantillas, ventanas de conversaci?n, webhooks y soporte.",
+    "Estimar costo total mensual para escenarios expl?citos de mensajes de servicio y plantillas, separando cargos del proveedor y cargos de Meta cuando apliquen.",
+    "Evaluar onboarding multitenant: qui?n conecta y posee el n?mero, credenciales y tokens, aislamiento por taller, operaci?n de webhooks, reintentos y baja del proveedor.",
+    "Documentar fuentes oficiales, supuestos, riesgos, matriz comparativa y recomendaci?n con nivel de confianza."
+  ],
+  "out_of_scope": [
+    "Implementar la integraci?n de WhatsApp o a?adir dependencias y credenciales.",
+    "Elegir o contratar un proveedor, registrar n?meros o crear cuentas de WhatsApp Business.",
+    "Dise?ar una migraci?n definitiva de datos o cambiar la arquitectura aprobada."
+  ],
+  "actors_users": [
+    "Equipo que decidir? la integraci?n de conversaciones",
+    "Due?o o administrador del taller que conectar? el canal",
+    "Personal que operar? mensajes y confirmaciones"
+  ],
+  "main_flow": [
+    "Fijar escenarios y criterios comparables para un MVP en Colombia.",
+    "Revisar documentaci?n y precios oficiales vigentes de Meta, Twilio y 360dialog.",
+    "Comparar requisitos de alta, operaci?n multitenant, webhooks, plantillas, soporte y salida del proveedor.",
+    "Registrar fuentes, supuestos, brechas de evidencia y costo por escenario.",
+    "Recomendar una alternativa y documentar las condiciones que cambiar?an la recomendaci?n."
+  ],
+  "edge_cases": [
+    "Precios o requisitos dependen del pa?s, moneda, categor?a del mensaje, volumen o fecha de consulta.",
+    "Un proveedor no publica tarifas o no confirma un requisito para Colombia; registrar el dato como no verificado en vez de inferirlo.",
+    "Los n?meros de los talleres requieren onboarding individual o no pueden compartirse con la plataforma.",
+    "Cambios de tarifa o pol?ticas de Meta alteran la comparaci?n; fechar cada fuente consultada."
+  ],
+  "business_rules": [
+    "Seg?n docs/BUSINESS_RULES.md, WhatsApp es un canal requerido para mensajes y chats, pero el proveedor concreto est? pendiente.",
+    "Seg?n docs/BUSINESS_RULES.md, los datos y chats de un taller solo son visibles para ese taller y sus usuarios autorizados.",
+    "Seg?n docs/ARCHITECTURE.md, conversaciones es un m?dulo hexagonal con puertos para WhatsApp; el proveedor debe permanecer detr?s de ese l?mite.",
+    "No almacenar ni exponer tokens, secretos ni datos personales reales durante la investigaci?n."
+  ],
+  "technical_constraints": [
+    "Respetar el monolito modular FastAPI y el l?mite p?blico del m?dulo de conversaciones documentado en docs/ARCHITECTURE.md.",
+    "No a?adir dependencias ni modificar c?digo de producci?n durante el spike.",
+    "Usar fuentes primarias oficiales para precios, productos, onboarding y pol?ticas; anotar URL y fecha de consulta.",
+    "Separar cargos de Meta, cargos del proveedor, costos operativos y supuestos de volumen; no comparar cifras con bases distintas."
+  ],
+  "affected_paths": [
+    "experiments/whatsapp-provider-spike"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "La matriz compara las tres opciones con criterios y escenarios de volumen expl?citos.",
+    "Cada afirmaci?n sobre precio, disponibilidad o requisitos tiene fuente oficial y fecha, o queda marcada como no verificada.",
+    "Se documentan costos estimados, supuestos, riesgos multitenant y costos de salida para cada alternativa.",
+    "La conclusi?n recomienda una opci?n para el MVP, expresa confianza y enumera qu? dato podr?a cambiarla.",
+    "Los hallazgos y la recomendaci?n quedan adjuntos como evidencia del run mediante rapid attach."
+  ],
+  "testing_strategy": [
+    "No se requieren tests de c?digo para este spike; validar manualmente la matriz, consistencia de escenarios, enlaces oficiales y trazabilidad de la recomendaci?n."
+  ],
+  "implementation_tasks": [
+    "T001: Definir escenarios, supuestos y criterios de comparaci?n para el MVP colombiano.",
+    "T002: Investigar y comparar Meta Cloud API directa, Twilio y 360dialog; guardar hallazgos con fuentes en experiments/whatsapp-provider-spike/T002.md y adjuntarlos.",
+    "T003: Documentar la decisi?n recomendada, confianza, riesgos y condiciones de revisi?n en experiments/whatsapp-provider-spike/T003.md y adjuntarla."
+  ],
+  "tags": [],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "30f8709e11059596241c40caddddb57e039e91af6c78e70e78222467b8ea1f87",
+    "tasks.md": "ff92f6ffc141c76eef49f395983e2270b7643d517d2e0678f222ec2f3d86a937",
+    "acceptance.md": "4b54c0af19529fe0d5725a31d2328e2d0d100c9d1b330c0979686b4a016f4a34"
+  },
+  "content_digest": "e31139a6d4f63f739712859892e637b9de93b7aaefab6b6ee40957c2bbd78917"
+}

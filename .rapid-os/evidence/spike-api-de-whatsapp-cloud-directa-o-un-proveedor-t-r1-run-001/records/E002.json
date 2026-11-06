@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "E002",
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "state_revision": 3,
+  "state_digest": "9c7867fa69a76961ded46c33e545302d1b28675da8ebf2c31ddd124053486869",
+  "kind": "artifact",
+  "producer": "rapid:attach",
+  "summary": "Attached experiments/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1/T001.md: Escenarios y criterios de comparación",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [],
+  "payload": {
+    "label": "Escenarios y criterios de comparación"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001/artifacts/E002/T001.md",
+      "sha256": "9079de95e3fb9fe4bc711f833fe91de72692bc006cbc24b2a70f7a4453d9533d",
+      "size_bytes": 2261,
+      "source": "experiments/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1/T001.md"
+    }
+  ],
+  "content_digest": "33d21d54131ee3a43ce4e951ccd1fd3d751e4e6cb496c38ca29a8c32d4046f88"
+}

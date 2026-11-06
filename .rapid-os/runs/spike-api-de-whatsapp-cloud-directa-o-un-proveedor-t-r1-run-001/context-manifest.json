@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "mode": "research",
+  "harness": "codex",
+  "objective": "Decidir qu? alternativa integrar para conversaciones y confirmaciones por WhatsApp, con evidencia sobre viabilidad en Colombia, costo total y carga operativa para talleres multitenant.",
+  "max_chars": 24000,
+  "compiled_chars": 23086,
+  "content_digest": "ab12455655e37d7b418341854cd57d47d5a36ed6c0d94c5b17491fc40d0076f1",
+  "selected": [
+    {
+      "source_id": "doc.business",
+      "kind": "business",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 2083,
+      "precedence": 2,
+      "provenance": "docs/BUSINESS_RULES.md",
+      "path": "docs/BUSINESS_RULES.md"
+    },
+    {
+      "source_id": "doc.architecture",
+      "kind": "architecture",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 5201,
+      "precedence": 3,
+      "provenance": "docs/ARCHITECTURE.md",
+      "path": "docs/ARCHITECTURE.md"
+    },
+    {
+      "source_id": "standard.architecture",
+      "kind": "architecture",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 6357,
+      "precedence": 3,
+      "provenance": ".rapid-os/standards/architecture.md",
+      "path": ".rapid-os/standards/architecture.md"
+    },
+    {
+      "source_id": "standard.topology",
+      "kind": "topology",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 436,
+      "precedence": 4,
+      "provenance": ".rapid-os/standards/topology.md",
+      "path": ".rapid-os/standards/topology.md"
+    },
+    {
+      "source_id": "standard.tech-stack",
+      "kind": "tech_stack",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 1125,
+      "precedence": 5,
+      "provenance": ".rapid-os/standards/tech-stack.md",
+      "path": ".rapid-os/standards/tech-stack.md"
+    },
+    {
+      "source_id": "spec.spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di.requirements",
+      "kind": "spec",
+      "selected": true,
+      "reason": "relevant to research mode; selected spec 'spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di'",
+      "priority": 80,
+      "required": false,
+      "chars": 3894,
+      "precedence": 7,
+      "provenance": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/requirements.md",
+      "path": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/requirements.md"
+    },
+    {
+      "source_id": "spec.spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di.tasks",
+      "kind": "tasks",
+      "selected": true,
+      "reason": "selected spec 'spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di'",
+      "priority": 50,
+      "required": false,
+      "chars": 702,
+      "precedence": 8,
+      "provenance": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/tasks.md",
+      "path": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/tasks.md"
+    },
+    {
+      "source_id": "spec.spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di.acceptance",
+      "kind": "acceptance",
+      "selected": true,
+      "reason": "selected spec 'spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di'",
+      "priority": 50,
+      "required": false,
+      "chars": 1066,
+      "precedence": 9,
+      "provenance": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/acceptance.md",
+      "path": ".rapid-os/specs/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di/revisions/0001/acceptance.md"
+    },
+    {
+      "source_id": "project.intelligence",
+      "kind": "project_intelligence",
+      "selected": true,
+      "reason": "relevant to research mode; selected ProjectModel facts (database=postgres, deploy_provider=github-actions)",
+      "priority": 50,
+      "required": false,
+      "chars": 50,
+      "precedence": 13,
+      "provenance": "snapshot:.rapid-os/project.json"
+    },
+    {
+      "source_id": "doc.brief",
+      "kind": "product",
+      "selected": true,
+      "reason": "relevant to research mode",
+      "priority": 80,
+      "required": false,
+      "chars": 1651,
+      "precedence": 14,
+      "provenance": "docs/PRODUCT_BRIEF.md",
+      "path": "docs/PRODUCT_BRIEF.md"
+    }
+  ],
+  "skipped": [
+    {
+      "source_id": "standard.security",
+      "kind": "security",
+      "selected": false,
+      "reason": "skipped: not relevant for research mode",
+      "priority": 100,
+      "required": false,
+      "chars": 9451,
+      "precedence": 1,
+      "provenance": ".rapid-os/standards/security.md",
+      "path": ".rapid-os/standards/security.md"
+    },
+    {
+      "source_id": "standard.coding-rules",
+      "kind": "coding_rules",
+      "selected": false,
+      "reason": "skipped: not relevant for research mode",
+      "priority": 50,
+      "required": false,
+      "chars": 633,
+      "precedence": 6,
+      "provenance": ".rapid-os/standards/coding-rules.md",
+      "path": ".rapid-os/standards/coding-rules.md"
+    },
+    {
+      "source_id": "doc.deployment",
+      "kind": "custom",
+      "selected": false,
+      "reason": "skipped: not relevant for research mode",
+      "priority": 10,
+      "required": false,
+      "chars": 1977,
+      "precedence": 12,
+      "provenance": "docs/DEPLOYMENT.md",
+      "path": "docs/DEPLOYMENT.md"
+    },
+    {
+      "source_id": "doc.data-model",
+      "kind": "data_model",
+      "selected": false,
+      "reason": "skipped: not relevant for research mode",
+      "priority": 50,
+      "required": false,
+      "chars": 3310,
+      "precedence": 15,
+      "provenance": "docs/DATA_MODEL.md",
+      "path": "docs/DATA_MODEL.md"
+    }
+  ],
+  "conflicts": []
+}

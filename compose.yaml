@@ -1,0 +1,38 @@
+# Entorno local escrito por Rapid OS: un servicio por cada decisión "now" de .rapid-os/setup.json.
+# Copia .env.example a .env para cambiar valores; sin .env se usan los de ejemplo (solo para desarrollo local).
+# Rapid OS añade aquí los servicios que pasan de "later" a "now", pero nunca modifica los que ya están.
+# Los puertos solo se abren en 127.0.0.1. Levanta los servicios con: docker compose up -d
+services:
+  postgresql:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-app}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-app_local_only}"
+      POSTGRES_DB: "${POSTGRES_DB:-app}"
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgresql-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  rabbitmq:
+    image: rabbitmq:4
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER:-app}"
+      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS:-app_local_only}"
+    ports:
+      - "127.0.0.1:5672:5672"
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  postgresql-data:
+  rabbitmq-data:

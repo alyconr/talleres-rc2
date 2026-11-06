@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E005",
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "state_revision": 8,
+  "state_digest": "e3416978893242440cfe8b0a6e17c2df4422725c3249fc790c0088cde80c8655",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "66bb460a960a52e6774fea1d21645fee046529dd44a087c820dcdbb2b9227b45"
+  },
+  "artifacts": [],
+  "content_digest": "01cfb8b7f9f88664bd40bc9dd8170e1c0f4a782046d5a9a6d8f77aaf063a5f70"
+}

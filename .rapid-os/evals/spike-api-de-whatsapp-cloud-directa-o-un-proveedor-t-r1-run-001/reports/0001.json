@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "state_revision": 10,
+  "state_digest": "9112ac475c9f883016ccd0f6cea568ba7bba02d23db46906df4b50d3bb6fb440",
+  "evidence_set_digest": "ac741934e0276cfe1efe10ccbb823cd2daaa94790e449f18e610d41d7671ad5f",
+  "ruleset_version": 3,
+  "ruleset_digest": "c8a2e5af48f4cba8b5c142faea7909794e86bbb2059594fbfe2a88f095bc9356",
+  "extra_capability_ids": [],
+  "assertions": [
+    {
+      "id": "run.lifecycle",
+      "category": "lifecycle",
+      "subject_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Run reached terminal status 'finished'.",
+      "evidence_ids": []
+    },
+    {
+      "id": "task.T001.evidence",
+      "category": "task",
+      "subject_id": "T001",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T001' completion is backed by execution evidence (E002).",
+      "evidence_ids": [
+        "E002"
+      ]
+    },
+    {
+      "id": "task.T002.evidence",
+      "category": "task",
+      "subject_id": "T002",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T002' completion is backed by execution evidence (E003).",
+      "evidence_ids": [
+        "E003"
+      ]
+    },
+    {
+      "id": "task.T003.evidence",
+      "category": "task",
+      "subject_id": "T003",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T003' completion is backed by execution evidence (E004).",
+      "evidence_ids": [
+        "E004"
+      ]
+    },
+    {
+      "id": "gate.gate.final-verification.evidence",
+      "category": "gate",
+      "subject_id": "gate.final-verification",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.final-verification' is acknowledged and verified by evidence (E005).",
+      "evidence_ids": [
+        "E005"
+      ]
+    },
+    {
+      "id": "capability.context.consume.observed",
+      "category": "capability",
+      "subject_id": "context.consume",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'context.consume' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.read.observed",
+      "category": "capability",
+      "subject_id": "repository.read",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'repository.read' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.write.observed",
+      "category": "capability",
+      "subject_id": "repository.write",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'repository.write' (contract.tasks) observed in evidence (E006).",
+      "evidence_ids": [
+        "E006"
+      ]
+    },
+    {
+      "id": "capability.workspace.current.observed",
+      "category": "capability",
+      "subject_id": "workspace.current",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'workspace.current' (contract.workspace) observed in evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    }
+  ],
+  "verdict": "pass",
+  "report_digest": "1c13c4202104c5d17da69b89d9eb394d4923026d77ae18bf11f3b9636d90e6dd"
+}

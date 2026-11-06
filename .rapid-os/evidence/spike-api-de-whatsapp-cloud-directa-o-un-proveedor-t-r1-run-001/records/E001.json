@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "state_revision": 1,
+  "state_digest": "4f17835b4cd2efc84d502b57b12453146bd9a543092164fc4f2ed80d2e888e40",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace operates in current directory",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "workspace.current"
+  ],
+  "payload": {
+    "mode": "current"
+  },
+  "artifacts": [],
+  "content_digest": "e98cdf6a49f4caa3aa6fb79ff00f6fd1e955e56701de2a9643e951900ee5a13c"
+}

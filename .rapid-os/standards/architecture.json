@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "language": "python",
+  "component": "backend",
+  "modules_root": "app/modules",
+  "shared_root": "app/shared",
+  "public_entry": "public.py",
+  "module_pattern": "app/modules/<m>/",
+  "public_contract": "public.py",
+  "public_policy": "entry",
+  "layers": {
+    "api": [
+      "application",
+      "domain"
+    ],
+    "application": [
+      "domain"
+    ],
+    "domain": [],
+    "infrastructure": [
+      "application",
+      "domain"
+    ]
+  },
+  "roles": {
+    "api": "api",
+    "application": "application",
+    "domain": "domain",
+    "infrastructure": "infrastructure"
+  },
+  "domain_forbidden_imports": [
+    "fastapi",
+    "sqlalchemy",
+    "starlette",
+    "httpx"
+  ],
+  "composition": "ensambla las dependencias en app/main.py o en el public.py del módulo, y deja que api/ las reciba (por ejemplo con Depends) en lugar de construir infrastructure/ él mismo",
+  "root": "backend",
+  "rules": [
+    {
+      "schema_version": 1,
+      "language": "python",
+      "component": "backend",
+      "modules_root": "app/modules",
+      "shared_root": "app/shared",
+      "public_entry": "public.py",
+      "module_pattern": "app/modules/<m>/",
+      "public_contract": "public.py",
+      "public_policy": "entry",
+      "layers": {
+        "api": [
+          "application",
+          "domain"
+        ],
+        "application": [
+          "domain"
+        ],
+        "domain": [],
+        "infrastructure": [
+          "application",
+          "domain"
+        ]
+      },
+      "roles": {
+        "api": "api",
+        "application": "application",
+        "domain": "domain",
+        "infrastructure": "infrastructure"
+      },
+      "domain_forbidden_imports": [
+        "fastapi",
+        "sqlalchemy",
+        "starlette",
+        "httpx"
+      ],
+      "composition": "ensambla las dependencias en app/main.py o en el public.py del módulo, y deja que api/ las reciba (por ejemplo con Depends) en lugar de construir infrastructure/ él mismo",
+      "root": "backend"
+    },
+    {
+      "schema_version": 1,
+      "language": "typescript",
+      "component": "frontend",
+      "modules_root": "src/app/features",
+      "shared_root": "src/app/shared",
+      "public_entry": "index.ts",
+      "module_pattern": "src/app/features/<f>/",
+      "public_contract": "index.ts",
+      "public_policy": "entry",
+      "layers": {
+        "ui": [
+          "state",
+          "model"
+        ],
+        "state": [
+          "data-access",
+          "model"
+        ],
+        "data-access": [
+          "model"
+        ],
+        "model": []
+      },
+      "roles": {
+        "ui": "ui",
+        "state": "state",
+        "data-access": "data-access",
+        "model": "model"
+      },
+      "domain_forbidden_imports": [
+        "react",
+        "react-dom",
+        "vue",
+        "svelte",
+        "@angular/core",
+        "next",
+        "nuxt",
+        "@sveltejs/kit",
+        "astro"
+      ],
+      "pure_layer": "model",
+      "composition": "ui/ no importa data-access/: conecta el acceso a datos desde state/ (hooks, stores o servicios de la funcionalidad) y deja que ui/ consuma ese estado",
+      "root": "frontend"
+    }
+  ]
+}

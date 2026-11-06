@@ -1,0 +1,16 @@
+.env
+
+.rapid-os/session.json
+.rapid-os/scratch/
+.rapid-os/backups/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+node_modules/
+dist/
+.angular/
+coverage/

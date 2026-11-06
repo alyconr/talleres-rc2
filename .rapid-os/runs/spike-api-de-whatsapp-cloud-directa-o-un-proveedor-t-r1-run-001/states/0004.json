@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "revision": 4,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Definir escenarios, supuestos y criterios de comparaci?n para el MVP colombiano.",
+      "status": "done",
+      "reason": "Completed task T001"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Investigar y comparar Meta Cloud API directa, Twilio y 360dialog; guardar hallazgos con fuentes en experiments/whatsapp-provider-spike/T002.md y adjuntarlos.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Documentar la decisi?n recomendada, confianza, riesgos y condiciones de revisi?n en experiments/whatsapp-provider-spike/T003.md y adjuntarla.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "task.T001.done",
+  "reason": "Completed task T001",
+  "content_digest": "2b4a67c798f8f36957510c1eb9cb1622c3bc362cc1f4b5e2ba892e442adc4f99"
+}

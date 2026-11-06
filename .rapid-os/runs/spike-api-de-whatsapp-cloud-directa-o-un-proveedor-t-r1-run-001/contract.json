@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "spec_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-twilio-360di",
+  "spec_revision": 1,
+  "spec_content_digest": "e31139a6d4f63f739712859892e637b9de93b7aaefab6b6ee40957c2bbd78917",
+  "harness": "codex",
+  "context_digest": "ab12455655e37d7b418341854cd57d47d5a36ed6c0d94c5b17491fc40d0076f1",
+  "context_manifest_digest": "11bfaabbadc5045b27d0fc3b8adacf95e7cf4592fb2d50c0ba73118aa2c03f2b",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "spike",
+    "risk": "low",
+    "risk_signals": [
+      {
+        "id": "mode.research",
+        "level": "low",
+        "reason": "Spec mode is 'research' (spike exploration).",
+        "source": "spec.mode"
+      }
+    ],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.research"
+    ]
+  },
+  "classification": "spike",
+  "risk": "low",
+  "risk_signals": [
+    {
+      "id": "mode.research",
+      "level": "low",
+      "reason": "Spec mode is 'research' (spike exploration).",
+      "source": "spec.mode"
+    }
+  ],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Definir escenarios, supuestos y criterios de comparaci?n para el MVP colombiano."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Investigar y comparar Meta Cloud API directa, Twilio y 360dialog; guardar hallazgos con fuentes en experiments/whatsapp-provider-spike/T002.md y adjuntarlos."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Documentar la decisi?n recomendada, confianza, riesgos y condiciones de revisi?n en experiments/whatsapp-provider-spike/T003.md y adjuntarla."
+    }
+  ],
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "ruleset_version": 3
+}

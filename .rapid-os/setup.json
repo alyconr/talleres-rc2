@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "stacks": {
+    "frontend": {
+      "id": "angular",
+      "source": "catalog",
+      "decided_by": "person"
+    },
+    "backend": {
+      "id": "python-fastapi",
+      "source": "catalog",
+      "decided_by": "person"
+    }
+  },
+  "topology": "fullstack-separated",
+  "archetype": "mvp",
+  "agents": [
+    "codex"
+  ],
+  "test_command": [
+    "uv",
+    "run",
+    "pytest"
+  ],
+  "docs": {
+    "architecture": {
+      "status": "drafted",
+      "confirmed": true,
+      "sha256": "4368f20e29faa3dc814d44e808e921c6a2257087c268ffea9d2743337f3c2953"
+    },
+    "brief": {
+      "status": "drafted",
+      "confirmed": true,
+      "sha256": "ed1e802c4b5cc91d62e47d259e02553ba24dd36be6186100d69d4d3d4e3c8120"
+    },
+    "business": {
+      "status": "drafted",
+      "confirmed": true,
+      "sha256": "0e1d4ef7ec7cee1c56a02cf2dc250bfb5d655994eeeae10d372fd01a647dd82c"
+    },
+    "data-model": {
+      "status": "drafted",
+      "confirmed": true,
+      "sha256": "fc8698f82437290bef1aaba15a0d81cfe9c57559c08c29a212bfc7be70da8ca4"
+    },
+    "deployment": {
+      "status": "drafted",
+      "confirmed": true,
+      "sha256": "600048a16a84f4022956d08bafe53a0d03fd2d0bfa4ab8efe3f9777b5dbf2caf"
+    }
+  },
+  "finished": true,
+  "drafts_reviewed": true,
+  "ai": true,
+  "services": [
+    {
+      "role": "database",
+      "engine": "postgresql",
+      "when": "now"
+    },
+    {
+      "role": "queue",
+      "engine": "rabbitmq",
+      "when": "now"
+    }
+  ]
+}

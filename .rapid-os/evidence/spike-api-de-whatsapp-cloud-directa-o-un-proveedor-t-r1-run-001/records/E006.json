@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "E006",
+  "run_id": "spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1-run-001",
+  "contract_digest": "da1787e4913040a6b86bd5d9d6bb47d30cae06c3bb66612ee99aa6857bb6a26d",
+  "state_revision": 9,
+  "state_digest": "77fbad6adfb4d2d338ce4f911a366b0fc344f3f86a3e291f1b886f5648b85c94",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 5 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      "codex-session-01a1b1c9-e004-7d40-860e-82d8ec1fc413.md",
+      "codex-session-01a1b203-558a-7cb2-b2bd-de5cea46e4da.md",
+      "experiments/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1/T001.md",
+      "experiments/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1/T002.md",
+      "experiments/spike-api-de-whatsapp-cloud-directa-o-un-proveedor-t-r1/T003.md"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "6a753340a3fd09fe5ecc667cb0bdd0bbd5d187360df152d3377cee60c8b5aa15"
+}

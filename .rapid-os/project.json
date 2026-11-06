@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "facts": [
+    {
+      "category": "database",
+      "value": "postgres",
+      "confidence": "low",
+      "detector": "database.postgres",
+      "evidence": [
+        {
+          "path": ".env.example",
+          "reason": "database env key",
+          "source_type": "environment-key",
+          "detector": "database.postgres"
+        }
+      ]
+    },
+    {
+      "category": "deploy_provider",
+      "value": "github-actions",
+      "confidence": "high",
+      "detector": "deploy.github-actions",
+      "evidence": [
+        {
+          "path": ".github/workflows/rapid-security-python.yml",
+          "reason": ".github/workflows",
+          "source_type": "workflow",
+          "detector": "deploy.github-actions"
+        },
+        {
+          "path": ".github/workflows/rapid-security-typescript.yml",
+          "reason": ".github/workflows",
+          "source_type": "workflow",
+          "detector": "deploy.github-actions"
+        }
+      ]
+    }
+  ]
+}
