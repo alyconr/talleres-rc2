@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E014",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 11,
+  "state_digest": "fe9fd35e2f2d0ff7a5d93be0d4dca09135e16fbdfe92709e643f6d870ab3a8f7",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check",
+    "exit_code": 0,
+    "tree": "fb3ffc5819bcdfb2623b499d9ff5e2c6426fbd4a5bde31c3885369ad36c738af"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/artifacts/E014/23.log",
+      "sha256": "54e8e65af1c827d5c1e388d15789a712e48e56ad5ede22fdd07b02b66dab0367",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/23.log"
+    }
+  ],
+  "content_digest": "e639f2968377bf135b084aaf2c19ea072617d2f80019ecc10d68b8c3d8d29c04"
+}

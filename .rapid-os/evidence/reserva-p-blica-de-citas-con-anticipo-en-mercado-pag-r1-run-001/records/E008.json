@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E008",
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "state_revision": 9,
+  "state_digest": "cd230ead37c76991ba99d69ef0fee699335ec72ccd3b7b267ebb24bd55c36693",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -m pytest -c backend/pyproject.toml' passed (1 passed, 0 failed)",
+  "task_ids": [
+    "T004"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "command": "python -m pytest -c backend/pyproject.toml",
+    "tree": "a58d75a31550cf204a165ce090e21426201a1db459b00711225227d41c547d3f",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/artifacts/E008/9.log",
+      "sha256": "4836df7b5924ab2bf0e9d28abeb92996db5143fad1cced8f406baff4205a9ec9",
+      "size_bytes": 436,
+      "source": ".rapid-os/scratch/checks/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/9.log"
+    }
+  ],
+  "content_digest": "ea3c8d5a9795d25d239ee9c4685ea0a3221fd0a08ee6cbd7259c26b8118e22d4"
+}

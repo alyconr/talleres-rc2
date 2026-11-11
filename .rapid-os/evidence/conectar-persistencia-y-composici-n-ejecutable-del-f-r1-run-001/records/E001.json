@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 1,
+  "state_digest": "f98feb6e6523d83e44dc458b6d7ba83815fac00bbb3923eee0d079cd7c2ea808",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace operates in current directory",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "workspace.current"
+  ],
+  "payload": {
+    "mode": "current"
+  },
+  "artifacts": [],
+  "content_digest": "2494e647848e114fabcd36506001223ddf75f2c0866019157f0058055249d7f4"
+}

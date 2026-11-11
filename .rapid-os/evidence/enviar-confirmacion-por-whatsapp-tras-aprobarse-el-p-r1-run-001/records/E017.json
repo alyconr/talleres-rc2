@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "E017",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 12,
+  "state_digest": "937ebc14e08c61d33054f3e9157827298a05ca04e4821c94ab157fed4b887373",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 19 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      ".env.example",
+      "AGENTS.md",
+      "backend/alembic/versions/20261110_0002_appointment_confirmation_outbox.py",
+      "backend/alembic/versions/20261110_0003_confirmation_attempt_lease.py",
+      "backend/app/modules/conversations/__init__.py",
+      "backend/app/modules/conversations/application/__init__.py",
+      "backend/app/modules/conversations/application/deliver_confirmation.py",
+      "backend/app/modules/conversations/application/ports.py",
+      "backend/app/modules/conversations/domain/__init__.py",
+      "backend/app/modules/conversations/domain/appointment_confirmation.py",
+      "backend/app/modules/conversations/infrastructure/__init__.py",
+      "backend/app/modules/conversations/infrastructure/models.py",
+      "backend/app/modules/conversations/infrastructure/rabbitmq_confirmation_queue.py",
+      "backend/app/modules/conversations/infrastructure/sqlalchemy_confirmation_outbox.py",
+      "backend/app/modules/conversations/public.py",
+      "backend/tests/test_appointment_confirmation.py",
+      "backend/tests/test_confirmation_delivery.py",
+      "codex-session-01a1c62e-1d49-7663-af53-0a6ed748e7a5.md",
+      "docs/PRODUCT_BRIEF.md"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "47c06406d3d2edc64159d0749de87bcd67ee63b1a623c297a5ad7df35817ea23"
+}

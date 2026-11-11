@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "E019",
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "state_revision": 14,
+  "state_digest": "d9fc1dd96501867f018b376c41b332475b78d21b04813600acc3652a9eea6b7b",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification changes_requested by alyconr: Las rutas de reservas y webhook responden 503: main.py registra los routers, pero no construye ni inyecta booking_service ni payment_webhook_service; faltan el servicio de aplicación y los adaptadores de persistencia para completar H001.",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "changes_requested",
+    "reviewer": "alyconr",
+    "reason": "Las rutas de reservas y webhook responden 503: main.py registra los routers, pero no construye ni inyecta booking_service ni payment_webhook_service; faltan el servicio de aplicación y los adaptadores de persistencia para completar H001.",
+    "via": "rapid:approve",
+    "tree": "38510e114ecf6803c4a15409ed6f0c82c2b5b62ee7a2f8d1628fb8020509be64"
+  },
+  "artifacts": [],
+  "content_digest": "3cfa0ea7579f5a14bb0955f10205bc50015fa6abf5c260d7974ac0b41a8a29a9"
+}

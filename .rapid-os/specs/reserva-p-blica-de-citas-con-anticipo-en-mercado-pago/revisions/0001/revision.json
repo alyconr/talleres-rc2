@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "spec_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pago",
+  "revision": 1,
+  "title": "Reserva p?blica de citas con anticipo en Mercado Pago",
+  "mode": "feature",
+  "business_objective": "Permitir que un cliente reserve un servicio y deje la cita confirmada ?nicamente despu?s de que Mercado Pago apruebe el anticipo.",
+  "problem_statement": "Los clientes necesitan elegir un servicio y horario de un taller, registrar la cita y pagar el anticipo sin que la reserva se confirme antes de la aprobaci?n del pago.",
+  "scope": [
+    "Consultar servicios activos y horarios disponibles para un taller y ofrecerlos en un flujo p?blico de reserva.",
+    "Crear una cita pendiente de pago y asociar el cliente y servicio del mismo tenant.",
+    "Iniciar el cobro del anticipo configurado para el servicio mediante Mercado Pago.",
+    "Procesar la notificaci?n de pago aprobado, verificar su autenticidad y confirmar la cita de forma idempotente.",
+    "Proveer en Angular el flujo p?blico para seleccionar servicio y horario, ingresar datos del cliente y continuar al pago."
+  ],
+  "out_of_scope": [
+    "Panel privado para administrar servicios, disponibilidad o citas (H003).",
+    "Confirmaciones por WhatsApp (H002), bandeja de conversaciones (H004) y agente de IA (H005).",
+    "Definir monto o porcentaje global del anticipo, ni pol?ticas de cancelaci?n o reembolso.",
+    "Definir un proveedor de WhatsApp o de IA."
+  ],
+  "actors_users": [
+    "Cliente que realiza una reserva p?blica.",
+    "Taller due?o de los servicios, horarios y cita.",
+    "Mercado Pago como proveedor externo de pagos.",
+    "Backend FastAPI que valida pertenencia al tenant y procesa la notificaci?n de pago."
+  ],
+  "main_flow": [
+    "El cliente abre el flujo de reserva de un taller y consulta sus servicios activos y horarios disponibles.",
+    "El cliente selecciona servicio y horario e ingresa los datos necesarios para identificarlo.",
+    "El backend valida que el servicio y el horario pertenecen al taller y que el horario sigue disponible; crea la cita en estado pending_payment.",
+    "El backend obtiene el anticipo configurado para el servicio y crea la operaci?n de pago en Mercado Pago, vincul?ndola a la cita y al tenant.",
+    "El cliente completa el pago en Mercado Pago.",
+    "El backend valida la notificaci?n de Mercado Pago y consulta/valida el pago asociado; al aprobarse, registra el pago y transiciona la cita a confirmed.",
+    "Las notificaciones repetidas producen el mismo resultado sin duplicar pagos ni confirmar dos veces la cita."
+  ],
+  "edge_cases": [
+    "El servicio est? inactivo, pertenece a otro taller o deja de estar disponible antes de crear la cita: rechazar la reserva.",
+    "El servicio no tiene un anticipo v?lido configurado: no iniciar el cobro ni confirmar la cita; devolver un error controlado.",
+    "Dos clientes intentan reservar el mismo horario simult?neamente: solo una reserva puede ocuparlo.",
+    "Mercado Pago rechaza, deja pendiente o no responde: mantener la cita sin confirmar y manejar el estado de pago sin duplicar operaciones.",
+    "La notificaci?n es inv?lida, no corresponde a la operaci?n creada o se repite: no confirmar la cita ni duplicar registros.",
+    "El cliente env?a datos inv?lidos o excede los l?mites definidos para la petici?n: rechazarla sin persistir datos parciales."
+  ],
+  "business_rules": [
+    "Seg?n docs/BUSINESS_RULES.md: una cita no queda confirmada antes de que Mercado Pago apruebe el anticipo.",
+    "Seg?n docs/BUSINESS_RULES.md: los webhooks repetidos no deben duplicar pagos, reservas ni confirmaciones.",
+    "Seg?n docs/BUSINESS_RULES.md: los datos de un taller solo son visibles para ese taller y sus usuarios autorizados; las validaciones de tenant se aplican tambi?n al flujo p?blico.",
+    "Seg?n docs/BUSINESS_RULES.md: no se ha fijado monto o porcentaje del anticipo ni pol?tica de cancelaci?n o reembolso.",
+    "Seg?n docs/DATA_MODEL.md: las relaciones de cita, cliente y servicio deben validar pertenencia al mismo tenant; la cita inicia pending_payment y solo cambia a confirmed tras aprobarse el pago.",
+    "Seg?n docs/DATA_MODEL.md: tel?fono y otros datos del cliente son datos personales y no deben exponerse ni registrarse innecesariamente."
+  ],
+  "technical_constraints": [
+    "Respetar el stack confirmado: backend Python 3.13, FastAPI async, Pydantic V2 estricto, SQLAlchemy 2 async, PostgreSQL y uv; frontend Angular 22 con TypeScript estricto y pnpm.",
+    "Ubicar c?digo nuevo en los m?dulos de negocio y respetar sus capas y puntos p?blicos conforme a AGENTS.md; ning?n m?dulo accede a las capas internas de otro.",
+    "El m?dulo de pagos integra Mercado Pago mediante puertos y adaptadores; mantener credenciales solo en el servidor.",
+    "Validar autenticidad y contenido de notificaciones de Mercado Pago, usar operaciones idempotentes y fallar de forma cerrada.",
+    "No inventar el monto, moneda ni pol?tica del anticipo. Usar ?nicamente una configuraci?n v?lida del servicio y bloquear el checkout si falta; documentar cualquier decisi?n t?cnica necesaria como supuesto.",
+    "Aplicar l?mites y validaci?n a las entradas p?blicas; evitar exponer detalles internos o datos personales en errores y logs.",
+    "Incluir modelo de amenazas breve: activos: datos de clientes, citas, credenciales y pagos; atacantes: clientes automatizados y emisores de webhooks falsos; amenazas: abuso de reservas, cruce de tenant, manipulaci?n de estado y repetici?n de eventos; mitigaciones: validaci?n de tenant, l?mites de petici?n, verificaci?n del proveedor, idempotencia y autorizaci?n del servidor."
+  ],
+  "affected_paths": [
+    "backend/app/modules/reservations",
+    "backend/app/modules/payments",
+    "frontend/src/app/features/booking",
+    "backend/app/main.py"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "El cliente puede consultar servicios activos y horarios disponibles del taller y enviar una reserva v?lida desde Angular.",
+    "Una cita creada queda en pending_payment y su servicio, cliente y taller pertenecen al mismo tenant.",
+    "El pago se inicia por el anticipo configurado del servicio; si la configuraci?n falta o no es v?lida, el cobro no inicia.",
+    "La cita permanece sin confirmar ante pagos pendientes, rechazados, notificaciones inv?lidas o fallos del proveedor.",
+    "Una notificaci?n aut?ntica de pago aprobado confirma la cita asociada y registra el pago.",
+    "La repetici?n de una notificaci?n no crea pagos ni citas duplicados ni altera incorrectamente una cita.",
+    "Dos solicitudes concurrentes no pueden reservar el mismo horario.",
+    "Las respuestas p?blicas no revelan datos de otro tenant, secretos ni detalles internos."
+  ],
+  "testing_strategy": [
+    "Cubrir el camino cr?tico de reserva, pago aprobado y repetici?n del webhook con pytest/httpx a trav?s de rapid check.",
+    "Verificar que pagos pendientes/rechazados, firmas inv?lidas, configuraci?n de anticipo ausente y conflictos concurrentes no confirman ni duplican citas.",
+    "Verificar validaciones de pertenencia al tenant para servicio, horario, cliente, cita y pago.",
+    "Verificar el flujo Angular con las pruebas disponibles del stack, sin a?adir pruebas unitarias de componentes UI salvo que sean necesarias para el camino cr?tico."
+  ],
+  "implementation_tasks": [
+    "T001: Scaffold m\u00ednimo con un test que pase con la estructura de .rapid-os/standards/architecture.md (un m\u00f3dulo de ejemplo con sus cuatro capas y su punto p\u00fablico). Lee la configuraci\u00f3n de .env.example (nunca valores fijos); el esquema de datos va en migraciones versionadas; las pruebas unitarias no usan servicios externos y las de integraci\u00f3n llevan un marcador propio, de modo que gate.tests pasa sin Docker; Dockerfile multi-stage con usuario no root y healthcheck",
+    "Modelar las reglas de reserva y disponibilidad, con creaci?n at?mica de citas pending_payment y validaci?n del tenant.",
+    "Implementar el m?dulo de pagos con puerto Mercado Pago, adaptador seguro, inicio del anticipo e idempotencia del webhook aprobado.",
+    "Exponer los endpoints necesarios para consultar disponibilidad, crear reservas y recibir notificaciones de pago; integrarlos en la composici?n FastAPI.",
+    "Implementar el flujo Angular de reserva y continuaci?n al pago con estados de carga y error controlados.",
+    "A?adir cobertura del camino cr?tico e integraci?n del flujo completo mediante rapid check."
+  ],
+  "tags": [
+    "story:h001"
+  ],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "5b0ce19aae9bdd57a6e3a7117f4957721453b3bde1581e675a0bf1b29c221095",
+    "tasks.md": "42b5f56a8d7e8f5134b908e4c492d1ada8238ace6b4cb552049e417adc88d584",
+    "acceptance.md": "e7f82474f764bd7c5bfb9bd37d666d322886ba2a4a84e8051d48e713c8ae5a5f"
+  },
+  "content_digest": "33a83f006c41d4a8288d81ae66121b75a171c776f79d1b666096e57910846ac7"
+}

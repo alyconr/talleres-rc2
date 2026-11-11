@@ -1,0 +1,13 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.3, pluggy-1.6.0
+rootdir: G:\e2e\talleres-rc2
+plugins: platformdirs-4.13.5, anyio-4.12.0
+collected 15 items
+
+backend\tests\test_api_composition.py .....                              [ 33%]
+backend\tests\test_health.py .                                           [ 40%]
+backend\tests\test_payment_webhook.py ....                               [ 66%]
+backend\tests\test_postgres_persistence.py ss                            [ 80%]
+backend\tests\test_reservation_domain.py ...                             [100%]
+
+======================== 13 passed, 2 skipped in 1.09s ========================

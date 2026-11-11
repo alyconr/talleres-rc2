@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E026",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 11,
+  "state_digest": "7231564919951f2d753e7fe10d21d016339d8a109c9bdbbd1a170bd168d8607b",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "33ae9f785679686b967b901a68033ae0eeeea8ede4679f75683845585e815eda"
+  },
+  "artifacts": [],
+  "content_digest": "ae1c73e3b20dd5344973749d063cc4c436a7a065acf68f880558186c9cc37977"
+}

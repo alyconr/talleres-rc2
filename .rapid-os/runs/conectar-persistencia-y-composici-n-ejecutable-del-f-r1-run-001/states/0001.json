@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "revision": 1,
+  "status": "prepared",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Configuraci?n estricta, motor y sesiones SQLAlchemy async, metadata base y migraci?n Alembic del esquema m?nimo por m?dulo.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Adaptadores de cat?logo, reservas y pagos con persistencia tenant-scoped, transacci?n de reserva, checkout y confirmaci?n idempotente.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Caso de uso de reserva, dependencias FastAPI tipadas y composici?n/lifespan que conecte endpoints con adaptadores y Mercado Pago.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T004",
+      "description": "T004: Pruebas cr?ticas de API, persistencia, concurrencia, webhook, errores de configuraci?n y aislamiento tenant; corregir arquitectura y ejecutar gates.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "run.prepared",
+  "reason": "Initial run state prepared from execution contract.",
+  "content_digest": "f98feb6e6523d83e44dc458b6d7ba83815fac00bbb3923eee0d079cd7c2ea808"
+}

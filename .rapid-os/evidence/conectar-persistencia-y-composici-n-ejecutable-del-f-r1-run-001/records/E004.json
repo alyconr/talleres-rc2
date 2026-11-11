@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E004",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 4,
+  "state_digest": "ee3edcadccb56048c3fafa9a60bbbc43b3280c55f26719575fc9557b23162179",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -m pytest -c backend/pyproject.toml' passed (8 passed, 0 failed)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "command": "python -m pytest -c backend/pyproject.toml",
+    "tree": "069e664a7391d4f8347c0eed5b2579ab2ff70b46e1fa93cdc45d26f21697787a",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E004/5.log",
+      "sha256": "8e41b8feaff74d9ebf97ff9cf23918022649b9abfdbff9a9befba59e0ad46543",
+      "size_bytes": 599,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/5.log"
+    }
+  ],
+  "content_digest": "1b640ec893a7e030321fcc5e295efb059f1d23ad8448a38b33c5102f87d052a2"
+}

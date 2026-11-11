@@ -3,8 +3,8 @@
     "codex"
   ],
   "test_command": [
-    "uv",
-    "run",
-    "pytest"
+    "python",
+    "-c",
+    "import shutil, subprocess, sys; codes = [subprocess.call([shutil.which(c[0]) or c[0], *c[1:]]) for c in [['uv', 'run', '--directory', 'backend', 'pytest'], ['pnpm', '--dir', 'frontend', 'exec', 'ng', 'test', '--no-watch', '--no-progress']]]; sys.exit(1 if any(code != 0 for code in codes) else 0)"
   ]
 }

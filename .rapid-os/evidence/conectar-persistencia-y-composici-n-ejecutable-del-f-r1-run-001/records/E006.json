@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E006",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 6,
+  "state_digest": "5810ee2650917f8738fc5a69c836c2a16cb8daa443944395da5ff0a820111769",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'python -c from app.modules.reservations.public import Boo...' passed (exit 0)",
+  "task_ids": [
+    "T002"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "python -c from app.modules.reservations.public import Boo...",
+    "exit_code": 0,
+    "tree": "08417f3824ea014525926dfbff3d99fd2fb99472fd496257c92816fd9fed3cce"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E006/7.log",
+      "sha256": "71758a646a355ddc25ad53ebe6c9d56f00b090a64044c9ab2582cc3b21d2016d",
+      "size_bytes": 98,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/7.log"
+    }
+  ],
+  "content_digest": "0891fdd5aafb7f74d72bde4a13a047df54bafa2279dfb0ce5e7341791c575a64"
+}

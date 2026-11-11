@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E011",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 10,
+  "state_digest": "ea2f69e0110e17286fb254b531287d90443449f7cff0c8b735d95c6ef8c37ce4",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run --directory backend pytest' passed (31 passed, 0 failed)",
+  "task_ids": [
+    "T004"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 31,
+    "failed": 0,
+    "skipped": 0,
+    "command": "uv run --directory backend pytest",
+    "tree": "fb3ffc5819bcdfb2623b499d9ff5e2c6426fbd4a5bde31c3885369ad36c738af",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/artifacts/E011/20.log",
+      "sha256": "08494f61344d52f10a5ad51e51a507bb9b2b224b5f6354c50d11b8aae515de34",
+      "size_bytes": 1417,
+      "source": ".rapid-os/scratch/checks/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/20.log"
+    }
+  ],
+  "content_digest": "7507f1503858cad3181e73fb99045efab426730c93ad1feaa7f4553471b1824f"
+}

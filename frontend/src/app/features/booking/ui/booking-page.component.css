@@ -1,0 +1,23 @@
+:host { display: block; min-height: 100vh; background: #f4f6f8; color: #17242d; }
+.booking-shell { max-width: 760px; margin: 0 auto; padding: 24px 20px 56px; }
+.brand-row { display: flex; align-items: center; gap: 10px; margin: 8px 0 28px; color: #183b38; font-weight: 750; }
+.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: #ffca68; font-weight: 900; }
+.booking-card { padding: clamp(24px, 5vw, 48px); border: 1px solid #e2e8e9; border-radius: 24px; background: white; box-shadow: 0 16px 44px #243d4910; }
+.eyebrow { margin: 0 0 8px; color: #28756a; font-size: .75rem; font-weight: 800; letter-spacing: .14em; }
+h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.1rem); letter-spacing: -.045em; }
+.intro { max-width: 540px; margin: 12px 0 30px; color: #596970; line-height: 1.6; }
+label, legend { display: block; margin-bottom: 8px; font-size: .9rem; font-weight: 700; }
+select, input { width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid #cdd7d8; border-radius: 10px; background: #fff; color: inherit; font: inherit; }
+select:focus, input:focus, button:focus-visible { outline: 3px solid #a8d8ce; outline-offset: 2px; }
+fieldset { min-width: 0; margin: 26px 0; padding: 0; border: 0; }
+.slot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.slot { min-height: 44px; border: 1px solid #cdd7d8; border-radius: 10px; background: white; color: inherit; cursor: pointer; font: inherit; }
+.slot.selected { border-color: #155b50; background: #e6f4f0; color: #124b42; font-weight: 750; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+.field-row label { margin-top: 0; }
+.submit { width: 100%; min-height: 52px; border: 0; border-radius: 12px; background: #155b50; color: white; cursor: pointer; font: inherit; font-weight: 750; }
+.submit:disabled { background: #aab9b7; cursor: not-allowed; }
+.secure-note, .empty { color: #637279; font-size: .85rem; }
+.secure-note { margin: 13px 0 0; text-align: center; }
+.notice { margin: 0 0 20px; padding: 12px 14px; border-radius: 10px; background: #fff3dc; color: #694b11; }
+@media (max-width: 560px) { .field-row { grid-template-columns: 1fr; gap: 18px; } .booking-shell { padding-inline: 14px; } }

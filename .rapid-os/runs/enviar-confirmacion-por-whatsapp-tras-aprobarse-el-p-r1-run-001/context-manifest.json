@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "mode": "feature",
+  "harness": "codex",
+  "objective": "Confirmar al cliente la reserva cuando Mercado Pago apruebe el anticipo.",
+  "max_chars": 24000,
+  "compiled_chars": 23900,
+  "content_digest": "16504da935c026b3f6473d17a69f17a44168c94035c957b0010ddb33c10e95e9",
+  "selected": [
+    {
+      "source_id": "standard.security",
+      "kind": "security",
+      "selected": true,
+      "reason": "relevant to feature mode",
+      "priority": 100,
+      "required": false,
+      "chars": 9451,
+      "precedence": 1,
+      "provenance": ".rapid-os/standards/security.md",
+      "path": ".rapid-os/standards/security.md"
+    },
+    {
+      "source_id": "doc.business",
+      "kind": "business",
+      "selected": true,
+      "reason": "relevant to feature mode",
+      "priority": 80,
+      "required": false,
+      "chars": 2013,
+      "precedence": 2,
+      "provenance": "docs/BUSINESS_RULES.md",
+      "path": "docs/BUSINESS_RULES.md"
+    },
+    {
+      "source_id": "doc.architecture",
+      "kind": "architecture",
+      "selected": true,
+      "reason": "relevant to feature mode",
+      "priority": 80,
+      "required": false,
+      "chars": 5131,
+      "precedence": 3,
+      "provenance": "docs/ARCHITECTURE.md",
+      "path": "docs/ARCHITECTURE.md"
+    },
+    {
+      "source_id": "standard.topology",
+      "kind": "topology",
+      "selected": true,
+      "reason": "relevant to feature mode",
+      "priority": 80,
+      "required": false,
+      "chars": 436,
+      "precedence": 4,
+      "provenance": ".rapid-os/standards/topology.md",
+      "path": ".rapid-os/standards/topology.md"
+    },
+    {
+      "source_id": "standard.tech-stack",
+      "kind": "tech_stack",
+      "selected": true,
+      "reason": "relevant to feature mode; matches affected test paths",
+      "priority": 80,
+      "required": false,
+      "chars": 1125,
+      "precedence": 5,
+      "provenance": ".rapid-os/standards/tech-stack.md",
+      "path": ".rapid-os/standards/tech-stack.md"
+    },
+    {
+      "source_id": "spec.enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una.requirements",
+      "kind": "spec",
+      "selected": true,
+      "reason": "relevant to feature mode; selected spec 'enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una'; matches request tags (story:h002)",
+      "priority": 80,
+      "required": false,
+      "chars": 2856,
+      "precedence": 7,
+      "provenance": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/requirements.md",
+      "path": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/requirements.md"
+    },
+    {
+      "source_id": "spec.enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una.tasks",
+      "kind": "tasks",
+      "selected": true,
+      "reason": "relevant to feature mode; selected spec 'enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una'; matches request tags (story:h002)",
+      "priority": 50,
+      "required": false,
+      "chars": 758,
+      "precedence": 8,
+      "provenance": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/tasks.md",
+      "path": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/tasks.md"
+    },
+    {
+      "source_id": "project.intelligence",
+      "kind": "project_intelligence",
+      "selected": true,
+      "reason": "relevant to feature mode; selected ProjectModel facts (database=postgres, deploy_provider=github-actions)",
+      "priority": 50,
+      "required": false,
+      "chars": 50,
+      "precedence": 13,
+      "provenance": "snapshot:.rapid-os/project.json"
+    },
+    {
+      "source_id": "doc.brief",
+      "kind": "product",
+      "selected": true,
+      "reason": "relevant to feature mode",
+      "priority": 80,
+      "required": false,
+      "chars": 1581,
+      "precedence": 14,
+      "provenance": "docs/PRODUCT_BRIEF.md",
+      "path": "docs/PRODUCT_BRIEF.md"
+    }
+  ],
+  "skipped": [
+    {
+      "source_id": "standard.architecture",
+      "kind": "architecture",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 80,
+      "required": false,
+      "chars": 6357,
+      "precedence": 3,
+      "provenance": ".rapid-os/standards/architecture.md",
+      "path": ".rapid-os/standards/architecture.md"
+    },
+    {
+      "source_id": "standard.coding-rules",
+      "kind": "coding_rules",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 633,
+      "precedence": 6,
+      "provenance": ".rapid-os/standards/coding-rules.md",
+      "path": ".rapid-os/standards/coding-rules.md"
+    },
+    {
+      "source_id": "spec.enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una.acceptance",
+      "kind": "acceptance",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 1343,
+      "precedence": 9,
+      "provenance": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/acceptance.md",
+      "path": ".rapid-os/specs/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una/revisions/0001/acceptance.md"
+    },
+    {
+      "source_id": "doc.deployment",
+      "kind": "custom",
+      "selected": false,
+      "reason": "skipped: not relevant for feature mode",
+      "priority": 10,
+      "required": false,
+      "chars": 1907,
+      "precedence": 12,
+      "provenance": "docs/DEPLOYMENT.md",
+      "path": "docs/DEPLOYMENT.md"
+    },
+    {
+      "source_id": "doc.data-model",
+      "kind": "data_model",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 3240,
+      "precedence": 15,
+      "provenance": "docs/DATA_MODEL.md",
+      "path": "docs/DATA_MODEL.md"
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E021",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 11,
+  "state_digest": "7231564919951f2d753e7fe10d21d016339d8a109c9bdbbd1a170bd168d8607b",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'uv run --project backend python -m alembic -c backend/ale...' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "uv run --project backend python -m alembic -c backend/ale...",
+    "exit_code": 0,
+    "tree": "8d4bc66d4c07d948fa09165bd11b32de182976d378f1281b9dc4ce8a887df5b1"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E021/30.log",
+      "sha256": "372eeeed0ae9aa496ea8067196c924e75d7a15ee42cfccd07fd1821ce0470d32",
+      "size_bytes": 130,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/30.log"
+    }
+  ],
+  "content_digest": "f158773b1a2a4c727bbf634d9839a06a5a897bafd6073b44b6d0856d1de0a2d1"
+}

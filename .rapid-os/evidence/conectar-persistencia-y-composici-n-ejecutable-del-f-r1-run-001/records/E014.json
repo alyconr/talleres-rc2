@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E014",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 10,
+  "state_digest": "c16e80b7096348f9db12186c5781f87f85df9b9e66d8a83319595d23925ca4b7",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run pytest' passed (13 passed, 0 failed)",
+  "task_ids": [
+    "T004"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 13,
+    "failed": 0,
+    "skipped": 2,
+    "command": "uv run pytest",
+    "tree": "b5744a3f2a891be5536a95e83fa5d688a9c91f92be6772fb83abb6250b49c798",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E014/21.log",
+      "sha256": "fb6857584dd694f119c913bb9c1803e4729e65cc479bae7708ae02cedf7ee30d",
+      "size_bytes": 726,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/21.log"
+    }
+  ],
+  "content_digest": "675eeb6a511f1b2053211bc935799452280068dcbe287ec9a159706093875ecc"
+}

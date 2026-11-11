@@ -18,9 +18,9 @@
     "codex"
   ],
   "test_command": [
-    "uv",
-    "run",
-    "pytest"
+    "python",
+    "-c",
+    "import shutil, subprocess, sys; codes = [subprocess.call([shutil.which(c[0]) or c[0], *c[1:]]) for c in [['uv', 'run', '--directory', 'backend', 'pytest'], ['pnpm', '--dir', 'frontend', 'exec', 'ng', 'test', '--no-watch', '--no-progress']]]; sys.exit(1 if any(code != 0 for code in codes) else 0)"
   ],
   "docs": {
     "architecture": {
@@ -31,7 +31,7 @@
     "brief": {
       "status": "drafted",
       "confirmed": true,
-      "sha256": "ed1e802c4b5cc91d62e47d259e02553ba24dd36be6186100d69d4d3d4e3c8120"
+      "sha256": "fe70e058d443384cac906d17f72f78720f13f41a2830d8e26fafed10157b7607"
     },
     "business": {
       "status": "drafted",

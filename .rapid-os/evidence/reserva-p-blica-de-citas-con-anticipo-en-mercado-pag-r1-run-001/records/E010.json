@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E010",
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "state_revision": 11,
+  "state_digest": "5f0eda0a25eb778607e71a8bf67fc0a33ee1b6ce2e0ccbcc16d1b8c71a130370",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'corepack pnpm --dir frontend build' passed (exit 0)",
+  "task_ids": [
+    "T005"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "corepack pnpm --dir frontend build",
+    "exit_code": 0,
+    "tree": "1d166b959872d2ed87add6d6c4499fe7c88eb953857ab9c2069ff9c294fad567"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/artifacts/E010/11.log",
+      "sha256": "018baa6b5b7c6983a87c6ff6e9ad84b29daff72a964de767e62872b618938e2b",
+      "size_bytes": 673,
+      "source": ".rapid-os/scratch/checks/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/11.log"
+    }
+  ],
+  "content_digest": "02cc0da6da855aea8c794526b6c98d7b4ba7aa04b222648adb04ac94200a1db8"
+}

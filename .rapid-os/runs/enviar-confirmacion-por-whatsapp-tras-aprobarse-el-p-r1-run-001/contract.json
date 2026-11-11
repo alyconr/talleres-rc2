@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "spec_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una",
+  "spec_revision": 1,
+  "spec_content_digest": "857b41cbf8ffa1b51ea8246540d57cfa6611b8b32e50d39b3a47998f40c49b42",
+  "harness": "codex",
+  "context_digest": "16504da935c026b3f6473d17a69f17a44168c94035c957b0010ddb33c10e95e9",
+  "context_manifest_digest": "9eb9a8a1c8ad0cdadcdb5f0aa69d678511e0ef82397a53c0b7168cb266061408",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "bounded",
+    "risk": "medium",
+    "risk_signals": [],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.architecture",
+        "kind": "architecture_check",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.feature",
+      "gate.architecture: the project has an architecture rule."
+    ]
+  },
+  "classification": "bounded",
+  "risk": "medium",
+  "risk_signals": [],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Crear dominio, contratos públicos y puertos del módulo conversaciones para notificaciones WhatsApp de cita confirmada."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Persistir la notificación de forma idempotente y conectarla transaccionalmente al webhook de pago aprobado."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Implementar publicación/consumo RabbitMQ y envío mediante el puerto WhatsApp con reintentos seguros."
+    },
+    {
+      "id": "T004",
+      "description": "T004: Añadir cobertura de integración PostgreSQL y RabbitMQ para aprobación, duplicados y fallas/reintentos."
+    }
+  ],
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "ruleset_version": 3
+}

@@ -1,0 +1,13 @@
+$ ng build
+> Building...
+âˆš Building...
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-JO46OQSH.js    | main          | 246.05 kB |                68.48 kB
+styles-5INURTSO.css | styles        |   0 bytes |                 0 bytes
+
+                    | Initial total | 246.05 kB |                68.48 kB
+
+Application bundle generation complete. [1.815 seconds] - 2026-11-10T01:31:46.820Z
+
+Output location: G:\e2e\talleres-rc2\frontend\dist\frontend
+

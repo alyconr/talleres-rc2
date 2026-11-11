@@ -320,8 +320,8 @@ Los talleres de motos en Colombia necesitan recibir reservas, cobrar anticipos y
 
 ## Historias
 
-- [ ] H001: Como cliente, quiero elegir un servicio y horario disponible, reservar la cita y pagar el anticipo con Mercado Pago para dejar confirmada mi reserva.
-- [ ] H002: Como cliente, quiero recibir por WhatsApp la confirmación de mi cita cuando se apruebe el pago.
+- [x] H001: Como cliente, quiero elegir un servicio y horario disponible, reservar la cita y pagar el anticipo con Mercado Pago para dejar confirmada mi reserva.
+- [x] H002: Como cliente, quiero recibir por WhatsApp la confirmación de mi cita cuando se apruebe el pago.
 - [ ] H003: Como dueño de taller, quiero administrar servicios, disponibilidad y citas en un panel para gestionar mi operación.
 - [ ] H004: Como dueño de taller, quiero consultar en vivo los chats de clientes que reservan o preguntan por mis servicios, aislados de otros talleres.
 - [ ] H005: Como cliente, quiero consultar por WhatsApp a un agente de IA sobre los servicios del taller.

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "revision": 2,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Scaffold mínimo con un test que pase con la estructura de .rapid-os/standards/architecture.md (un módulo de ejemplo con sus cuatro capas y su punto público). Lee la configuración de .env.example (nunca valores fijos); el esquema de datos va en migraciones versionadas; las pruebas unitarias no usan servicios externos y las de integración llevan un marcador propio, de modo que gate.tests pasa sin Docker; Dockerfile multi-stage con usuario no root y healthcheck",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "Modelar las reglas de reserva y disponibilidad, con creaci?n at?mica de citas pending_payment y validaci?n del tenant.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "Implementar el m?dulo de pagos con puerto Mercado Pago, adaptador seguro, inicio del anticipo e idempotencia del webhook aprobado.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T004",
+      "description": "Exponer los endpoints necesarios para consultar disponibilidad, crear reservas y recibir notificaciones de pago; integrarlos en la composici?n FastAPI.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T005",
+      "description": "Implementar el flujo Angular de reserva y continuaci?n al pago con estados de carga y error controlados.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T006",
+      "description": "A?adir cobertura del camino cr?tico e integraci?n del flujo completo mediante rapid check.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "run.status.active",
+  "reason": "Pre-execution gates satisfied; run active",
+  "content_digest": "d09f15a4c6a2f69024032326ee2d921a1ba9c7fc9f938df549c808196f67a11d"
+}

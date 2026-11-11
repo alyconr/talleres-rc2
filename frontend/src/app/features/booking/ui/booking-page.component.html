@@ -1,0 +1,56 @@
+<main class="booking-shell">
+  <header class="brand-row">
+    <span class="brand-mark" aria-hidden="true">R</span>
+    <span>Reserva tu servicio</span>
+  </header>
+
+  <section class="booking-card" aria-labelledby="booking-title">
+    <p class="eyebrow">TALLER DE MOTOS</p>
+    <h1 id="booking-title">Agenda tu visita</h1>
+    <p class="intro">Elige un servicio y un horario. Tu cita quedará confirmada cuando se apruebe el anticipo.</p>
+
+    @if (state.error()) {
+      <p class="notice" role="status">{{ state.error() }}</p>
+    }
+
+    <label for="service">Servicio</label>
+    <select id="service" [value]="state.selectedServiceId()" (change)="onServiceSelected($event)" [disabled]="state.loading() || state.services().length === 0">
+      <option value="">Selecciona un servicio</option>
+      @for (service of state.services(); track service.id) {
+        <option [value]="service.id">{{ service.name }} · {{ service.duration_minutes }} min · {{ service.deposit_amount | currency:service.currency:'symbol-narrow':'1.0-2':'es-CO' }} de anticipo</option>
+      }
+    </select>
+
+    @if (state.selectedServiceId()) {
+      <fieldset>
+        <legend>Horarios disponibles</legend>
+        @if (state.slots().length === 0 && !state.loading()) {
+          <p class="empty">No hay horarios disponibles en los próximos 30 días.</p>
+        }
+        <div class="slot-grid">
+          @for (slot of state.slots(); track slot.starts_at) {
+            <button type="button" class="slot" [class.selected]="state.selectedSlot() === slot.starts_at" [attr.aria-pressed]="state.selectedSlot() === slot.starts_at" (click)="state.selectSlot(slot.starts_at)">
+              {{ formatSlot(slot) }}
+            </button>
+          }
+        </div>
+      </fieldset>
+    }
+
+    <div class="field-row">
+      <div>
+        <label for="name">Tu nombre</label>
+        <input id="name" autocomplete="name" maxlength="120" [value]="state.customerName()" (input)="onNameChanged($event)" />
+      </div>
+      <div>
+        <label for="phone">Celular</label>
+        <input id="phone" type="tel" autocomplete="tel" maxlength="32" placeholder="+57 300 000 0000" [value]="state.customerPhone()" (input)="onPhoneChanged($event)" />
+      </div>
+    </div>
+
+    <button class="submit" type="button" [disabled]="state.loading() || !state.selectedServiceId() || !state.selectedSlot() || !state.customerName().trim() || !state.customerPhone().trim()" (click)="state.submitBooking()">
+      @if (state.loading()) { Procesando… } @else { Continuar al pago }
+    </button>
+    <p class="secure-note">El pago se procesa de forma segura en Mercado Pago.</p>
+  </section>
+</main>

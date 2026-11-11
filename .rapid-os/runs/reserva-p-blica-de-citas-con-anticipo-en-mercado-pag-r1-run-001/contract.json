@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "spec_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pago",
+  "spec_revision": 1,
+  "spec_content_digest": "33a83f006c41d4a8288d81ae66121b75a171c776f79d1b666096e57910846ac7",
+  "harness": "codex",
+  "context_digest": "a492b272ada8cff049ae9856d08c2fb3afcfcd313c341c384f31cb9f71e4a99f",
+  "context_manifest_digest": "e05f14df24b4f06c152afa421a042f252718ac7a95c80fa6aad6317d50ce5be8",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "bounded",
+    "risk": "medium",
+    "risk_signals": [],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.architecture",
+        "kind": "architecture_check",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.feature",
+      "Baseline waived: the repository has no source code and no tests yet.",
+      "gate.architecture: the project has an architecture rule."
+    ]
+  },
+  "classification": "bounded",
+  "risk": "medium",
+  "risk_signals": [],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Scaffold mínimo con un test que pase con la estructura de .rapid-os/standards/architecture.md (un módulo de ejemplo con sus cuatro capas y su punto público). Lee la configuración de .env.example (nunca valores fijos); el esquema de datos va en migraciones versionadas; las pruebas unitarias no usan servicios externos y las de integración llevan un marcador propio, de modo que gate.tests pasa sin Docker; Dockerfile multi-stage con usuario no root y healthcheck"
+    },
+    {
+      "id": "T002",
+      "description": "Modelar las reglas de reserva y disponibilidad, con creaci?n at?mica de citas pending_payment y validaci?n del tenant."
+    },
+    {
+      "id": "T003",
+      "description": "Implementar el m?dulo de pagos con puerto Mercado Pago, adaptador seguro, inicio del anticipo e idempotencia del webhook aprobado."
+    },
+    {
+      "id": "T004",
+      "description": "Exponer los endpoints necesarios para consultar disponibilidad, crear reservas y recibir notificaciones de pago; integrarlos en la composici?n FastAPI."
+    },
+    {
+      "id": "T005",
+      "description": "Implementar el flujo Angular de reserva y continuaci?n al pago con estados de carga y error controlados."
+    },
+    {
+      "id": "T006",
+      "description": "A?adir cobertura del camino cr?tico e integraci?n del flujo completo mediante rapid check."
+    }
+  ],
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "baseline_waived": "empty_repository",
+  "ruleset_version": 3
+}

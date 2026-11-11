@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "spec_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-pago-de-una",
+  "revision": 1,
+  "title": "Enviar confirmaci\u00f3n por WhatsApp tras aprobarse el pago de una cita",
+  "mode": "feature",
+  "business_objective": "Confirmar al cliente la reserva cuando Mercado Pago apruebe el anticipo.",
+  "problem_statement": "El webhook actual confirma la cita al aprobarse el pago, pero no env\u00eda al cliente una confirmaci\u00f3n por WhatsApp.",
+  "scope": [
+    "Crear el flujo del m\u00f3dulo conversaciones para producir y enviar la confirmaci\u00f3n WhatsApp tras confirmar una cita.",
+    "Procesar el mensaje de forma durable e idempotente usando RabbitMQ y persistencia transaccional.",
+    "Proveer un puerto de aplicaci\u00f3n para el emisor WhatsApp, sin seleccionar un proveedor concreto."
+  ],
+  "out_of_scope": [
+    "Elegir proveedor de WhatsApp, crear credenciales o enviar mensajes reales desde este entorno.",
+    "Conversaciones entrantes, respuestas del agente de IA, cancelaciones y reembolsos."
+  ],
+  "actors_users": [
+    "Cliente que reserv\u00f3 una cita y pag\u00f3 el anticipo.",
+    "Mercado Pago como origen del webhook de aprobaci\u00f3n.",
+    "Servicio de mensajer\u00eda WhatsApp configurado mediante un puerto."
+  ],
+  "main_flow": [
+    "Mercado Pago env\u00eda el webhook de pago aprobado.",
+    "La API verifica firma, estado, monto y moneda.",
+    "En una transacci\u00f3n se registra el pago, se confirma la cita y se guarda una \u00fanica notificaci\u00f3n pendiente.",
+    "Un worker publica/procesa la notificaci\u00f3n mediante el puerto WhatsApp y marca su estado.",
+    "El cliente recibe un mensaje con la confirmaci\u00f3n y los datos esenciales de su cita."
+  ],
+  "edge_cases": [
+    "Webhook inv\u00e1lido, pago rechazado o monto/moneda discordantes no generan confirmaci\u00f3n.",
+    "Webhooks repetidos no generan mensajes duplicados.",
+    "Una falla transitoria del emisor conserva la notificaci\u00f3n para reintento sin filtrar datos personales o secretos en logs.",
+    "La notificaci\u00f3n mantiene tenant_id y solo usa el tel\u00e9fono del cliente de la misma cita y taller."
+  ],
+  "business_rules": [
+    "Seg\u00fan docs/BUSINESS_RULES.md: una cita no queda confirmada antes de que Mercado Pago apruebe el anticipo.",
+    "Seg\u00fan docs/BUSINESS_RULES.md: los webhooks repetidos no deben duplicar pagos, reservas ni confirmaciones.",
+    "Seg\u00fan docs/BUSINESS_RULES.md: el proveedor concreto de WhatsApp sigue pendiente."
+  ],
+  "technical_constraints": [
+    "Respetar Python 3.13, FastAPI, SQLAlchemy 2 as\u00edncrono, PostgreSQL 18 y RabbitMQ 4.",
+    "Respetar el monolito modular: m\u00f3dulo conversaciones con api, application, domain, infrastructure y public.py.",
+    "Los m\u00f3dulos pagos y reservas solo pueden integrarse mediante sus contratos p\u00fablicos.",
+    "Mantener idempotencia y persistencia consistente entre confirmaci\u00f3n de cita y notificaci\u00f3n.",
+    "No a\u00f1adir credenciales ni seleccionar proveedor WhatsApp."
+  ],
+  "affected_paths": [
+    "backend/app/modules/conversations",
+    "backend/app/modules/payments",
+    "backend/app/main.py",
+    "backend/alembic",
+    "backend/tests"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "Un webhook v\u00e1lido de pago aprobado confirma la cita y persiste una sola notificaci\u00f3n WhatsApp asociada al mismo tenant, cita y cliente.",
+    "Pagos rechazados, webhooks con firma inv\u00e1lida y pagos con monto o moneda discordantes no producen notificaci\u00f3n.",
+    "Reprocesar el mismo webhook y reintentar el env\u00edo no crea ni entrega confirmaciones duplicadas.",
+    "La notificaci\u00f3n se env\u00eda a trav\u00e9s de un puerto WhatsApp configurable; fallas transitorias quedan pendientes para reintento.",
+    "Los tests de integraci\u00f3n verifican el flujo con PostgreSQL y RabbitMQ levantados, incluyendo idempotencia y recuperaci\u00f3n de fallas."
+  ],
+  "testing_strategy": [
+    "Tests de dominio y aplicaci\u00f3n para estados, contenido m\u00ednimo, idempotencia y fallas.",
+    "Tests API para webhooks inv\u00e1lidos, no aprobados y aprobados.",
+    "Tests de integraci\u00f3n con PostgreSQL y RabbitMQ activos para persistencia, publicaci\u00f3n, consumo y reintento.",
+    "Ejecutar cada comando de verificaci\u00f3n por rapid check y validar arquitectura con rapid arch check."
+  ],
+  "implementation_tasks": [
+    "T001: Crear dominio, contratos p\u00fablicos y puertos del m\u00f3dulo conversaciones para notificaciones WhatsApp de cita confirmada.",
+    "T002: Persistir la notificaci\u00f3n de forma idempotente y conectarla transaccionalmente al webhook de pago aprobado.",
+    "T003: Implementar publicaci\u00f3n/consumo RabbitMQ y env\u00edo mediante el puerto WhatsApp con reintentos seguros.",
+    "T004: A\u00f1adir cobertura de integraci\u00f3n PostgreSQL y RabbitMQ para aprobaci\u00f3n, duplicados y fallas/reintentos."
+  ],
+  "tags": [
+    "story:h002"
+  ],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "3b46df387e8f0008185ceb3b9ae1c05e992f95ae2c25d44ac0dd530f039037a8",
+    "tasks.md": "663cec4e0405d1df5d9d059b0f4fefd4bf53d7f94ecd363edce9badf7293a734",
+    "acceptance.md": "8a7028e34104f70b79f74050c0819ec09201cc347fa29510079c496fad2bfdcb"
+  },
+  "content_digest": "857b41cbf8ffa1b51ea8246540d57cfa6611b8b32e50d39b3a47998f40c49b42"
+}

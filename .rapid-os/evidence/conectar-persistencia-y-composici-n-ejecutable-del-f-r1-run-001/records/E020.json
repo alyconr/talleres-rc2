@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E020",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 11,
+  "state_digest": "7231564919951f2d753e7fe10d21d016339d8a109c9bdbbd1a170bd168d8607b",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check --new-only' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check --new-only",
+    "exit_code": 0,
+    "tree": "8d4bc66d4c07d948fa09165bd11b32de182976d378f1281b9dc4ce8a887df5b1"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E020/29.log",
+      "sha256": "1f1630c48098564d28a838f770278294423bfd7c39c131b93e5c95308d0371ee",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/29.log"
+    }
+  ],
+  "content_digest": "7888b9c01e22d7816e07b228d27ee79b0b6a8c81d74094e792db824c403f3210"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "revision": 14,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Configuraci?n estricta, motor y sesiones SQLAlchemy async, metadata base y migraci?n Alembic del esquema m?nimo por m?dulo.",
+      "status": "done",
+      "reason": "Completed task T001"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Adaptadores de cat?logo, reservas y pagos con persistencia tenant-scoped, transacci?n de reserva, checkout y confirmaci?n idempotente.",
+      "status": "done",
+      "reason": "Completed task T002"
+    },
+    {
+      "id": "T003",
+      "description": "T003: Caso de uso de reserva, dependencias FastAPI tipadas y composici?n/lifespan que conecte endpoints con adaptadores y Mercado Pago.",
+      "status": "done",
+      "reason": "Completed task T003"
+    },
+    {
+      "id": "T004",
+      "description": "T004: Pruebas cr?ticas de API, persistencia, concurrencia, webhook, errores de configuraci?n y aislamiento tenant; corregir arquitectura y ejecutar gates.",
+      "status": "done",
+      "reason": "Completed task T004"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "acknowledged",
+      "reason": "verified by E002, E003, E004, E005, E006, E007, E008, E009, E010, E011, E012, E013, E014, E015, E016, E017, E018, E019, E020, E021, E022, E023, E024, E025"
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002, E003, E004, E005, E006, E007, E008, E009, E010, E011, E012, E013, E014, E015, E016, E017, E018, E019, E020, E021, E022, E023, E024, E025"
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "Approved by alyconr"
+    }
+  ],
+  "change_kind": "gate.gate.architecture.acknowledged",
+  "reason": "verified by E002, E003, E004, E005, E006, E007, E008, E009, E010, E011, E012, E013, E014, E015, E016, E017, E018, E019, E020, E021, E022, E023, E024, E025",
+  "content_digest": "c3af6c0eef0c7c2ccd9ce141b03870747656091fa4d3eb320dde1a65344018c3"
+}

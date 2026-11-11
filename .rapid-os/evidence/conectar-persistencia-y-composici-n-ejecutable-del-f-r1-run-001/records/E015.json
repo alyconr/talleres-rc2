@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E015",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 11,
+  "state_digest": "7231564919951f2d753e7fe10d21d016339d8a109c9bdbbd1a170bd168d8607b",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run --project backend python -m pytest -c backend/pypr...' passed (15 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 15,
+    "failed": 0,
+    "skipped": 0,
+    "command": "uv run --project backend python -m pytest -c backend/pyproject.toml",
+    "tree": "b5744a3f2a891be5536a95e83fa5d688a9c91f92be6772fb83abb6250b49c798",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E015/23.log",
+      "sha256": "d348c47e183ff36d422d3e7323c4f16e37af9f0d7d2673e3773541709b0d687f",
+      "size_bytes": 1871,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/23.log"
+    }
+  ],
+  "content_digest": "9cbaa2eafd856595f1d0b260e4362175ef7207ee7ae335d24ff02985f8df8cc8"
+}

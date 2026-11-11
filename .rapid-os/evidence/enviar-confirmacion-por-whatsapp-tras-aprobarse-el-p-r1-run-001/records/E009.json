@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "E009",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 8,
+  "state_digest": "32b1ea638d84576d4aa2ec02d0208f2f068498a6d4ea62dd6f0984bbc4e8fb65",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (2 passed, 0 failed)",
+  "task_ids": [
+    "T003"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "tree": "262532c80dbb11bfc2c528aa28ca8dc8dfd197afb098dc75fd988bae3be93904",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/artifacts/E009/17.log",
+      "sha256": "8d1f0dbfce62afb020fee58238a79c3073b503a082bcce03e9e1dbf1f1f6b516",
+      "size_bytes": 1726,
+      "source": ".rapid-os/scratch/checks/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/17.log"
+    }
+  ],
+  "content_digest": "87647c3100bb0f9995b50efb3704b2829f1f0b334cc939c3bfdc6575c96c68f5"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "revision": 2,
+  "status": "prepared",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Configuraci?n estricta, motor y sesiones SQLAlchemy async, metadata base y migraci?n Alembic del esquema m?nimo por m?dulo.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Adaptadores de cat?logo, reservas y pagos con persistencia tenant-scoped, transacci?n de reserva, checkout y confirmaci?n idempotente.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Caso de uso de reserva, dependencias FastAPI tipadas y composici?n/lifespan que conecte endpoints con adaptadores y Mercado Pago.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T004",
+      "description": "T004: Pruebas cr?ticas de API, persistencia, concurrencia, webhook, errores de configuraci?n y aislamiento tenant; corregir arquitectura y ejecutar gates.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "gate.gate.baseline.acknowledged",
+  "reason": "verified by E002",
+  "content_digest": "9058a6a8dcf4d03fb5384b0ef4f94b047559f4e183b9e45ec93a7e37fba22819"
+}

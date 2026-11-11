@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E017",
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "state_revision": 14,
+  "state_digest": "d9fc1dd96501867f018b376c41b332475b78d21b04813600acc3652a9eea6b7b",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check --new-only' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check --new-only",
+    "exit_code": 0,
+    "tree": "00c7d0f4784b5b80f0521782ff4099759310dc6859838ba287528c42b38ce1db"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/artifacts/E017/20.log",
+      "sha256": "ecb7abef008ccef3c473b102be4589b6b301423372284e83379e463bae22b0fd",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/20.log"
+    }
+  ],
+  "content_digest": "4d4837ee61bd0e79b31eed52f88e34316536c77b1f1f705ba79dd773da0433ff"
+}

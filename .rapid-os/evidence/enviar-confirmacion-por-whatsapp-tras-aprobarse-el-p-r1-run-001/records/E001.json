@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 1,
+  "state_digest": "f0c6a3017009cb4d7d7a6181a24860effe4a12466dbc50de365a760cb73cb248",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace operates in current directory",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "workspace.current"
+  ],
+  "payload": {
+    "mode": "current"
+  },
+  "artifacts": [],
+  "content_digest": "bf78b0a62f36db99d4c80844c6e83947411be70050818fe18dc0969504e8e848"
+}

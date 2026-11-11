@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E003",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 4,
+  "state_digest": "ee3edcadccb56048c3fafa9a60bbbc43b3280c55f26719575fc9557b23162179",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'python -m alembic -c backend/alembic.ini upgrade head --sql' passed (exit 0)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "python -m alembic -c backend/alembic.ini upgrade head --sql",
+    "exit_code": 0,
+    "tree": "069e664a7391d4f8347c0eed5b2579ab2ff70b46e1fa93cdc45d26f21697787a"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/artifacts/E003/4.log",
+      "sha256": "03f3243ecd569afa737c64d20d38d1b0870dc650de24cae456cb1e9cc379bcc7",
+      "size_bytes": 4796,
+      "source": ".rapid-os/scratch/checks/conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001/4.log"
+    }
+  ],
+  "content_digest": "b1d08bc81e1f68bf138e2ab82c7a2f174b574b5ec880279b011660e4101fb47a"
+}

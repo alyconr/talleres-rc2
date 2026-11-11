@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E010",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 10,
+  "state_digest": "ea2f69e0110e17286fb254b531287d90443449f7cff0c8b735d95c6ef8c37ce4",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run --directory backend pytest -k postgres_and_rabbitm...' passed (1 passed, 0 failed)",
+  "task_ids": [
+    "T004"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "command": "uv run --directory backend pytest -k postgres_and_rabbitmq -q",
+    "tree": "fb3ffc5819bcdfb2623b499d9ff5e2c6426fbd4a5bde31c3885369ad36c738af",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/artifacts/E010/18.log",
+      "sha256": "e5863d94ce9fbb6f89bc8e4ad766fb011861f59697d3065b284b3c3f927e8f32",
+      "size_bytes": 622,
+      "source": ".rapid-os/scratch/checks/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/18.log"
+    }
+  ],
+  "content_digest": "7c4035d959bdf9aa6ed22214ee9db3fd11f60ecf58a329675ec4198b6eb077ee"
+}

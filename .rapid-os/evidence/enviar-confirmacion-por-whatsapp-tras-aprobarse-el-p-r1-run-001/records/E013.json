@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E013",
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "contract_digest": "94cf46a74e001e826304c23907a4b5003c28d7e080afc0fa8a42439ed6022e69",
+  "state_revision": 11,
+  "state_digest": "fe9fd35e2f2d0ff7a5d93be0d4dca09135e16fbdfe92709e643f6d870ab3a8f7",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python rapid-baseline.py' passed (2 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "command": "python rapid-baseline.py",
+    "tree": "fb3ffc5819bcdfb2623b499d9ff5e2c6426fbd4a5bde31c3885369ad36c738af",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/artifacts/E013/22.log",
+      "sha256": "5e3348495863972c1e9b280aa5f7952c7a04ef79bd2a14f8d829af105ffb7b3f",
+      "size_bytes": 1716,
+      "source": ".rapid-os/scratch/checks/enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001/22.log"
+    }
+  ],
+  "content_digest": "ef1d3d229f20017459878ecaf824d4e7426aa4bce6c921d3f670b7e9a4e160ba"
+}

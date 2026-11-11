@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "E027",
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 12,
+  "state_digest": "fbaed32cea37cd5b4b2c5d9d368edc3dc157347e91e46e24746aa9bccc0df3c9",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 26 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      ".env.example",
+      "backend/alembic.ini",
+      "backend/alembic/env.py",
+      "backend/alembic/script.py.mako",
+      "backend/alembic/versions/20261109_0001_h001_persistence.py",
+      "backend/app/modules/catalog/__init__.py",
+      "backend/app/modules/catalog/application/__init__.py",
+      "backend/app/modules/catalog/application/ports.py",
+      "backend/app/modules/catalog/domain/__init__.py",
+      "backend/app/modules/catalog/domain/catalog_items.py",
+      "backend/app/modules/catalog/infrastructure/__init__.py",
+      "backend/app/modules/catalog/infrastructure/models.py",
+      "backend/app/modules/catalog/infrastructure/sqlalchemy_catalog_reader.py",
+      "backend/app/modules/catalog/public.py",
+      "backend/app/modules/payments/infrastructure/models.py",
+      "backend/app/modules/payments/infrastructure/sqlalchemy_payment_store.py",
+      "backend/app/modules/reservations/application/booking_service.py",
+      "backend/app/modules/reservations/application/public_types.py",
+      "backend/app/modules/reservations/infrastructure/__init__.py",
+      "backend/app/modules/reservations/infrastructure/models.py",
+      "backend/app/modules/reservations/infrastructure/sqlalchemy_reservation_store.py",
+      "backend/app/shared/database.py",
+      "backend/app/shared/settings.py",
+      "backend/tests/test_api_composition.py",
+      "backend/tests/test_postgres_persistence.py",
+      "codex-session-01a1c2ca-3f5d-7111-9f1f-814c7581cb44.md"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "8e7b98a277faa224a4f9b8143248d005ca323c84953cc30c03cce0808d406d03"
+}

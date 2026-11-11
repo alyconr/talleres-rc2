@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "spec_id": "conectar-persistencia-y-composici-n-ejecutable-del-flujo-h001",
+  "spec_revision": 1,
+  "spec_content_digest": "0701e4eec1ca70d13b97283bb32681d6c36ff29793ce3491edd6c11ab70e75ce",
+  "harness": "codex",
+  "context_digest": "2ce106dd72bd6440614679addfe7d99aab9e91fd38dedf6fbe3a1a0977cfe628",
+  "context_manifest_digest": "6b1c3c4a32ac7b9fb7f6cc9dd5d34f3f82bf7d262f5d5c1853e4000fbf420df9",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "bounded",
+    "risk": "medium",
+    "risk_signals": [],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.architecture",
+        "kind": "architecture_check",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.feature",
+      "gate.architecture: the project has an architecture rule."
+    ]
+  },
+  "classification": "bounded",
+  "risk": "medium",
+  "risk_signals": [],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Configuraci?n estricta, motor y sesiones SQLAlchemy async, metadata base y migraci?n Alembic del esquema m?nimo por m?dulo."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Adaptadores de cat?logo, reservas y pagos con persistencia tenant-scoped, transacci?n de reserva, checkout y confirmaci?n idempotente."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Caso de uso de reserva, dependencias FastAPI tipadas y composici?n/lifespan que conecte endpoints con adaptadores y Mercado Pago."
+    },
+    {
+      "id": "T004",
+      "description": "T004: Pruebas cr?ticas de API, persistencia, concurrencia, webhook, errores de configuraci?n y aislamiento tenant; corregir arquitectura y ejecutar gates."
+    }
+  ],
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "ruleset_version": 3
+}

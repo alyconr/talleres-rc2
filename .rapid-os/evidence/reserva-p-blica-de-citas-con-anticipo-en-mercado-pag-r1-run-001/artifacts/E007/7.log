@@ -1,0 +1,9 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.3, pluggy-1.6.0
+rootdir: G:\e2e\talleres-rc2
+plugins: platformdirs-4.13.5, anyio-4.12.0
+collected 1 item
+
+backend\tests\test_health.py .                                           [100%]
+
+============================== 1 passed in 0.48s ==============================

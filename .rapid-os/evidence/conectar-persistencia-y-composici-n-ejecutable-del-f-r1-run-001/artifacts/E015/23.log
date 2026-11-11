@@ -1,0 +1,30 @@
+Using CPython 3.13.3 interpreter at: C:\Users\alyco\.pyenv\pyenv-win\versions\3.13.3\python.exe
+Creating virtual environment at: backend\.venv
+Downloading pydantic-core (2.2MiB)
+Downloading sqlalchemy (2.0MiB)
+ Downloaded pydantic-core
+ Downloaded sqlalchemy
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 26 packages in 2.75s
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.3, pluggy-1.7.0
+rootdir: G:\e2e\talleres-rc2\backend
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 15 items
+
+backend\tests\test_api_composition.py .....                              [ 33%]
+backend\tests\test_health.py .                                           [ 40%]
+backend\tests\test_payment_webhook.py ....                               [ 66%]
+backend\tests\test_postgres_persistence.py ..                            [ 80%]
+backend\tests\test_reservation_domain.py ...                             [100%]
+
+============================== warnings summary ===============================
+backend\.venv\Lib\site-packages\starlette\testclient.py:45
+  G:\e2e\talleres-rc2\backend\.venv\Lib\site-packages\starlette\testclient.py:45: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 1 warning in 35.71s ========================

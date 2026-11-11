@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E011",
+  "run_id": "reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001",
+  "contract_digest": "5ff11ce6d267921842fa674b71376d26044dfc20a7f5ac17cc4497465ac819ab",
+  "state_revision": 11,
+  "state_digest": "5f0eda0a25eb778607e71a8bf67fc0a33ee1b6ce2e0ccbcc16d1b8c71a130370",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run pytest' passed (1 passed, 0 failed)",
+  "task_ids": [
+    "T005"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "command": "uv run pytest",
+    "tree": "1d166b959872d2ed87add6d6c4499fe7c88eb953857ab9c2069ff9c294fad567",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/artifacts/E011/12.log",
+      "sha256": "d5f2ee788d44d1355237ad3df19dc8be565ac677e56f6d78d3aaf9471312bc0e",
+      "size_bytes": 400,
+      "source": ".rapid-os/scratch/checks/reserva-p-blica-de-citas-con-anticipo-en-mercado-pag-r1-run-001/12.log"
+    }
+  ],
+  "content_digest": "8e855e71afcfde93edb1d4810b1550d87e1fa0168df5a6be666b0a8b1d54b5ea"
+}

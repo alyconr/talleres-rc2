@@ -1,0 +1,10 @@
+{
+  "tools": [
+    "codex"
+  ],
+  "test_command": [
+    "uv",
+    "run",
+    "pytest"
+  ]
+}

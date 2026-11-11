@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "run_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+  "contract_digest": "0a63cff61efad37318f7eba61eda8786634a031e7c8f6e2b3ab2a19e0dbd5670",
+  "state_revision": 15,
+  "state_digest": "a37a90eca185e1fad3132308203724c9b160278eacd2b39d169ba6162f3bd4c3",
+  "evidence_set_digest": "1ea67cc3145aef053f17726d3aad6b249af22d8b0046cb7404dd85b6be97d1fc",
+  "ruleset_version": 3,
+  "ruleset_digest": "c8a2e5af48f4cba8b5c142faea7909794e86bbb2059594fbfe2a88f095bc9356",
+  "extra_capability_ids": [],
+  "assertions": [
+    {
+      "id": "run.lifecycle",
+      "category": "lifecycle",
+      "subject_id": "conectar-persistencia-y-composici-n-ejecutable-del-f-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Run reached terminal status 'finished'.",
+      "evidence_ids": []
+    },
+    {
+      "id": "task.T001.evidence",
+      "category": "task",
+      "subject_id": "T001",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T001' completion is backed by execution evidence (E003, E004, E005).",
+      "evidence_ids": [
+        "E003",
+        "E004",
+        "E005"
+      ]
+    },
+    {
+      "id": "task.T002.evidence",
+      "category": "task",
+      "subject_id": "T002",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T002' completion is backed by execution evidence (E006, E007, E008).",
+      "evidence_ids": [
+        "E006",
+        "E007",
+        "E008"
+      ]
+    },
+    {
+      "id": "task.T003.evidence",
+      "category": "task",
+      "subject_id": "T003",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T003' completion is backed by execution evidence (E009, E010, E011).",
+      "evidence_ids": [
+        "E009",
+        "E010",
+        "E011"
+      ]
+    },
+    {
+      "id": "task.T004.evidence",
+      "category": "task",
+      "subject_id": "T004",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T004' completion is backed by execution evidence (E012, E013, E014).",
+      "evidence_ids": [
+        "E012",
+        "E013",
+        "E014"
+      ]
+    },
+    {
+      "id": "gate.gate.baseline.evidence",
+      "category": "gate",
+      "subject_id": "gate.baseline",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.baseline' is acknowledged and verified by evidence (E002).",
+      "evidence_ids": [
+        "E002"
+      ]
+    },
+    {
+      "id": "gate.gate.tests.evidence",
+      "category": "gate",
+      "subject_id": "gate.tests",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.tests' is acknowledged and verified by evidence (E015, E016, E018, E019, E022, E024).",
+      "evidence_ids": [
+        "E015",
+        "E016",
+        "E018",
+        "E019",
+        "E021",
+        "E022",
+        "E024"
+      ]
+    },
+    {
+      "id": "gate.gate.architecture.evidence",
+      "category": "gate",
+      "subject_id": "gate.architecture",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.architecture' is acknowledged and verified by evidence (E017, E020, E023, E025).",
+      "evidence_ids": [
+        "E017",
+        "E020",
+        "E023",
+        "E025"
+      ]
+    },
+    {
+      "id": "gate.gate.final-verification.evidence",
+      "category": "gate",
+      "subject_id": "gate.final-verification",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.final-verification' is acknowledged and verified by evidence (E026).",
+      "evidence_ids": [
+        "E026"
+      ]
+    },
+    {
+      "id": "capability.context.consume.observed",
+      "category": "capability",
+      "subject_id": "context.consume",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'context.consume' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.read.observed",
+      "category": "capability",
+      "subject_id": "repository.read",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'repository.read' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.write.observed",
+      "category": "capability",
+      "subject_id": "repository.write",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'repository.write' (contract.tasks) observed in evidence (E027).",
+      "evidence_ids": [
+        "E027"
+      ]
+    },
+    {
+      "id": "capability.tests.execute.observed",
+      "category": "capability",
+      "subject_id": "tests.execute",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'tests.execute' (contract.gate.tests) observed in evidence (E002, E004, E005, E007, E008, E009, E010, E011, E012, E013, E014, E015, E016, E018, E019, E022, E024).",
+      "evidence_ids": [
+        "E002",
+        "E004",
+        "E005",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015",
+        "E016",
+        "E018",
+        "E019",
+        "E022",
+        "E024"
+      ]
+    },
+    {
+      "id": "capability.workspace.current.observed",
+      "category": "capability",
+      "subject_id": "workspace.current",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'workspace.current' (contract.workspace) observed in evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    }
+  ],
+  "verdict": "pass",
+  "report_digest": "6b68da509321956a8708282d739f94e46cae17c0afbc5abb7c809e65312609ba"
+}

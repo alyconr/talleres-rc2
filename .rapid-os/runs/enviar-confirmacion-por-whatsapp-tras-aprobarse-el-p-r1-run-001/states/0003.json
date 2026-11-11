@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "run_id": "enviar-confirmacion-por-whatsapp-tras-aprobarse-el-p-r1-run-001",
+  "revision": 3,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Crear dominio, contratos públicos y puertos del módulo conversaciones para notificaciones WhatsApp de cita confirmada.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Persistir la notificación de forma idempotente y conectarla transaccionalmente al webhook de pago aprobado.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Implementar publicación/consumo RabbitMQ y envío mediante el puerto WhatsApp con reintentos seguros.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T004",
+      "description": "T004: Añadir cobertura de integración PostgreSQL y RabbitMQ para aprobación, duplicados y fallas/reintentos.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "run.status.active",
+  "reason": "Baseline verified and active",
+  "content_digest": "fdcfcccfda06890f65ab5f6c9f67b9dea73bab84e126668570481d31798f7a3c"
+}
