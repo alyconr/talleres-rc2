@@ -65,6 +65,7 @@ class SqlAlchemyCatalogReader:
                     AvailabilitySlotRecord.ends_at <= ends_before,
                 )
                 .order_by(AvailabilitySlotRecord.starts_at)
+                .limit(500)
             )
             return [self._slot(record) for record in records]
 

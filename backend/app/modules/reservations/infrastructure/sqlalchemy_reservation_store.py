@@ -36,6 +36,7 @@ class SqlAlchemyReservationStore:
             async with self._sessions() as session, session.begin():
                 occupied = await session.scalar(
                     select(AppointmentRecord.id).where(
+                        AppointmentRecord.tenant_id == appointment.tenant_id,
                         AppointmentRecord.availability_id == appointment.availability_id,
                         AppointmentRecord.status != AppointmentStatus.CANCELLED.value,
                     )

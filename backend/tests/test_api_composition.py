@@ -162,6 +162,21 @@ def test_invalid_service_deposit_returns_a_controlled_client_error() -> None:
     assert booking.created is None
 
 
+def test_public_availability_rejects_ranges_over_ninety_days() -> None:
+    client, _, _ = configured_app()
+    with client:
+        response = client.get(
+            "/api/v1/workshops/workshop-7/availability",
+            params={
+                "service_id": "service-1",
+                "starts_after": "2026-11-01T00:00:00Z",
+                "ends_before": "2027-03-01T00:00:00Z",
+            },
+        )
+
+    assert response.status_code == 422
+
+
 def test_webhook_route_passes_raw_signature_headers_and_query_id() -> None:
     client, _, webhook = configured_app()
     with client:
@@ -175,6 +190,22 @@ def test_webhook_route_passes_raw_signature_headers_and_query_id() -> None:
         "request_id": "request-1",
         "payment_id": "payment-41",
     }
+
+
+def test_invalid_webhook_response_and_logs_do_not_expose_secrets(
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    client, _, _ = configured_app()
+    with client:
+        response = client.post(
+            "/api/v1/payments/mercado-pago/webhook?data.id=payment-41",
+            headers={"x-signature": "invalid", "x-request-id": "request-1"},
+        )
+
+    assert response.status_code == 401
+    assert response.json() == {"detail": "Invalid notification"}
+    assert "test-webhook-secret" not in response.text + caplog.text
+    assert "test-access-token" not in response.text + caplog.text
 
 
 def test_unconfigured_app_fails_closed_and_sets_security_headers(monkeypatch: pytest.MonkeyPatch) -> None:

@@ -24,7 +24,12 @@ def verify_webhook_signature(
 
     timestamp = fields.get("ts")
     received_hash = fields.get("v1")
-    if not timestamp or not received_hash:
+    if (
+        not timestamp
+        or not received_hash
+        or len(received_hash) != 64
+        or any(character not in "0123456789abcdefABCDEF" for character in received_hash)
+    ):
         return False
     try:
         timestamp_value = int(timestamp)

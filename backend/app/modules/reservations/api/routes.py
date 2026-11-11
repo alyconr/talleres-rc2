@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Annotated, cast
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
@@ -15,6 +15,7 @@ from app.modules.reservations.api.schemas import (
 )
 
 router = APIRouter(prefix="/api/v1/workshops/{tenant_id}", tags=["booking"])
+MAX_AVAILABILITY_RANGE = timedelta(days=90)
 
 
 def get_booking_service(request: Request) -> BookingService:
@@ -42,7 +43,7 @@ async def list_services(
 async def list_availability(
     tenant_id: str,
     service: Annotated[BookingService, Depends(get_booking_service)],
-    service_id: str = Query(min_length=1, max_length=100),
+    service_id: str = Query(min_length=1, max_length=36),
     starts_after: datetime = Query(...),
     ends_before: datetime = Query(...),
 ) -> list[AvailabilityResponse]:
@@ -50,6 +51,8 @@ async def list_availability(
         raise HTTPException(status_code=422, detail="Date range must include a timezone")
     if ends_before <= starts_after:
         raise HTTPException(status_code=422, detail="Invalid date range")
+    if ends_before - starts_after > MAX_AVAILABILITY_RANGE:
+        raise HTTPException(status_code=422, detail="Date range cannot exceed 90 days")
     try:
         return await service.list_availability(
             tenant_id=tenant_id,
