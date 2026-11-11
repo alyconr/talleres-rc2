@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E016",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 13,
+  "state_digest": "db1dae5aa48f2975cf66d21746427ba8378a36e9cf5f514f2079bb0ba5e7ae77",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.review approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.review"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "peer",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "cf4ec6fa05fb5e7c99cf78fbfe20e1f0527955818d033da6af3385b6c0ef523e"
+  },
+  "artifacts": [],
+  "content_digest": "455b77507664b390cef9c8845af42f14f4945b6086eb09d9b9786ba5dc26ad85"
+}

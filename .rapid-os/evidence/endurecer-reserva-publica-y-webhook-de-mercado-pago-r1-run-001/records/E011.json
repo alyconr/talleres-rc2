@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "E011",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 10,
+  "state_digest": "2128dc8e52f53dc0614501947a1e492a79507b05a44a4e528df69011e892cfb8",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (2 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "tree": "b9da02b367f0811c3ff7b9949193e6797193484d9b2ab6224309e68640298cb8",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/artifacts/E011/12.log",
+      "sha256": "b8292f774fbc0861e83895eb24fceea5f75157aa94063f294749bcf20a8bf519",
+      "size_bytes": 2248,
+      "source": ".rapid-os/scratch/checks/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/12.log"
+    }
+  ],
+  "content_digest": "bc54315e121f33c3de1af8f31bdc646d84ace4042d9983dd7bf5bf9142bdf038"
+}

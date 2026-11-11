@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "spec_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago",
+  "revision": 1,
+  "title": "Endurecer reserva p\u00fablica y webhook de Mercado Pago",
+  "mode": "hardening",
+  "business_objective": "Reducir riesgos de manipulaci\u00f3n del webhook, acceso entre tenants y agotamiento de recursos en la reserva p\u00fablica, protegiendo pagos y disponibilidad de los talleres.",
+  "problem_statement": "Threat model: activos: pagos, citas y disponibilidad por tenant, datos de contacto y secreto de firma. Atacantes: clientes an\u00f3nimos y remitentes de notificaciones malformadas o repetidas. Vectores: headers x-signature, query data.id y par\u00e1metros/body de rutas p\u00fablicas. Mitigaciones: validaci\u00f3n estricta antes de procesar, consultas tenant-scoped, l\u00edmites de entrada y errores gen\u00e9ricos sin registrar secretos.",
+  "scope": [
+    "Validar el formato del digest HMAC del webhook y rechazar de forma controlada cualquier firma malformada.",
+    "Aplicar tenant_id expl\u00edcito a la comprobaci\u00f3n de ocupaci\u00f3n de disponibilidad.",
+    "Validar fechas con zona horaria y formato de tel\u00e9fono en la reserva p\u00fablica.",
+    "Limitar el intervalo y el n\u00famero de resultados de consultas p\u00fablicas de disponibilidad.",
+    "Verificar idempotencia ante webhook repetido y que secretos no aparezcan en logs o respuestas."
+  ],
+  "out_of_scope": [
+    "Cambiar reglas de pago, montos, reembolsos o vencimiento de reservas pendientes.",
+    "Cambiar el proveedor de pagos o introducir dependencias.",
+    "Cambiar autenticaci\u00f3n del cliente o publicar servicios."
+  ],
+  "actors_users": [
+    "Cliente que consulta servicios, disponibilidad y reserva.",
+    "Taller due\u00f1o de la disponibilidad y los datos de citas.",
+    "Atacante remoto que env\u00eda headers o par\u00e1metros malformados.",
+    "Mercado Pago como emisor leg\u00edtimo de webhooks firmados."
+  ],
+  "main_flow": [
+    "La ruta valida entradas p\u00fablicas y delega \u00fanicamente par\u00e1metros v\u00e1lidos al servicio de reservas.",
+    "El webhook valida una firma HMAC fresca y con digest hexadecimal v\u00e1lido antes de consultar Mercado Pago.",
+    "El pago aprobado se registra una sola vez y confirma solo la cita del tenant due\u00f1o del checkout.",
+    "Las respuestas de error son gen\u00e9ricas y ning\u00fan secreto se registra."
+  ],
+  "edge_cases": [
+    "Firma con digest no ASCII, longitud incorrecta, caracteres no hexadecimales, campos duplicados o timestamp obsoleto.",
+    "Webhook aprobado repetido, webhook con payment id que no coincide o con checkout de otro tenant.",
+    "Fecha de cita sin zona horaria, rango de disponibilidad invertido o excesivamente amplio.",
+    "Tel\u00e9fono con formato inv\u00e1lido, nombre vac\u00edo o con caracteres de control, e identificadores fuera de longitud."
+  ],
+  "business_rules": [
+    "Un webhook solo produce efectos tras verificar HMAC, frescura, id del pago, monto y moneda.",
+    "Una notificaci\u00f3n repetida no duplica pagos, citas ni confirmaciones.",
+    "Las consultas de reserva conservan el aislamiento por tenant.",
+    "Los errores para el cliente no exponen credenciales, firmas, trazas ni datos internos."
+  ],
+  "technical_constraints": [
+    "Respeta Python 3.13, FastAPI, Pydantic v2, SQLAlchemy 2 as\u00edncrono y PostgreSQL.",
+    "No a\u00f1adir dependencias; los filtros SQL deben seguir parametrizados.",
+    "Cada hallazgo debe conservar CWE, vector CVSS v4.0 completo, severidad y referencia al est\u00e1ndar del proyecto."
+  ],
+  "affected_paths": [
+    "backend/app/modules/payments/infrastructure/webhook_signature.py",
+    "backend/app/modules/payments/api/routes.py",
+    "backend/app/modules/reservations/api/routes.py",
+    "backend/app/modules/reservations/api/schemas.py",
+    "backend/app/modules/reservations/infrastructure/sqlalchemy_reservation_store.py",
+    "backend/app/modules/catalog/infrastructure/sqlalchemy_catalog_reader.py",
+    "backend/tests"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "SEC-001 / CWE-20: cualquier digest HMAC que no sea hexadecimal ASCII de 64 caracteres se rechaza con 401 controlado y no consulta el proveedor.",
+    "SEC-002 / CWE-862: toda consulta de ocupaci\u00f3n de citas incluye tenant_id y los tests mantienen el aislamiento entre talleres.",
+    "SEC-003 / CWE-400: la disponibilidad rechaza rangos mayores a 90 d\u00edas y limita la consulta a 500 slots como m\u00e1ximo.",
+    "SEC-004 / CWE-20: las rutas p\u00fablicas rechazan fechas de cita sin zona horaria, nombres en blanco/controlados y tel\u00e9fonos fuera de E.164; entradas v\u00e1lidas mantienen el flujo.",
+    "Los webhooks repetidos siguen registrando un pago y una confirmaci\u00f3n como m\u00e1ximo.",
+    "Los errores de webhook y reserva no exponen secretos o trazas en respuesta ni logs.",
+    "La suite posterior no reduce los tests aprobados de la baseline y rapid arch check pasa."
+  ],
+  "testing_strategy": [
+    "Registrar baseline backend y frontend en el workspace aislado.",
+    "A\u00f1adir pruebas negativas para firma malformada, aislamiento tenant, l\u00edmites y validaci\u00f3n de campos p\u00fablicos.",
+    "Repetir el gate de pruebas que indique rapid next sin sustituir su comando.",
+    "Ejecutar rapid arch check y revisar evidencia por hallazgo."
+  ],
+  "implementation_tasks": [
+    "T001: Reproducir y caracterizar las superficies de seguridad con la baseline y tests negativos.",
+    "T002: Corregir validaci\u00f3n de firma, filtros tenant y l\u00edmites/validaci\u00f3n de rutas p\u00fablicas.",
+    "T003: Verificar idempotencia, no divulgaci\u00f3n, suite completa y arquitectura."
+  ],
+  "tags": [
+    "payments",
+    "public-api",
+    "security",
+    "tenant-isolation",
+    "webhook"
+  ],
+  "findings": [
+    {
+      "id": "SEC-001",
+      "title": "Digest HMAC no ASCII puede causar error 500",
+      "cwe": "CWE-20",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP API10:2023"
+    },
+    {
+      "id": "SEC-002",
+      "title": "La consulta de ocupaci\u00f3n no filtra por tenant",
+      "cwe": "CWE-862",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "severity": "low",
+      "standard_ref": "OWASP A01:2025"
+    },
+    {
+      "id": "SEC-003",
+      "title": "La consulta p\u00fablica de disponibilidad carece de l\u00edmites de recursos",
+      "cwe": "CWE-400",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP API4:2023"
+    },
+    {
+      "id": "SEC-004",
+      "title": "La reserva p\u00fablica acepta fechas ambiguas y datos de contacto sin formato",
+      "cwe": "CWE-20",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP A05:2025"
+    }
+  ],
+  "artifact_digests": {
+    "requirements.md": "e3896ea3d18bd338f9b0950813eead87a565352bd231d5986fe741bb96d3177f",
+    "tasks.md": "cf473f4225daca082a36d6f5dab0f306bcf079c59f5816e59fe526d2e95390ec",
+    "acceptance.md": "0d16c2f817f8e4df7272a1bb640494e49eefb0c8a593c5b3d45f4eca271e2fed"
+  },
+  "content_digest": "44a93954e701689f1cef0a3c861149e90aab1a0bddea85147eaf6cae61d6739f"
+}

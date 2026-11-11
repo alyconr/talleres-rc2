@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E009",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 9,
+  "state_digest": "d13334e3e5f6cee29cfeb6b14b2968a94d3486be3930db3c0384579a2d90f1c3",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check' passed (exit 0)",
+  "task_ids": [
+    "T003"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check",
+    "exit_code": 0,
+    "tree": "b9da02b367f0811c3ff7b9949193e6797193484d9b2ab6224309e68640298cb8"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/artifacts/E009/10.log",
+      "sha256": "54e8e65af1c827d5c1e388d15789a712e48e56ad5ede22fdd07b02b66dab0367",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/10.log"
+    }
+  ],
+  "content_digest": "74284f48e026edaf9e932db1c88ae2259ecf76deb6c310fba30bdb5f309acf9f"
+}

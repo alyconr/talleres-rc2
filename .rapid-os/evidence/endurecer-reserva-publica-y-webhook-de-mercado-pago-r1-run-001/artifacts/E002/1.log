@@ -1,0 +1,137 @@
+Using CPython 3.13.3 interpreter at: C:\Users\alyco\.pyenv\pyenv-win\versions\3.13.3\python3.exe
+Creating virtual environment at: .venv
+Installed 32 packages in 328ms
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.3, pluggy-1.7.0
+rootdir: C:\Users\alyco\.codex\worktrees\6dc0\talleres-rc2-endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001\backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 38 items
+
+tests\test_api_composition.py ......s                                    [ 18%]
+tests\test_appointment_confirmation.py ...                               [ 26%]
+tests\test_booking_service.py ..                                         [ 31%]
+tests\test_catalog_reader.py ....                                        [ 42%]
+tests\test_confirmation_delivery.py ...                                  [ 50%]
+tests\test_health.py .                                                   [ 52%]
+tests\test_payment_webhook.py .........                                  [ 76%]
+tests\test_postgres_persistence.py ssssss                                [ 92%]
+tests\test_reservation_domain.py ...                                     [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:45
+  C:\Users\alyco\.codex\worktrees\6dc0\talleres-rc2-endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001\backend\.venv\Lib\site-packages\starlette\testclient.py:45: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 31 passed, 7 skipped, 1 warning in 7.46s ===================
+âœ“ Lockfile passes supply-chain policies (verified 1d ago)
+Lockfile is up to date, resolution step is skipped
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: C:\Users\alyco\AppData\Local\pnpm\store\v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 277, reused 0, downloaded 50, added 14
+[WARN] Tarball download average speed 29 KiB/s (size 29 KiB) is below 50 KiB/s: https://registry.npmjs.org/sync-message-port/-/sync-message-port-1.2.0.tgz (GET)
+[WARN] Tarball download average speed 42 KiB/s (size 64 KiB) is below 50 KiB/s: https://registry.npmjs.org/tr46/-/tr46-7.0.0.tgz (GET)
+[WARN] Tarball download average speed 20 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/chokidar/-/chokidar-5.0.0.tgz (GET)
+[WARN] Tarball download average speed 9 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz (GET)
+[WARN] Tarball download average speed 26 KiB/s (size 43 KiB) is below 50 KiB/s: https://registry.npmjs.org/css-select/-/css-select-7.0.0.tgz (GET)
+[WARN] Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/@inquirer/checkbox/-/checkbox-5.2.8.tgz (GET)
+[WARN] Tarball download average speed 2 KiB/s (size 2 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/jsesc/-/jsesc-2.5.1.tgz (GET)
+[WARN] Tarball download average speed 18 KiB/s (size 34 KiB) is below 50 KiB/s: https://registry.npmjs.org/@parcel/watcher/-/watcher-2.6.0.tgz (GET)
+[WARN] Tarball download average speed 29 KiB/s (size 68 KiB) is below 50 KiB/s: https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz (GET)
+[WARN] Tarball download average speed 19 KiB/s (size 48 KiB) is below 50 KiB/s: https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.9.tgz (GET)
+[WARN] Tarball download average speed 15 KiB/s (size 33 KiB) is below 50 KiB/s: https://registry.npmjs.org/esbuild/-/esbuild-0.28.2.tgz (GET)
+[WARN] Tarball download average speed 38 KiB/s (size 90 KiB) is below 50 KiB/s: https://registry.npmjs.org/entities/-/entities-9.0.0.tgz (GET)
+[WARN] Tarball download average speed 4 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz (GET)
+[WARN] Tarball download average speed 33 KiB/s (size 55 KiB) is below 50 KiB/s: https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2202.6.tgz (GET)
+[WARN] Tarball download average speed 46 KiB/s (size 81 KiB) is below 50 KiB/s: https://registry.npmjs.org/@angular-devkit/core/-/core-22.2.6.tgz (GET)
+[WARN] Tarball download average speed 3 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/@oxc-project/types/-/types-0.156.0.tgz (GET)
+[WARN] Tarball download average speed 4 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz (GET)
+[WARN] Tarball download average speed 12 KiB/s (size 32 KiB) is below 50 KiB/s: https://registry.npmjs.org/css-what/-/css-what-8.0.0.tgz (GET)
+[WARN] Tarball download average speed 5 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz (GET)
+[WARN] Tarball download average speed 5 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/obug/-/obug-2.2.1.tgz (GET)
+[WARN] Tarball download average speed 8 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/sync-child-process/-/sync-child-process-1.1.1.tgz (GET)
+[WARN] Tarball download average speed 4 KiB/s (size 12 KiB) is below 50 KiB/s: https://registry.npmjs.org/@harperfast/extended-iterable/-/extended-iterable-1.0.5.tgz (GET)
+[WARN] Tarball download average speed 31 KiB/s (size 85 KiB) is below 50 KiB/s: https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz (GET)
+[WARN] Tarball download average speed 47 KiB/s (size 156 KiB) is below 50 KiB/s: https://registry.npmjs.org/@napi-rs/wasm-runtime/-/wasm-runtime-1.2.7.tgz (GET)
+[WARN] Tarball download average speed 45 KiB/s (size 185 KiB) is below 50 KiB/s: https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.3.tgz (GET)
+[WARN] Tarball download average speed 32 KiB/s (size 145 KiB) is below 50 KiB/s: https://registry.npmjs.org/immutable/-/immutable-5.1.9.tgz (GET)
+[WARN] Tarball download average speed 28 KiB/s (size 119 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/core/-/core-8.0.5.tgz (GET)
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 0.00 B/8.91 MB
+[WARN] Tarball download average speed 48 KiB/s (size 248 KiB) is below 50 KiB/s: https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-2.17.0.tgz (GET)
+[WARN] Tarball download average speed 8 KiB/s (size 49 KiB) is below 50 KiB/s: https://registry.npmjs.org/json5/-/json5-2.2.3.tgz (GET)
+[WARN] Tarball download average speed 36 KiB/s (size 200 KiB) is below 50 KiB/s: https://registry.npmjs.org/rolldown/-/rolldown-1.2.16.tgz (GET)
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 270.33 kB/8.91 MB
+[WARN] Tarball download average speed 32 KiB/s (size 258 KiB) is below 50 KiB/s: https://registry.npmjs.org/@parcel/watcher-win32-x64/-/watcher-win32-x64-2.6.0.tgz (GET)
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 696.32 kB/8.91 MB
+[WARN] Tarball download average speed 48 KiB/s (size 454 KiB) is below 50 KiB/s: https://registry.npmjs.org/msgpackr/-/msgpackr-1.12.1.tgz (GET)
+[WARN] Tarball download average speed 29 KiB/s (size 296 KiB) is below 50 KiB/s: https://registry.npmjs.org/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.5.6.tgz (GET)
+Progress: resolved 277, reused 0, downloaded 216, added 76
+[WARN] Tarball download average speed 46 KiB/s (size 542 KiB) is below 50 KiB/s: https://registry.npmjs.org/jsdom/-/jsdom-30.1.3.tgz (GET)
+Progress: resolved 277, reused 0, downloaded 218, added 86
+[WARN] Tarball download average speed 40 KiB/s (size 534 KiB) is below 50 KiB/s: https://registry.npmjs.org/undici/-/undici-8.12.4.tgz (GET)
+[WARN] Tarball download average speed 48 KiB/s (size 681 KiB) is below 50 KiB/s: https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.3.tgz (GET)
+[WARN] Tarball download average speed 35 KiB/s (size 532 KiB) is below 50 KiB/s: https://registry.npmjs.org/@angular/build/-/build-22.2.6.tgz (GET)
+[WARN] Tarball download average speed 45 KiB/s (size 607 KiB) is below 50 KiB/s: https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-22.2.5.tgz (GET)
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 2.73 MB/8.91 MB
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 3.23 MB/8.91 MB
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 3.85 MB/8.91 MB
+Progress: resolved 277, reused 0, downloaded 220, added 125
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 5.52 MB/8.91 MB
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 6.34 MB/8.91 MB
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 7.14 MB/8.91 MB
+Downloading @rolldown/binding-win32-x64-msvc@1.2.16: 8.16 MB/8.91 MB
+Progress: resolved 277, reused 0, downloaded 222, added 157
+Progress: resolved 277, reused 0, downloaded 223, added 163
+Progress: resolved 277, reused 0, downloaded 223, added 172
+Progress: resolved 277, reused 0, downloaded 223, added 176
+Progress: resolved 277, reused 0, downloaded 223, added 187
+Progress: resolved 277, reused 0, downloaded 223, added 192
+Progress: resolved 277, reused 0, downloaded 223, added 201
+Progress: resolved 277, reused 0, downloaded 223, added 204
+Progress: resolved 277, reused 0, downloaded 223, added 210
+Progress: resolved 277, reused 0, downloaded 224, added 221
+Progress: resolved 277, reused 0, downloaded 277, added 230
+Progress: resolved 277, reused 0, downloaded 277, added 237
+Progress: resolved 277, reused 0, downloaded 277, added 247
+Progress: resolved 277, reused 0, downloaded 277, added 253
+Progress: resolved 277, reused 0, downloaded 277, added 260
+Progress: resolved 277, reused 0, downloaded 277, added 267
+Progress: resolved 277, reused 0, downloaded 277, added 277
+Packages: +277
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 277, reused 0, downloaded 277, added 277, done
+
+dependencies:
++ @angular/common 22.2.5
++ @angular/compiler 22.2.5
++ @angular/core 22.2.5
++ @angular/forms 22.2.5
++ @angular/platform-browser 22.2.5
++ @angular/router 22.2.5
++ rxjs 7.8.2
++ tslib 2.9.1
+
+devDependencies:
++ @angular/build 22.2.6
++ @angular/cli 22.2.6
++ @angular/compiler-cli 22.2.5
++ jsdom 30.1.3
++ prettier 3.9.10
++ typescript 6.0.3
++ vitest 5.1.0
+
+Done in 53.3s using pnpm v12.18.0
+Application bundle generation complete. [12.824 seconds] - 2026-11-11T17:29:16.948Z
+
+
+ RUN  v5.1.0 C:/Users/alyco/.codex/worktrees/6dc0/talleres-rc2-endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  12:29:22
+   Duration  19.20s (environment 69%, setup 20%, import 4%, tests 3%, transform 3%, worker 1%)
+

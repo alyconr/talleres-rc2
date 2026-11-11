@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "E003",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 5,
+  "state_digest": "04190f4c1665c5b15c06a5da54b92abe3835b5e3dad66d3d8870950a7f30b384",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Reproduction check 'uv run --directory backend pytest tests/test_security_har...' confirmed expected failure (exit 1)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 1,
+    "passed": 8,
+    "failed": 6,
+    "skipped": 1,
+    "expectation": "fail",
+    "command": "uv run --directory backend pytest tests/test_security_hardening.py tests/test_api_composition.py -q",
+    "tree": "df321a65013fc9be5da3f44f00a9e0a82438512ab6ae0e5f61d63754abc5c376",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/artifacts/E003/2.log",
+      "sha256": "46f19c27d824f4fbbb7ea5c28fe831d15645fac93d647fb1933699caa04d6380",
+      "size_bytes": 9858,
+      "source": ".rapid-os/scratch/checks/endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001/2.log"
+    }
+  ],
+  "content_digest": "3008ac01c34cc75c1bb763e7c14bfce885d075dc04da485b910863386fc2c7c2"
+}

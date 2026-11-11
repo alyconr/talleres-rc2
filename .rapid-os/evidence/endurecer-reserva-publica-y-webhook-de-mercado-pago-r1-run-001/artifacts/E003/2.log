@@ -1,0 +1,214 @@
+F..FFFF...F...s                                                          [100%]
+================================== FAILURES ===================================
+_ test_webhook_signature_rejects_malformed_digest[\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9] _
+
+digest = 'éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé'
+
+    @pytest.mark.parametrize("digest", ["é" * 64, "x" * 63, "g" * 64])
+    def test_webhook_signature_rejects_malformed_digest(digest: str) -> None:
+>       assert not verify_webhook_signature(
+            signature_header=f"ts=1800000000,v1={digest}",
+            request_id="request-1",
+            data_id="payment-1",
+            secret="test-secret",
+            now=1_800_000_000,
+        )
+
+tests\test_security_hardening.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def verify_webhook_signature(
+        *,
+        signature_header: str | None,
+        request_id: str | None,
+        data_id: str | None,
+        secret: str,
+        now: float | None = None,
+        tolerance_seconds: int = 300,
+    ) -> bool:
+        if not signature_header or not request_id or not data_id or not secret:
+            return False
+    
+        fields: dict[str, str] = {}
+        for part in signature_header.split(","):
+            key, separator, value = part.strip().partition("=")
+            if not separator or key in fields:
+                return False
+            fields[key] = value
+    
+        timestamp = fields.get("ts")
+        received_hash = fields.get("v1")
+        if not timestamp or not received_hash:
+            return False
+        try:
+            timestamp_value = int(timestamp)
+        except ValueError:
+            return False
+    
+        timestamp_seconds = timestamp_value / 1000 if timestamp_value > 10**12 else timestamp_value
+        current_time = time.time() if now is None else now
+        if abs(current_time - timestamp_seconds) > tolerance_seconds:
+            return False
+    
+        manifest = f"id:{data_id};request-id:{request_id};ts:{timestamp};"
+        expected_hash = hmac.new(
+            secret.encode(), manifest.encode(), hashlib.sha256
+        ).hexdigest()
+>       return hmac.compare_digest(expected_hash, received_hash)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: comparing strings with non-ASCII characters is not supported
+
+app\modules\payments\infrastructure\webhook_signature.py:43: TypeError
+_ test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone[2026-11-11T15:00:00-+573001112233] _
+
+starts_at = '2026-11-11T15:00:00', customer_phone = '+573001112233'
+
+    @pytest.mark.parametrize(
+        ("starts_at", "customer_phone"),
+        [
+            ("2026-11-11T15:00:00", "+573001112233"),
+            ("2026-11-11T15:00:00Z", "not-a-phone"),
+        ],
+    )
+    def test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone(
+        starts_at: str, customer_phone: str
+    ) -> None:
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests\test_security_hardening.py:44: Failed
+_ test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone[2026-11-11T15:00:00Z-not-a-phone] _
+
+starts_at = '2026-11-11T15:00:00Z', customer_phone = 'not-a-phone'
+
+    @pytest.mark.parametrize(
+        ("starts_at", "customer_phone"),
+        [
+            ("2026-11-11T15:00:00", "+573001112233"),
+            ("2026-11-11T15:00:00Z", "not-a-phone"),
+        ],
+    )
+    def test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone(
+        starts_at: str, customer_phone: str
+    ) -> None:
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests\test_security_hardening.py:44: Failed
+___________ test_reservation_slot_occupancy_query_is_tenant_scoped ____________
+
+    def test_reservation_slot_occupancy_query_is_tenant_scoped() -> None:
+        class SessionCapture:
+            statement = None
+    
+            async def __aenter__(self):
+                return self
+    
+            async def __aexit__(self, *_: object) -> None:
+                return None
+    
+            def begin(self):
+                return self
+    
+            async def scalar(self, statement):
+                self.statement = statement
+                return "occupied-appointment"
+    
+        session = SessionCapture()
+        store = SqlAlchemyReservationStore(
+            lambda: session,  # type: ignore[arg-type]
+            catalog=None,  # type: ignore[arg-type]
+        )
+        starts_at = datetime(2026, 11, 11, 15, tzinfo=timezone.utc)
+        appointment = Appointment(
+            id="appointment-1",
+            tenant_id="workshop-1",
+            customer_id="customer-1",
+            service_id="service-1",
+            availability_id="slot-1",
+            starts_at=starts_at,
+            ends_at=starts_at + timedelta(hours=1),
+        )
+    
+        with pytest.raises(SlotUnavailable):
+            asyncio.run(
+                store.create_customer_and_reserve(
+                    appointment,
+                    customer_name="Ana",
+                    customer_phone="+573001112233",
+                )
+            )
+    
+        assert session.statement is not None
+        sql = str(session.statement.compile(dialect=postgresql.dialect()))
+>       assert "appointments.tenant_id" in sql
+E       AssertionError: assert 'appointments.tenant_id' in 'SELECT appointments.id \nFROM appointments \nWHERE appointments.availability_id = %(availability_id_1)s AND appointments.status != %(status_1)s'
+
+tests\test_security_hardening.py:99: AssertionError
+__________________ test_availability_query_caps_result_count __________________
+
+    def test_availability_query_caps_result_count() -> None:
+        class SessionCapture:
+            statement = None
+    
+            async def __aenter__(self):
+                return self
+    
+            async def __aexit__(self, *_: object) -> None:
+                return None
+    
+            async def scalars(self, statement):
+                self.statement = statement
+                return []
+    
+        session = SessionCapture()
+        reader = SqlAlchemyCatalogReader(lambda: session)  # type: ignore[arg-type]
+        starts_after = datetime(2026, 11, 11, tzinfo=timezone.utc)
+        asyncio.run(
+            reader.list_slots(
+                "workshop-1", "service-1", starts_after, starts_after + timedelta(days=90)
+            )
+        )
+    
+        assert session.statement is not None
+        compiled = session.statement.compile(dialect=postgresql.dialect())
+>       assert compiled._limit_clause is not None
+               ^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'PGCompiler' object has no attribute '_limit_clause'. Did you mean: 'limit_clause'?
+
+tests\test_security_hardening.py:127: AttributeError
+__________ test_public_availability_rejects_ranges_over_ninety_days ___________
+
+    def test_public_availability_rejects_ranges_over_ninety_days() -> None:
+        client, _, _ = configured_app()
+        with client:
+            response = client.get(
+                "/api/v1/workshops/workshop-7/availability",
+                params={
+                    "service_id": "service-1",
+                    "starts_after": "2026-11-01T00:00:00Z",
+                    "ends_before": "2027-03-01T00:00:00Z",
+                },
+            )
+    
+>       assert response.status_code == 422
+E       assert 200 == 422
+E        +  where 200 = <Response [200 OK]>.status_code
+
+tests\test_api_composition.py:177: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:45
+  C:\Users\alyco\.codex\worktrees\6dc0\talleres-rc2-endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001\backend\.venv\Lib\site-packages\starlette\testclient.py:45: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_security_hardening.py::test_webhook_signature_rejects_malformed_digest[\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9\xe9]
+FAILED tests/test_security_hardening.py::test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone[2026-11-11T15:00:00-+573001112233]
+FAILED tests/test_security_hardening.py::test_booking_schema_rejects_ambiguous_datetime_and_invalid_phone[2026-11-11T15:00:00Z-not-a-phone]
+FAILED tests/test_security_hardening.py::test_reservation_slot_occupancy_query_is_tenant_scoped
+FAILED tests/test_security_hardening.py::test_availability_query_caps_result_count
+FAILED tests/test_api_composition.py::test_public_availability_rejects_ranges_over_ninety_days
+6 failed, 8 passed, 1 skipped, 1 warning in 1.15s

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 1,
+  "state_digest": "036f5bddf4ad38c0b3ed883dbbd126a4e21abba615d17a6fb7276e35d7fc0dbc",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace isolated in a git worktree",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.workspace-isolation"
+  ],
+  "capability_ids": [
+    "workspace.isolated"
+  ],
+  "payload": {
+    "mode": "isolated"
+  },
+  "artifacts": [],
+  "content_digest": "a0a036251aa9c1fb769b8752b5ad0d093dcbac6011b1fe0bcc4f96bd9f11872d"
+}

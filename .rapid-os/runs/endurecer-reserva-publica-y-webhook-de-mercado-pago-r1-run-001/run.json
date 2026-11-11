@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "spec_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago",
+  "spec_revision": 1,
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "current_state_revision": 15
+}

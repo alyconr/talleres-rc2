@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "E017",
+  "run_id": "endurecer-reserva-publica-y-webhook-de-mercado-pago-r1-run-001",
+  "contract_digest": "3c96c3cd8f2d36f8446544328bae1ce9dbe58a7b18e8b7f609551024497511b0",
+  "state_revision": 14,
+  "state_digest": "ed0278d1dc29584fb04f99617fe07e99ddafbef4f771f0826cfa00428ac30529",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 7 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      "backend/app/modules/catalog/infrastructure/sqlalchemy_catalog_reader.py",
+      "backend/app/modules/payments/infrastructure/webhook_signature.py",
+      "backend/app/modules/reservations/api/routes.py",
+      "backend/app/modules/reservations/api/schemas.py",
+      "backend/app/modules/reservations/infrastructure/sqlalchemy_reservation_store.py",
+      "backend/tests/test_api_composition.py",
+      "backend/tests/test_security_hardening.py"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "ac5018f58df9996d69c2ca51cdab25198a0d24a5f980f7a53146badef765930f"
+}
