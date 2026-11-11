@@ -46,11 +46,11 @@
     "deployment": {
       "status": "drafted",
       "confirmed": true,
-      "sha256": "600048a16a84f4022956d08bafe53a0d03fd2d0bfa4ab8efe3f9777b5dbf2caf"
+      "sha256": "a6b610a35b1c886f7297b9ddbb8dc7e36373302f73ff4d5dda494882cc87627c",
+      "confirmed_bank": "95b12bacee9333be46e5e672b1df1e96af2d6e01f1209e83a6b2506344a8863e"
     }
   },
   "finished": true,
-  "drafts_reviewed": true,
   "ai": true,
   "services": [
     {
