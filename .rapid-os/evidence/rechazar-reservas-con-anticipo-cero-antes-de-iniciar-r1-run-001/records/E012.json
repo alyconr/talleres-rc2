@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "E012",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 9,
+  "state_digest": "ac060b7abcd3a223b41c0ddb1fd35fe45045d2f192f9e16d55fa0c7d845f0069",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Reproduction check 'uv run --directory backend pytest tests/test_catalog_read...' confirmed expected failure (exit 1)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 1,
+    "passed": 1,
+    "failed": 2,
+    "skipped": 0,
+    "expectation": "fail",
+    "command": "uv run --directory backend pytest tests/test_catalog_reader.py -q",
+    "tree": "11e4b086cad7f2b50cc1371c1be22d2ef0721f00daefb3b8a4b07b9fd306602c",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E012/16.log",
+      "sha256": "bb2455126866a117dcb3fdc36ba948a85bd08e2b73669131d21dc3a28ac952f5",
+      "size_bytes": 3391,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/16.log"
+    }
+  ],
+  "content_digest": "262bd247fde6eba3d14abcf766ef7a433ffa0e6665254d04073d863b0cfb4b01"
+}

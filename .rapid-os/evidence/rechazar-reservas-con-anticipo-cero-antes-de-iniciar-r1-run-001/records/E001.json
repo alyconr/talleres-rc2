@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 1,
+  "state_digest": "dde24a1b7e370f64597188279e9375b91adaadc01e9fc5c0795dffd698e2ce80",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace operates in current directory",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "workspace.current"
+  ],
+  "payload": {
+    "mode": "current"
+  },
+  "artifacts": [],
+  "content_digest": "153f84d8492038c0e161fc5172a12b67248e344ebced6163277ad902d23b2161"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "E003",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 4,
+  "state_digest": "24541141db1b0a973589a2c2268eb19dd1a574e77ce43cd81010b767e1221459",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Reproduction check 'python -m pytest backend/tests/test_booking_service.py -q' confirmed expected failure (exit 2)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "python -m pytest backend/tests/test_booking_service.py -q",
+    "exit_code": 2,
+    "expectation": "fail",
+    "tree": "581cf460f5b1cf833c72c20d2bed471732e5b2e25c0d78bb64988f8d2419af8c"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E003/2.log",
+      "sha256": "43d5d91147d6fc8f2ad54f15305469703307d70fce2a5b59a4cb09aaf0e79777",
+      "size_bytes": 1834,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/2.log"
+    }
+  ],
+  "content_digest": "46e3f3dcd1e530d1830e9c16fec503ae106a080c466e5a35b99cbbef85d4cb50"
+}

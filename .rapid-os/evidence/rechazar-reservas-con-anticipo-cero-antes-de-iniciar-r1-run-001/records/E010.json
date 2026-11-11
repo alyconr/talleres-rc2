@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "E010",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 9,
+  "state_digest": "ac060b7abcd3a223b41c0ddb1fd35fe45045d2f192f9e16d55fa0c7d845f0069",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (2 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "tree": "b5330cf73881ffbf382c77e2909a4290f551795f37404af850a8b65244551c93",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E010/14.log",
+      "sha256": "e33068244701c46c42f425050bf493f64bce8a7c69515168429c3db1a9ced9a1",
+      "size_bytes": 1807,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/14.log"
+    }
+  ],
+  "content_digest": "adcc97cfcde9d5d8b2bf68657c96ccdbf9fd24905633e09ad3d4e3a0bfce0755"
+}

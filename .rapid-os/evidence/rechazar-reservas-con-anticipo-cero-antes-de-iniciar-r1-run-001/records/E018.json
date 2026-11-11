@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "E018",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 10,
+  "state_digest": "07f4435da02117c0f1ea836fcfb71b86b455b7e5e29bfd78927eaa111128eaca",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 7 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      "backend/app/modules/catalog/infrastructure/sqlalchemy_catalog_reader.py",
+      "backend/app/modules/reservations/api/routes.py",
+      "backend/app/modules/reservations/application/booking_service.py",
+      "backend/tests/test_api_composition.py",
+      "backend/tests/test_booking_service.py",
+      "backend/tests/test_catalog_reader.py",
+      "codex-session-01a1c83c-cb3d-77d1-a9e4-df6bd66f2592.md"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "7d8855df0880eb03628e318b786329eeffb0c5eb25a811b5d64ef3cbc385bd7f"
+}

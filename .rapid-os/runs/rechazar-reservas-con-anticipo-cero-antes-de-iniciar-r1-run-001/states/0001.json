@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "revision": 1,
+  "status": "prepared",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Reproducir con un test en rojo",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir la validación para rechazar anticipo cero antes de reservar o iniciar el cobro",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Verificar la regresión, el flujo con anticipo positivo y la arquitectura",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "run.prepared",
+  "reason": "Initial run state prepared from execution contract.",
+  "content_digest": "dde24a1b7e370f64597188279e9375b91adaadc01e9fc5c0795dffd698e2ce80"
+}

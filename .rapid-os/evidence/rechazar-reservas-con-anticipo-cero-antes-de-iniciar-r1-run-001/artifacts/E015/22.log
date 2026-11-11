@@ -1,0 +1,36 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.0.3, pluggy-1.7.0
+rootdir: G:\e2e\talleres-rc2\backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 38 items
+
+tests\test_api_composition.py ......s                                    [ 18%]
+tests\test_appointment_confirmation.py ...                               [ 26%]
+tests\test_booking_service.py ..                                         [ 31%]
+tests\test_catalog_reader.py ....                                        [ 42%]
+tests\test_confirmation_delivery.py ...                                  [ 50%]
+tests\test_health.py .                                                   [ 52%]
+tests\test_payment_webhook.py .........                                  [ 76%]
+tests\test_postgres_persistence.py ssssss                                [ 92%]
+tests\test_reservation_domain.py ...                                     [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:45
+  G:\e2e\talleres-rc2\backend\.venv\Lib\site-packages\starlette\testclient.py:45: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 31 passed, 7 skipped, 1 warning in 0.87s ===================
+Application bundle generation complete. [1.208 seconds] - 2026-11-11T13:37:39.388Z
+
+
+ RUN  v5.1.0 G:/e2e/talleres-rc2/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  08:37:39
+   Duration  1.95s (environment 71%, setup 21%, transform 3%, import 3%, tests 2%, worker 1%)
+

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "revision": 10,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Reproducir con un test en rojo",
+      "status": "done",
+      "reason": "Completed task T001"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir la validación para rechazar anticipo cero antes de reservar o iniciar el cobro",
+      "status": "done",
+      "reason": "Completed task T002"
+    },
+    {
+      "id": "T003",
+      "description": "T003: Verificar la regresión, el flujo con anticipo positivo y la arquitectura",
+      "status": "done",
+      "reason": "Completed task T003"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002 (rapid:check)"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "Approved by alyconr"
+    }
+  ],
+  "change_kind": "gate.gate.final-verification.acknowledged",
+  "reason": "Approved by alyconr",
+  "content_digest": "07f4435da02117c0f1ea836fcfb71b86b455b7e5e29bfd78927eaa111128eaca"
+}

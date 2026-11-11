@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "spec_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-el-cobro",
+  "revision": 1,
+  "title": "Rechazar reservas con anticipo cero antes de iniciar el cobro",
+  "mode": "bugfix",
+  "business_objective": "Restablecer la regla de que una reserva no puede iniciar el cobro de Mercado Pago si el servicio tiene anticipo cero, evitando reservas y cobros inv\u00e1lidos.",
+  "problem_statement": "Un taller puede configurar un servicio con anticipo de 0; el sistema permite crear una reserva e iniciar el cobro en Mercado Pago. Se espera rechazar ese flujo con un error controlado antes de crear la reserva o contactar Mercado Pago. Reproducir con un servicio activo cuyo anticipo sea 0 e intentar reservarlo y cobrarlo.",
+  "scope": [
+    "Reproducir el escenario con un test de regresi\u00f3n antes de implementar la correcci\u00f3n.",
+    "Validar que el anticipo sea mayor que cero antes de confirmar/crear la reserva y antes de iniciar el cobro con Mercado Pago.",
+    "Devolver un error controlado y verificar que no se invoque el proveedor de pagos ni se persista un cobro inv\u00e1lido."
+  ],
+  "out_of_scope": [
+    "Cambiar montos, porcentajes o pol\u00edticas de anticipo.",
+    "Cambiar reglas de cancelaci\u00f3n o reembolso.",
+    "Refactors o mejoras no relacionadas con el defecto."
+  ],
+  "actors_users": [
+    "Cliente que intenta reservar un servicio",
+    "Taller que configura servicios y anticipos"
+  ],
+  "main_flow": [
+    "El taller tiene un servicio activo con anticipo de 0.",
+    "El cliente intenta crear una reserva e iniciar el pago de ese servicio.",
+    "El sistema rechaza la operaci\u00f3n con un error 4xx controlado antes de crear la reserva o llamar a Mercado Pago."
+  ],
+  "edge_cases": [
+    "Un anticipo positivo v\u00e1lido conserva el flujo existente de reserva y cobro.",
+    "El rechazo no deja reserva ni pago parcial persistido.",
+    "La respuesta de error no expone trazas internas ni detalles del proveedor."
+  ],
+  "business_rules": [
+    "El anticipo asociado al flujo de cobro debe ser mayor que cero.",
+    "Una operaci\u00f3n inv\u00e1lida falla de forma cerrada: no crea reservas/cobros ni invoca Mercado Pago."
+  ],
+  "technical_constraints": [
+    "Respeta Python 3.13, FastAPI as\u00edncrono, Pydantic V2 estricto, SQLAlchemy 2 as\u00edncrono y la arquitectura de monolito modular.",
+    "Mant\u00e9n autorizaci\u00f3n y validaci\u00f3n en el servidor; no a\u00f1adas dependencias."
+  ],
+  "affected_paths": [
+    "backend/app/modules/reservas",
+    "backend/app/modules/pagos",
+    "backend/tests"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "Un test de regresi\u00f3n reproduce que un servicio con anticipo 0 es rechazado con error 4xx controlado.",
+    "El test verifica que el rechazo no crea reserva ni pago y que el adaptador de Mercado Pago no es invocado.",
+    "Un anticipo positivo mantiene el comportamiento existente.",
+    "La verificaci\u00f3n definida por el run termina en verde y la arquitectura modular no presenta violaciones."
+  ],
+  "testing_strategy": [
+    "T001 reproduce el bug con un test que falla antes de la correcci\u00f3n.",
+    "Despu\u00e9s del arreglo, ejecutar los tests requeridos mediante rapid check -- <comando>.",
+    "Ejecutar rapid arch check seg\u00fan el flujo y revisar evidencia de cada criterio de aceptaci\u00f3n."
+  ],
+  "implementation_tasks": [
+    "T001: Reproducir con un test en rojo",
+    "T002: Corregir la validaci\u00f3n para rechazar anticipo cero antes de reservar o iniciar el cobro",
+    "T003: Verificar la regresi\u00f3n, el flujo con anticipo positivo y la arquitectura"
+  ],
+  "tags": [],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "f50949e1751abc23f6475bdc49252b36b17d575ed9c25c460a24e8338c034354",
+    "tasks.md": "ca7faf3c53850530e214fb9595baa170a6a85bf195e66249a06c2cbae13a9a7c",
+    "acceptance.md": "aefa3384d0aab337cfe66b91b8602226e3477fb9a251141b770ada0e4aa44211"
+  },
+  "content_digest": "1d9069fe1d9c2b31d99b0200726488803e2c96f5d0601674c5176f47efe7306e"
+}

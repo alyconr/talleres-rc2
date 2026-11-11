@@ -1,4 +1,5 @@
 from datetime import datetime
+from decimal import Decimal
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
@@ -27,6 +28,7 @@ class SqlAlchemyCatalogReader:
                     ServiceRecord.tenant_id == tenant_id,
                     ServiceRecord.active.is_(True),
                     ServiceRecord.deposit_amount > 0,
+                    ServiceRecord.deposit_amount != Decimal("NaN"),
                     ServiceRecord.currency.is_not(None),
                 )
             )
@@ -65,6 +67,7 @@ class SqlAlchemyCatalogReader:
                     ServiceRecord.tenant_id == tenant_id,
                     ServiceRecord.active.is_(True),
                     ServiceRecord.deposit_amount > 0,
+                    ServiceRecord.deposit_amount != Decimal("NaN"),
                     ServiceRecord.currency.is_not(None),
                     AvailabilitySlotRecord.starts_at >= starts_after,
                     AvailabilitySlotRecord.ends_at <= ends_before,
@@ -88,6 +91,7 @@ class SqlAlchemyCatalogReader:
                     ServiceRecord.tenant_id == tenant_id,
                     ServiceRecord.active.is_(True),
                     ServiceRecord.deposit_amount > 0,
+                    ServiceRecord.deposit_amount != Decimal("NaN"),
                     ServiceRecord.currency.is_not(None),
                 )
             )
@@ -100,6 +104,7 @@ class SqlAlchemyCatalogReader:
         if (
             amount is None
             or not amount.is_finite()
+            or amount <= 0
             or currency is None
             or len(currency) != 3
             or not currency.isalpha()
@@ -124,3 +129,4 @@ class SqlAlchemyCatalogReader:
             starts_at=record.starts_at,
             ends_at=record.ends_at,
         )
+

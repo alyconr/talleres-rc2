@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "spec_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-el-cobro",
+  "spec_revision": 1,
+  "spec_content_digest": "1d9069fe1d9c2b31d99b0200726488803e2c96f5d0601674c5176f47efe7306e",
+  "harness": "codex",
+  "context_digest": "108c7ff83e1850c6bef0714157100c79d23c3b531ef1cd34fb1fd54c0467a9a0",
+  "context_manifest_digest": "5625d3e936d23ce7d22cc40fd740c79d5023654045085a2bd351af6ed2a49077",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "bounded",
+    "risk": "medium",
+    "risk_signals": [],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.architecture",
+        "kind": "architecture_check",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.bugfix",
+      "gate.architecture: the project has an architecture rule."
+    ]
+  },
+  "classification": "bounded",
+  "risk": "medium",
+  "risk_signals": [],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Reproducir con un test en rojo"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir la validación para rechazar anticipo cero antes de reservar o iniciar el cobro"
+    },
+    {
+      "id": "T003",
+      "description": "T003: Verificar la regresión, el flujo con anticipo positivo y la arquitectura"
+    }
+  ],
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "ruleset_version": 3
+}

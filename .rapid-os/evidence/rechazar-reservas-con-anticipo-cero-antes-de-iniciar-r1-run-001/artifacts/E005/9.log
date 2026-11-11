@@ -1,0 +1,22 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____ test_zero_deposit_is_rejected_before_reserving_or_starting_checkout _____
+
+    def test_zero_deposit_is_rejected_before_reserving_or_starting_checkout() -> None:
+        reservations = FakeReservationStore()
+        checkout = FakeCheckout()
+        service = BookingService(
+            catalog=FakeCatalog(),  # type: ignore[arg-type]
+            reservations=reservations,  # type: ignore[arg-type]
+            create_checkout=checkout,  # type: ignore[arg-type]
+            create_pending_appointment=FakeCreatePendingAppointment(reservations),  # type: ignore[arg-type]
+        )
+    
+>       with pytest.raises(ValueError, match="deposit"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+backend\tests\test_booking_service.py:94: Failed
+=========================== short test summary info ===========================
+FAILED backend\tests\test_booking_service.py::test_zero_deposit_is_rejected_before_reserving_or_starting_checkout
+1 failed in 0.65s

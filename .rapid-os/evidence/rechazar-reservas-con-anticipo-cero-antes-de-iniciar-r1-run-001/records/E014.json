@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E014",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 9,
+  "state_digest": "ac060b7abcd3a223b41c0ddb1fd35fe45045d2f192f9e16d55fa0c7d845f0069",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check",
+    "exit_code": 0,
+    "tree": "1fe82c68fded4b9be2884c96b813648bfabd180a870bea184eb2815eb5ea770e"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E014/20.log",
+      "sha256": "54e8e65af1c827d5c1e388d15789a712e48e56ad5ede22fdd07b02b66dab0367",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/20.log"
+    }
+  ],
+  "content_digest": "c821ca3f885bca7a0f012069223b757f97e6ebd563ceddb2bbfd2840b4545d07"
+}

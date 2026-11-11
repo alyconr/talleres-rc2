@@ -8,6 +8,7 @@ from fastapi.testclient import TestClient
 from app.main import create_app
 from app.modules.catalog.public import AvailabilitySlot, BookableService
 from app.modules.reservations.application.public_types import BookingResult
+from app.modules.reservations.application.booking_service import InvalidDepositError
 from app.shared.settings import Settings
 
 
@@ -15,6 +16,7 @@ class FakeBookingService:
     def __init__(self) -> None:
         self.created: dict[str, object] | None = None
         self.requested_tenant: str | None = None
+        self.reject_booking = False
 
     async def list_services(self, *, tenant_id: str) -> list[BookableService]:
         self.requested_tenant = tenant_id
@@ -47,6 +49,8 @@ class FakeBookingService:
         return [slot] if starts_after < slot.starts_at < ends_before else []
 
     async def create_booking(self, **values: object) -> BookingResult:
+        if self.reject_booking:
+            raise InvalidDepositError("Service deposit must be greater than zero")
         self.created = values
         return BookingResult(
             appointment_id="appointment-1",
@@ -137,6 +141,25 @@ def test_booking_request_cannot_set_deposit_amount() -> None:
             },
         )
     assert response.status_code == 422
+
+
+def test_invalid_service_deposit_returns_a_controlled_client_error() -> None:
+    client, booking, _ = configured_app()
+    booking.reject_booking = True
+    with client:
+        response = client.post(
+            "/api/v1/workshops/workshop-7/appointments",
+            json={
+                "service_id": "service-1",
+                "starts_at": "2026-11-11T15:00:00Z",
+                "customer_name": "Ana",
+                "customer_phone": "+573001112233",
+            },
+        )
+
+    assert response.status_code == 422
+    assert response.json() == {"detail": "Service deposit must be greater than zero"}
+    assert booking.created is None
 
 
 def test_webhook_route_passes_raw_signature_headers_and_query_id() -> None:

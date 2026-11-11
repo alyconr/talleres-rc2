@@ -1,0 +1,62 @@
+FF.                                                                      [100%]
+================================== FAILURES ===================================
+____ test_catalog_rejects_services_without_a_positive_finite_deposit[zero] ____
+
+deposit_amount = Decimal('0')
+
+    @pytest.mark.parametrize(
+        "deposit_amount",
+        [Decimal("0"), Decimal("-1"), Decimal("NaN")],
+        ids=["zero", "negative", "not-finite"],
+    )
+    def test_catalog_rejects_services_without_a_positive_finite_deposit(
+        deposit_amount: Decimal,
+    ) -> None:
+        record = ServiceRecord(
+            id="service-1",
+            tenant_id="workshop-1",
+            name="Cambio de aceite",
+            duration_minutes=60,
+            deposit_amount=deposit_amount,
+            currency="COP",
+            active=True,
+        )
+    
+>       assert SqlAlchemyCatalogReader._bookable(record) is None
+E       AssertionError: assert BookableService(id='service-1', tenant_id='workshop-1', name='Cambio de aceite', duration_minutes=60, deposit_amount=Decimal('0'), currency='COP') is None
+E        +  where BookableService(id='service-1', tenant_id='workshop-1', name='Cambio de aceite', duration_minutes=60, deposit_amount=Decimal('0'), currency='COP') = <function SqlAlchemyCatalogReader._bookable at 0x000001E078E4B1A0>(<app.modules.catalog.infrastructure.models.ServiceRecord object at 0x000001E078E217F0>)
+E        +    where <function SqlAlchemyCatalogReader._bookable at 0x000001E078E4B1A0> = SqlAlchemyCatalogReader._bookable
+
+tests\test_catalog_reader.py:27: AssertionError
+__ test_catalog_rejects_services_without_a_positive_finite_deposit[negative] __
+
+deposit_amount = Decimal('-1')
+
+    @pytest.mark.parametrize(
+        "deposit_amount",
+        [Decimal("0"), Decimal("-1"), Decimal("NaN")],
+        ids=["zero", "negative", "not-finite"],
+    )
+    def test_catalog_rejects_services_without_a_positive_finite_deposit(
+        deposit_amount: Decimal,
+    ) -> None:
+        record = ServiceRecord(
+            id="service-1",
+            tenant_id="workshop-1",
+            name="Cambio de aceite",
+            duration_minutes=60,
+            deposit_amount=deposit_amount,
+            currency="COP",
+            active=True,
+        )
+    
+>       assert SqlAlchemyCatalogReader._bookable(record) is None
+E       AssertionError: assert BookableService(id='service-1', tenant_id='workshop-1', name='Cambio de aceite', duration_minutes=60, deposit_amount=Decimal('-1'), currency='COP') is None
+E        +  where BookableService(id='service-1', tenant_id='workshop-1', name='Cambio de aceite', duration_minutes=60, deposit_amount=Decimal('-1'), currency='COP') = <function SqlAlchemyCatalogReader._bookable at 0x000001E078E4B1A0>(<app.modules.catalog.infrastructure.models.ServiceRecord object at 0x000001E078E64B90>)
+E        +    where <function SqlAlchemyCatalogReader._bookable at 0x000001E078E4B1A0> = SqlAlchemyCatalogReader._bookable
+
+tests\test_catalog_reader.py:27: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_catalog_reader.py::test_catalog_rejects_services_without_a_positive_finite_deposit[zero]
+FAILED tests/test_catalog_reader.py::test_catalog_rejects_services_without_a_positive_finite_deposit[negative]
+2 failed, 1 passed in 0.53s

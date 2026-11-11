@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E008",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 8,
+  "state_digest": "a868678de9219d449bc8f8a05f89b231223bdcf4536759d0da8e19dfc815cfde",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run --project backend --group dev pytest backend/tests -q' passed (27 passed, 0 failed)",
+  "task_ids": [
+    "T003"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 27,
+    "failed": 0,
+    "skipped": 7,
+    "command": "uv run --project backend --group dev pytest backend/tests -q",
+    "tree": "b5330cf73881ffbf382c77e2909a4290f551795f37404af850a8b65244551c93",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E008/12.log",
+      "sha256": "6e45c2541a812e045d0f0ef7e4088d3b68d4f719baf1d504d281701bbfe871c4",
+      "size_bytes": 627,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/12.log"
+    }
+  ],
+  "content_digest": "96fb217b860684b0a95c86f4b296c988c86a009ef0724f7381a5b2a702a5f6ac"
+}

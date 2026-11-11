@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E015",
+  "run_id": "rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001",
+  "contract_digest": "dc67e2981fc7c3d77649577ea5cf593edf24d892788a721ee0afdeeca38a64e3",
+  "state_revision": 9,
+  "state_digest": "ac060b7abcd3a223b41c0ddb1fd35fe45045d2f192f9e16d55fa0c7d845f0069",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python rapid_gate_tests.py' passed (2 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "command": "python rapid_gate_tests.py",
+    "tree": "a46e3763e44cd6775e280405cd5e29912c7232cb30458978ef9accbb0f7cce73",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/artifacts/E015/22.log",
+      "sha256": "51d8bd2fedf5143b476fa594d4923609a4aa344c47701cd10f055e5932e2a794",
+      "size_bytes": 1888,
+      "source": ".rapid-os/scratch/checks/rechazar-reservas-con-anticipo-cero-antes-de-iniciar-r1-run-001/22.log"
+    }
+  ],
+  "content_digest": "b7864c1f4e0f35a9be2f0e2f3e37fe85e9c54739d223f7f9a5da82ee9e49970a"
+}

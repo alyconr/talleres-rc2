@@ -11,6 +11,10 @@ from app.modules.reservations.application.ports import ReservationStore
 from app.modules.reservations.application.public_types import BookingResult
 
 
+class InvalidDepositError(ValueError):
+    pass
+
+
 @dataclass(frozen=True, slots=True)
 class BookingService:
     catalog: CatalogReader
@@ -55,6 +59,8 @@ class BookingService:
         service = await self.catalog.get_bookable_service(tenant_id, service_id)
         if service is None:
             raise LookupError("Service not found")
+        if not service.deposit_amount.is_finite() or service.deposit_amount <= 0:
+            raise InvalidDepositError("Service deposit must be greater than zero")
         slot = await self.catalog.get_slot(tenant_id, service_id, starts_at)
         if slot is None:
             raise LookupError("Availability not found")

@@ -3,7 +3,10 @@ from typing import Annotated, cast
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 
-from app.modules.reservations.application.booking_service import BookingService
+from app.modules.reservations.application.booking_service import (
+    BookingService,
+    InvalidDepositError,
+)
 from app.modules.reservations.api.schemas import (
     AvailabilityResponse,
     CreateBookingRequest,
@@ -74,5 +77,9 @@ async def create_booking(
         )
     except LookupError as exc:
         raise HTTPException(status_code=404, detail="Service or availability not found") from exc
+    except InvalidDepositError as exc:
+        raise HTTPException(
+            status_code=422, detail="Service deposit must be greater than zero"
+        ) from exc
     except ValueError as exc:
         raise HTTPException(status_code=409, detail="Selected time is unavailable") from exc
