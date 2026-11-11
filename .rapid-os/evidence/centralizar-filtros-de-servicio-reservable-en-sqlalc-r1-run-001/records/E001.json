@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "state_revision": 1,
+  "state_digest": "ccf9a9ac19b7f98922980a87f8f9dd45579aae6135d49b0acdb9946ae8289135",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace operates in current directory",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "workspace.current"
+  ],
+  "payload": {
+    "mode": "current"
+  },
+  "artifacts": [],
+  "content_digest": "7973aed2cc7e353a83a16a1391fd721853210be927e4b075ed6d70a43ebd28a7"
+}

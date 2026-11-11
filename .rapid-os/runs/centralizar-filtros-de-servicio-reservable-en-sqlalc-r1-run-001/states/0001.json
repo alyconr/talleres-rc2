@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "revision": 1,
+  "status": "prepared",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Registrar la baseline de no regresión.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Extraer y reutilizar los filtros comunes de las tres consultas.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Verificar baseline, resultados y arquitectura tras el refactor.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "run.prepared",
+  "reason": "Initial run state prepared from execution contract.",
+  "content_digest": "ccf9a9ac19b7f98922980a87f8f9dd45579aae6135d49b0acdb9946ae8289135"
+}

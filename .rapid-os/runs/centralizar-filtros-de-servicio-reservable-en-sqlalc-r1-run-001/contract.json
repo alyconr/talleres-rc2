@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "spec_id": "centralizar-filtros-de-servicio-reservable-en-sqlalchemycatalog",
+  "spec_revision": 1,
+  "spec_content_digest": "66eb7d54b8a8326c21e2094b009cefb68401be2da19820e59af0ada4a02e6f22",
+  "harness": "codex",
+  "context_digest": "a9b371720cacd16424db13b6f75728cc252d171b0299b7aaace6b58a7f6d2500",
+  "context_manifest_digest": "a7d7568df0c0f669502dcc46d98291b28aeadd895022d8e2f24d965a7482c391",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "bounded",
+    "risk": "medium",
+    "risk_signals": [],
+    "workspace": "current_allowed",
+    "gates": [
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.architecture",
+        "kind": "architecture_check",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.refactor",
+      "gate.architecture: the project has an architecture rule."
+    ]
+  },
+  "classification": "bounded",
+  "risk": "medium",
+  "risk_signals": [],
+  "workspace": "current_allowed",
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "The code must respect the project's modular-monolith architecture rule (rapid arch check)."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Registrar la baseline de no regresión."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Extraer y reutilizar los filtros comunes de las tres consultas."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Verificar baseline, resultados y arquitectura tras el refactor."
+    }
+  ],
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "ruleset_version": 3
+}

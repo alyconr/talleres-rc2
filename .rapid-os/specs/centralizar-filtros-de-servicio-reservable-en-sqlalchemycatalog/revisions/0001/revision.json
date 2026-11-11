@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "spec_id": "centralizar-filtros-de-servicio-reservable-en-sqlalchemycatalog",
+  "revision": 1,
+  "title": "Centralizar filtros de servicio reservable en SqlAlchemyCatalogReader",
+  "mode": "refactor",
+  "business_objective": "Reducir duplicaci\u00f3n y facilitar el mantenimiento de las consultas del cat\u00e1logo sin cambiar resultados observables.",
+  "problem_statement": "SqlAlchemyCatalogReader repite en tres consultas los mismos filtros de tenant, servicio activo, anticipo positivo y distinto de NaN, y moneda presente.",
+  "scope": [
+    "Extraer los filtros comunes de servicio reservable a un \u00fanico sitio en SqlAlchemyCatalogReader.",
+    "Aplicar el filtro compartido a las tres consultas actuales que lo repiten.",
+    "Preservar los predicados, par\u00e1metros y resultados de cada consulta."
+  ],
+  "out_of_scope": [
+    "Cambios de comportamiento o de reglas de reserva.",
+    "Cambios en BookingService, modelos de datos o endpoints.",
+    "A\u00f1adir dependencias o ampliar el alcance a otras consultas."
+  ],
+  "actors_users": [
+    "Desarrollador que mantiene el cat\u00e1logo."
+  ],
+  "main_flow": [
+    "Registrar y ejecutar la baseline de pruebas antes del refactor.",
+    "Centralizar los filtros compartidos y reutilizarlos en list_bookable_services, list_slots y get_slot.",
+    "Ejecutar las mismas verificaciones y comparar los resultados con la baseline."
+  ],
+  "edge_cases": [
+    "El filtro debe seguir excluyendo anticipo cero, negativo y NaN.",
+    "El filtro debe conservar el aislamiento por tenant, los servicios inactivos y la moneda nula."
+  ],
+  "business_rules": [
+    "El comportamiento observable y los resultados de las tres consultas no cambian.",
+    "El n\u00famero de tests pasados no disminuye respecto a la baseline."
+  ],
+  "technical_constraints": [
+    "Respetar Python 3.13, SQLAlchemy 2 as\u00edncrono y la arquitectura modular existente.",
+    "No a\u00f1adir dependencias ni modificar reglas de negocio."
+  ],
+  "affected_paths": [
+    "backend/app/modules/catalog/infrastructure/sqlalchemy_catalog_reader.py",
+    "backend/tests/test_catalog_reader.py"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "Las tres consultas usan un \u00fanico sitio para construir los filtros comunes de servicio reservable.",
+    "Los filtros conservan tenant, activo, anticipo > 0, anticipo != NaN y moneda no nula.",
+    "La baseline y las pruebas posteriores pasan sin disminuir el n\u00famero de tests aprobados.",
+    "rapid arch check no reporta violaciones."
+  ],
+  "testing_strategy": [
+    "Ejecutar como baseline la suite backend con rapid check antes de editar.",
+    "Ejecutar de nuevo la misma suite backend despu\u00e9s del refactor y comparar resultados.",
+    "Ejecutar rapid arch check."
+  ],
+  "implementation_tasks": [
+    "T001: Registrar la baseline de no regresi\u00f3n.",
+    "T002: Extraer y reutilizar los filtros comunes de las tres consultas.",
+    "T003: Verificar baseline, resultados y arquitectura tras el refactor."
+  ],
+  "tags": [],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "5f9a766d256c6f428e8da6370ddd6b39d7ddcfd03b42b700c483ca0c54c1f85c",
+    "tasks.md": "a94461103cb2049a38855c613bebb500b92fc532a225a64c5712f0846760aaab",
+    "acceptance.md": "e25caf08e35a65686c0a9831e5ab1c047ceb72444ab1db3808353030abf09316"
+  },
+  "content_digest": "66eb7d54b8a8326c21e2094b009cefb68401be2da19820e59af0ada4a02e6f22"
+}

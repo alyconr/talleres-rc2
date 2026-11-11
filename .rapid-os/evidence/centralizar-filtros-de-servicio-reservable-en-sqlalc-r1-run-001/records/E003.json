@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "E003",
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "state_revision": 4,
+  "state_digest": "45f045a7e35b438e043cb98c33bdaef1ad4f25afb7ca6f5c820402ce78aac391",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'uv run --directory backend pytest' passed (31 passed, 0 failed)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "uv",
+    "exit_code": 0,
+    "passed": 31,
+    "failed": 0,
+    "skipped": 7,
+    "command": "uv run --directory backend pytest",
+    "tree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "counted": true,
+    "test_command": false
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/artifacts/E003/2.log",
+      "sha256": "ed4bc281a2737e17bfc6d466497b37894bbe8a2e6b2430315e496bb3a8341151",
+      "size_bytes": 1579,
+      "source": ".rapid-os/scratch/checks/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/2.log"
+    }
+  ],
+  "content_digest": "762cb0129a1991ab558466c46d210b99dc57b844997169fcfedbaa9befd0fc11"
+}

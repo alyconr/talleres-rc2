@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E012",
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "state_revision": 11,
+  "state_digest": "7e12e39d11fbd06b9510c9a348958f4036d01933c9ad760966431fcfe2db1141",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "55b1fbd07dbd0dd88934c6a929043488bac647aab1b50f638016f9bf65c2a164"
+  },
+  "artifacts": [],
+  "content_digest": "66c869ab795d9ab98f06a07e352662c75cdf5581f9e0e6b64a414fe0c18a66bc"
+}

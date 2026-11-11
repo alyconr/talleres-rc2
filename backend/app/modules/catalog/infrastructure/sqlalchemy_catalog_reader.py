@@ -25,11 +25,7 @@ class SqlAlchemyCatalogReader:
         async with self._sessions() as session:
             records = await session.scalars(
                 select(ServiceRecord).where(
-                    ServiceRecord.tenant_id == tenant_id,
-                    ServiceRecord.active.is_(True),
-                    ServiceRecord.deposit_amount > 0,
-                    ServiceRecord.deposit_amount != Decimal("NaN"),
-                    ServiceRecord.currency.is_not(None),
+                    *self._bookable_service_filters(tenant_id),
                 )
             )
             return [service for record in records if (service := self._bookable(record))]
@@ -64,11 +60,7 @@ class SqlAlchemyCatalogReader:
                     AvailabilitySlotRecord.tenant_id == tenant_id,
                     AvailabilitySlotRecord.service_id == service_id,
                     AvailabilitySlotRecord.active.is_(True),
-                    ServiceRecord.tenant_id == tenant_id,
-                    ServiceRecord.active.is_(True),
-                    ServiceRecord.deposit_amount > 0,
-                    ServiceRecord.deposit_amount != Decimal("NaN"),
-                    ServiceRecord.currency.is_not(None),
+                    *self._bookable_service_filters(tenant_id),
                     AvailabilitySlotRecord.starts_at >= starts_after,
                     AvailabilitySlotRecord.ends_at <= ends_before,
                 )
@@ -88,14 +80,20 @@ class SqlAlchemyCatalogReader:
                     AvailabilitySlotRecord.service_id == service_id,
                     AvailabilitySlotRecord.starts_at == starts_at,
                     AvailabilitySlotRecord.active.is_(True),
-                    ServiceRecord.tenant_id == tenant_id,
-                    ServiceRecord.active.is_(True),
-                    ServiceRecord.deposit_amount > 0,
-                    ServiceRecord.deposit_amount != Decimal("NaN"),
-                    ServiceRecord.currency.is_not(None),
+                    *self._bookable_service_filters(tenant_id),
                 )
             )
             return self._slot(record) if record else None
+
+    @staticmethod
+    def _bookable_service_filters(tenant_id: str) -> tuple:
+        return (
+            ServiceRecord.tenant_id == tenant_id,
+            ServiceRecord.active.is_(True),
+            ServiceRecord.deposit_amount > 0,
+            ServiceRecord.deposit_amount != Decimal("NaN"),
+            ServiceRecord.currency.is_not(None),
+        )
 
     @staticmethod
     def _bookable(record: ServiceRecord) -> BookableService | None:

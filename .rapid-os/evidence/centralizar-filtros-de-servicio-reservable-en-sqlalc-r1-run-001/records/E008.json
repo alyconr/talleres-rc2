@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E008",
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "state_revision": 8,
+  "state_digest": "85f2fb9738d5e19156ccd687d5caa651ceeb89fe460a453393aa9f9a29a5643b",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check",
+    "exit_code": 0,
+    "tree": "4894cc929ab376ca420532c2208682cdd3655cda94b9d8248e300845ff9175ab"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/artifacts/E008/7.log",
+      "sha256": "54e8e65af1c827d5c1e388d15789a712e48e56ad5ede22fdd07b02b66dab0367",
+      "size_bytes": 51,
+      "source": ".rapid-os/scratch/checks/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/7.log"
+    }
+  ],
+  "content_digest": "2ba0aad0157444c8bd69e7a6f560299787c40c22900f836e36e55bccb54b0fab"
+}

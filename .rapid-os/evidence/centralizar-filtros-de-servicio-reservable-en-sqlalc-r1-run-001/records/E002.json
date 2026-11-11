@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "E002",
+  "run_id": "centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001",
+  "contract_digest": "94d1a215eb44ac4292b7d495299ef04cab39a6affa44750b29a51b49b2949931",
+  "state_revision": 1,
+  "state_digest": "ccf9a9ac19b7f98922980a87f8f9dd45579aae6135d49b0acdb9946ae8289135",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (2 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.baseline"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "tree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "counted": true,
+    "test_command": true
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/artifacts/E002/1.log",
+      "sha256": "475c2897d6c55ee1dbd990f250b2e23e698dccad0cca77337b3712fc2695ce8a",
+      "size_bytes": 1888,
+      "source": ".rapid-os/scratch/checks/centralizar-filtros-de-servicio-reservable-en-sqlalc-r1-run-001/1.log"
+    }
+  ],
+  "content_digest": "70f2454f6833553427c2da975771f1653925e90c0163d175934a9b8526857b00"
+}
