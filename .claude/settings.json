@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rapid",
+            "args": [
+              "hook",
+              "stop"
+            ],
+            "timeout": 15,
+            "statusMessage": "Rapid OS: checking the run state"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rapid",
+            "args": [
+              "hook",
+              "pre-tool"
+            ],
+            "timeout": 15,
+            "statusMessage": "Rapid OS: checking the command"
+          }
+        ]
+      }
+    ]
+  }
+}

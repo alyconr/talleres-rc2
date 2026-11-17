@@ -15,7 +15,8 @@
   "topology": "fullstack-separated",
   "archetype": "mvp",
   "agents": [
-    "codex"
+    "codex",
+    "claude"
   ],
   "test_command": [
     "python",
