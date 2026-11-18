@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "E003",
+  "run_id": "endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001",
+  "contract_digest": "aa679b9c667df13e092ae49384b953ac7df80742a0ff242eaaa0c2253130eaac",
+  "state_revision": 5,
+  "state_digest": "516c6f5ab28ca13a41c94128c90c1187a8f9ff068712fe698f0a4c9da0c7f539",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (44 passed, 0 failed)",
+  "task_ids": [
+    "T001"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 44,
+    "failed": 0,
+    "skipped": 7,
+    "tree": "0fa5647c32d221f0d6b4a27543893e5af8c8ac3fd3499ffd6d3c57df0fa61320",
+    "counted": true,
+    "test_command": true,
+    "argv_digest": "356ecbf4f57330d9500d6fbca051441ac037f8b1b39156ff47105b39ceda68e9",
+    "components": [
+      {
+        "command": "uv run --directory backend pytest",
+        "passed": 42,
+        "failed": 0,
+        "skipped": 7,
+        "exit_code": 0,
+        "counted": true
+      },
+      {
+        "command": "pnpm --dir frontend exec ng test --no-watch --no-progress",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "counted": true
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001/artifacts/E003/2.log",
+      "sha256": "b7472813209fec4b8d91572af28c3cbcf72f244c9b0a069de17a0c22df7a4cbc",
+      "size_bytes": 2563,
+      "source": ".rapid-os/scratch/checks/endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001/2.log"
+    }
+  ],
+  "content_digest": "5f4fd28884a4fbf8221f317b738acb0c54fc7549ebb04d648bc07ef200b903a6"
+}

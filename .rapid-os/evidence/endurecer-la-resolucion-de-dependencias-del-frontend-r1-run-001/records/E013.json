@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "E013",
+  "run_id": "endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001",
+  "contract_digest": "aa679b9c667df13e092ae49384b953ac7df80742a0ff242eaaa0c2253130eaac",
+  "state_revision": 12,
+  "state_digest": "279b95a0e29011f98cc7d97692dfc59a066c40259d0f04957d1f9e3c4c4dc0c6",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 1 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      "frontend/pnpm-workspace.yaml"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "27dbb40426cb824a479c66db5e136d4cb5224491b166cfb54abcdf9c1c4e7331"
+}

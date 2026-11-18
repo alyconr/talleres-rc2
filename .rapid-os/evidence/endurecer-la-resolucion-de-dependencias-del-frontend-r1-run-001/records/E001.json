@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001",
+  "contract_digest": "aa679b9c667df13e092ae49384b953ac7df80742a0ff242eaaa0c2253130eaac",
+  "state_revision": 1,
+  "state_digest": "5ac87872f0304807a80e655d3d3a376fcea28f2541b8295dd8a472b3307bedfe",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace isolated in a git worktree",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.workspace-isolation"
+  ],
+  "capability_ids": [
+    "workspace.isolated"
+  ],
+  "payload": {
+    "mode": "isolated"
+  },
+  "artifacts": [],
+  "content_digest": "f15b0cf89300060f3f41c22ea878ad7c30693ecf76f9d8c1d45ca2eb0e19355a"
+}

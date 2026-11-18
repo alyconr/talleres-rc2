@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E012",
+  "run_id": "endurecer-la-resolucion-de-dependencias-del-frontend-r1-run-001",
+  "contract_digest": "aa679b9c667df13e092ae49384b953ac7df80742a0ff242eaaa0c2253130eaac",
+  "state_revision": 11,
+  "state_digest": "7b9d2c6172993ac37d3321a6be7b7d321c184eca04422147485ae3911268c5d8",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "75320f3ac33876826fc8367f94d02a32ec5f492c9a5faeb8cade88d98b805864"
+  },
+  "artifacts": [],
+  "content_digest": "f330f61526381fc6b058ad1425f6c08f699b0df12ec28f901b081b5fcbd4407a"
+}

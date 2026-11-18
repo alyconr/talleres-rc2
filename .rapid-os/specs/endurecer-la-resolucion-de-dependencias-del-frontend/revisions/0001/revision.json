@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "spec_id": "endurecer-la-resolucion-de-dependencias-del-frontend",
+  "revision": 1,
+  "title": "Endurecer la resoluci\u00f3n de dependencias del frontend",
+  "mode": "hardening",
+  "business_objective": "Reducir el riesgo de introducir paquetes transitivos comprometidos en la instalaci\u00f3n del frontend.",
+  "problem_statement": "La CI bloquea frontend/pnpm-workspace.yaml porque no expresa las salvaguardas de cadena de suministro exigidas por la plantilla del stack: bloqueo de fuentes ex\u00f3ticas transitivas, antig\u00fcedad m\u00ednima de publicaci\u00f3n y pol\u00edtica de confianza sin downgrade.",
+  "scope": [
+    "Configurar blockExoticSubdeps: true, minimumReleaseAge: 10080 y trustPolicy: no-downgrade en frontend/pnpm-workspace.yaml.",
+    "Verificar que la versi\u00f3n fijada en frontend/package.json admite los tres ajustes.",
+    "Instalar usando el lockfile existente en modo frozen y comprobar que el lockfile no cambia.",
+    "Consultar la plantilla del backend para determinar si exige un ajuste equivalente en uv y aplicarlo solo si est\u00e1 definido."
+  ],
+  "out_of_scope": [
+    "Actualizar dependencias, regenerar el lockfile, cambiar versiones de herramientas o a\u00f1adir credenciales.",
+    "Cambiar pol\u00edticas de la CI, archivos .rapid-os/ o salvaguardas no requeridas por la plantilla."
+  ],
+  "actors_users": [
+    "Mantenedor del proyecto",
+    "Atacante potencial de la cadena de suministro"
+  ],
+  "main_flow": [
+    "La configuraci\u00f3n de pnpm declara expl\u00edcitamente las salvaguardas solicitadas.",
+    "El mantenedor instala las dependencias con pnpm 12.18.0 y el lockfile versionado.",
+    "La instalaci\u00f3n valida las pol\u00edticas y conserva el lockfile."
+  ],
+  "edge_cases": [
+    "La versi\u00f3n de pnpm fijada no reconoce una de las claves.",
+    "Una dependencia fijada en el lockfile incumple la ventana de antig\u00fcedad o la pol\u00edtica de confianza.",
+    "La instalaci\u00f3n frozen propone cambios al lockfile."
+  ],
+  "business_rules": [
+    "No se debilita ni se omite la pol\u00edtica para hacer pasar la instalaci\u00f3n.",
+    "No se solicitan ni se incorporan credenciales.",
+    "Los hallazgos se documentan con CWE, vector CVSS v4.0 y una cita del est\u00e1ndar local."
+  ],
+  "technical_constraints": [
+    "Respetar OWASP A03:2025 y SLSA 1.2 seg\u00fan .rapid-os/standards/security.md.",
+    "Mantener packageManager en frontend/package.json sin cambiar su versi\u00f3n.",
+    "No modificar .rapid-os/.",
+    "Solo modificar la configuraci\u00f3n de uv si una plantilla backend aplicable exige expl\u00edcitamente el control equivalente."
+  ],
+  "affected_paths": [
+    "frontend/pnpm-workspace.yaml",
+    "backend/ (solo si la plantilla exige un ajuste equivalente para uv)"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "El finding SEC-001 (CWE-829) queda mitigado con blockExoticSubdeps: true, minimumReleaseAge: 10080 y trustPolicy: no-downgrade en frontend/pnpm-workspace.yaml.",
+    "pnpm 12.18.0, fijado en frontend/package.json, acepta las tres opciones de configuraci\u00f3n.",
+    "La instalaci\u00f3n con el lockfile congelado termina correctamente y no modifica el lockfile.",
+    "La plantilla backend aplicable se revisa; si requiere un ajuste equivalente para uv, se aplica y se valida; si no existe tal requisito, no se altera backend.",
+    "No se usan credenciales y no se cambian archivos .rapid-os/."
+  ],
+  "testing_strategy": [
+    "Comprobar la disponibilidad de las tres claves en pnpm 12.18.0 mediante documentaci\u00f3n oficial y/o validaci\u00f3n de la CLI instalada.",
+    "Ejecutar la instalaci\u00f3n frozen en el frontend del workspace aislado.",
+    "Comparar el lockfile antes y despu\u00e9s de la instalaci\u00f3n."
+  ],
+  "implementation_tasks": [
+    "T001: Revisar la plantilla backend y a\u00f1adir las pol\u00edticas de pnpm al workspace del frontend.",
+    "T002: Validar compatibilidad con pnpm 12.18.0 y la instalaci\u00f3n frozen sin cambios al lockfile.",
+    "T003: Revisar evidencia y ejecutar los gates requeridos por Rapid."
+  ],
+  "tags": [
+    "dependencies",
+    "security",
+    "supply-chain"
+  ],
+  "findings": [
+    {
+      "id": "SEC-001",
+      "title": "La pol\u00edtica del frontend no bloquea dependencias transitivas de fuentes ex\u00f3ticas ni versiones reci\u00e9n publicadas con menor nivel de confianza",
+      "cwe": "CWE-829",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "severity": "high",
+      "standard_ref": "SLSA 1.2"
+    }
+  ],
+  "artifact_digests": {
+    "requirements.md": "b1e4c1101a08ff114f9490a84af337c82bebe2753f9f01a333e37ef2784b1a5e",
+    "tasks.md": "d4d240fb4a7df12b5280614f562af0179662c084b4a7b6221bea71ee6444df65",
+    "acceptance.md": "41edf114f75634e787d95e8e29451b822eeb5ca591790bcac064e4060fb52969"
+  },
+  "content_digest": "488270a8f87ddfc38db2232cd7e23e0a45a3e6320537fd555c63313a31b1e9ce"
+}
