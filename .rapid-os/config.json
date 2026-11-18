@@ -1,11 +1,12 @@
 {
-  "tools": [
-    "codex",
-    "claude"
-  ],
-  "test_command": [
-    "python",
-    "-c",
-    "import shutil, subprocess, sys; codes = [subprocess.call([shutil.which(c[0]) or c[0], *c[1:]]) for c in [['uv', 'run', '--directory', 'backend', 'pytest'], ['pnpm', '--dir', 'frontend', 'exec', 'ng', 'test', '--no-watch', '--no-progress']]]; sys.exit(1 if any(code != 0 for code in codes) else 0)"
-  ]
+    "tools":  [
+                  "codex",
+                  "claude"
+              ],
+    "test_command":  [
+                         "python",
+                         "-c",
+                         "import shutil, subprocess, sys; codes = [subprocess.call([shutil.which(c[0]) or c[0], *c[1:]]) for c in [[\u0027uv\u0027, \u0027run\u0027, \u0027--directory\u0027, \u0027backend\u0027, \u0027pytest\u0027], [\u0027pnpm\u0027, \u0027--dir\u0027, \u0027frontend\u0027, \u0027exec\u0027, \u0027ng\u0027, \u0027test\u0027, \u0027--no-watch\u0027, \u0027--no-progress\u0027]]]; sys.exit(1 if any(code != 0 for code in codes) else 0)"
+                     ],
+    "default_harness":  "codex"
 }
