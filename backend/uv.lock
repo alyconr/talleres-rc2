@@ -2,6 +2,10 @@ version = 1
 revision = 3
 requires-python = "==3.13.*"
 
+[options]
+exclude-newer = "2026-11-11T21:52:38.1479987Z"
+exclude-newer-span = "P7D"
+
 [[package]]
 name = "aio-pika"
 version = "10.2.3"

@@ -6,3 +6,9 @@ allowBuilds:
   esbuild: false
   lmdb: false
   msgpackr-extract: false
+
+# Cadena de suministro [SLSA 1.2, OWASP A03:2025, CWE-829]
+# minimumReleaseAge en minutos (7 días). Fuente: https://pnpm.io/settings
+minimumReleaseAge: 10080
+trustPolicy: no-downgrade
+blockExoticSubdeps: true

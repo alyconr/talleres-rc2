@@ -19,3 +19,8 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+# Cadena de suministro [SLSA 1.2, OWASP A03:2025, CWE-829]: no resolver versiones publicadas en los últimos 7 días.
+# Fuente: https://docs.astral.sh/uv/concepts/resolution/#dependency-cooldowns
+[tool.uv]
+exclude-newer = "7 days"
