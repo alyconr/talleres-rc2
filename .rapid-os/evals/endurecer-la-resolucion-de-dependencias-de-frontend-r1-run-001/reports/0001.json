@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "run_id": "endurecer-la-resolucion-de-dependencias-de-frontend-r1-run-001",
+  "contract_digest": "fb8c076aff837be66ac6077eba7a6faaa1d35c4d881a70a6642f58e3745b425d",
+  "state_revision": 15,
+  "state_digest": "a76dfce6ab693a1feb8752ff61b8fc6fa882098279463bc9293d20cbf75b6fd0",
+  "evidence_set_digest": "e5cd7ea4a41d0572c552e2d9e9c9fec83333335395bc0691e2d6a472918c08be",
+  "ruleset_version": 3,
+  "ruleset_digest": "c8a2e5af48f4cba8b5c142faea7909794e86bbb2059594fbfe2a88f095bc9356",
+  "extra_capability_ids": [],
+  "assertions": [
+    {
+      "id": "run.lifecycle",
+      "category": "lifecycle",
+      "subject_id": "endurecer-la-resolucion-de-dependencias-de-frontend-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Run reached terminal status 'finished'.",
+      "evidence_ids": []
+    },
+    {
+      "id": "task.T001.evidence",
+      "category": "task",
+      "subject_id": "T001",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T001' completion is backed by execution evidence (E003).",
+      "evidence_ids": [
+        "E003"
+      ]
+    },
+    {
+      "id": "task.T002.evidence",
+      "category": "task",
+      "subject_id": "T002",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T002' completion is backed by execution evidence (E004).",
+      "evidence_ids": [
+        "E004"
+      ]
+    },
+    {
+      "id": "task.T003.evidence",
+      "category": "task",
+      "subject_id": "T003",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T003' completion is backed by execution evidence (E005, E006).",
+      "evidence_ids": [
+        "E005",
+        "E006"
+      ]
+    },
+    {
+      "id": "gate.gate.workspace-isolation.evidence",
+      "category": "gate",
+      "subject_id": "gate.workspace-isolation",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.workspace-isolation' is acknowledged and verified by evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "gate.gate.baseline.evidence",
+      "category": "gate",
+      "subject_id": "gate.baseline",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.baseline' is acknowledged and verified by evidence (E002).",
+      "evidence_ids": [
+        "E002"
+      ]
+    },
+    {
+      "id": "gate.gate.tests.evidence",
+      "category": "gate",
+      "subject_id": "gate.tests",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.tests' is acknowledged and verified by evidence (E007).",
+      "evidence_ids": [
+        "E007"
+      ]
+    },
+    {
+      "id": "gate.gate.review.evidence",
+      "category": "gate",
+      "subject_id": "gate.review",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.review' is acknowledged and verified by evidence (E008).",
+      "evidence_ids": [
+        "E008"
+      ]
+    },
+    {
+      "id": "gate.gate.security-review.evidence",
+      "category": "gate",
+      "subject_id": "gate.security-review",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.security-review' is acknowledged and verified by evidence (E009).",
+      "evidence_ids": [
+        "E009"
+      ]
+    },
+    {
+      "id": "gate.gate.final-verification.evidence",
+      "category": "gate",
+      "subject_id": "gate.final-verification",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.final-verification' is acknowledged and verified by evidence (E010).",
+      "evidence_ids": [
+        "E010"
+      ]
+    },
+    {
+      "id": "capability.context.consume.observed",
+      "category": "capability",
+      "subject_id": "context.consume",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'context.consume' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.read.observed",
+      "category": "capability",
+      "subject_id": "repository.read",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'repository.read' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.write.observed",
+      "category": "capability",
+      "subject_id": "repository.write",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'repository.write' (contract.tasks) observed in evidence (E011).",
+      "evidence_ids": [
+        "E011"
+      ]
+    },
+    {
+      "id": "capability.tests.execute.observed",
+      "category": "capability",
+      "subject_id": "tests.execute",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'tests.execute' (contract.gate.tests) observed in evidence (E002, E003, E004, E005, E006, E007).",
+      "evidence_ids": [
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007"
+      ]
+    },
+    {
+      "id": "capability.workspace.isolated.observed",
+      "category": "capability",
+      "subject_id": "workspace.isolated",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'workspace.isolated' (contract.workspace) observed in evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "hardening.findings",
+      "category": "task",
+      "subject_id": "endurecer-la-resolucion-de-dependencias-de-frontend-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Cada uno de los 2 hallazgos está citado por un criterio de aceptación con evidencia de tarea.",
+      "evidence_ids": [
+        "E003",
+        "E004",
+        "E005",
+        "E006"
+      ]
+    }
+  ],
+  "verdict": "pass",
+  "report_digest": "d9bfd7219cfaccd6a523a75bff826f701292847c010c8b9743f4d682b4a5b82e"
+}

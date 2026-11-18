@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "mode": "hardening",
+  "harness": "claude",
+  "objective": "Reducir el riesgo de instalar paquetes recién publicados, de fuentes exóticas o con menor nivel de confianza (cadena de suministro) y desbloquear la CI de seguridad.",
+  "max_chars": 24000,
+  "compiled_chars": 23893,
+  "content_digest": "ed470329b237e1f94ee227d399e159c2d58217edf783a2b6ea6ac1b585c9b5b0",
+  "selected": [
+    {
+      "source_id": "standard.security",
+      "kind": "security",
+      "selected": true,
+      "reason": "required for hardening mode by policy; matches request tags (security)",
+      "priority": 100,
+      "required": true,
+      "chars": 9451,
+      "precedence": 1,
+      "provenance": ".rapid-os/standards/security.md",
+      "path": ".rapid-os/standards/security.md"
+    },
+    {
+      "source_id": "doc.architecture",
+      "kind": "architecture",
+      "selected": true,
+      "reason": "relevant to hardening mode",
+      "priority": 80,
+      "required": false,
+      "chars": 5131,
+      "precedence": 3,
+      "provenance": "docs/ARCHITECTURE.md",
+      "path": "docs/ARCHITECTURE.md"
+    },
+    {
+      "source_id": "standard.architecture",
+      "kind": "architecture",
+      "selected": true,
+      "reason": "relevant to hardening mode",
+      "priority": 80,
+      "required": false,
+      "chars": 6357,
+      "precedence": 3,
+      "provenance": ".rapid-os/standards/architecture.md",
+      "path": ".rapid-os/standards/architecture.md"
+    },
+    {
+      "source_id": "spec.endurecer-la-resolucion-de-dependencias-de-frontend-y-backend.requirements",
+      "kind": "spec",
+      "selected": true,
+      "reason": "selected spec 'endurecer-la-resolucion-de-dependencias-de-frontend-y-backend'; matches request tags (dependencies, security, supply-chain)",
+      "priority": 80,
+      "required": false,
+      "chars": 2433,
+      "precedence": 7,
+      "provenance": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/requirements.md",
+      "path": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/requirements.md"
+    },
+    {
+      "source_id": "project.intelligence",
+      "kind": "project_intelligence",
+      "selected": true,
+      "reason": "relevant to hardening mode; selected ProjectModel facts (database=postgres, deploy_provider=github-actions)",
+      "priority": 50,
+      "required": false,
+      "chars": 50,
+      "precedence": 13,
+      "provenance": "snapshot:.rapid-os/project.json"
+    }
+  ],
+  "skipped": [
+    {
+      "source_id": "doc.business",
+      "kind": "business",
+      "selected": false,
+      "reason": "skipped: not relevant for hardening mode",
+      "priority": 80,
+      "required": false,
+      "chars": 2013,
+      "precedence": 2,
+      "provenance": "docs/BUSINESS_RULES.md",
+      "path": "docs/BUSINESS_RULES.md"
+    },
+    {
+      "source_id": "standard.topology",
+      "kind": "topology",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 80,
+      "required": false,
+      "chars": 436,
+      "precedence": 4,
+      "provenance": ".rapid-os/standards/topology.md",
+      "path": ".rapid-os/standards/topology.md"
+    },
+    {
+      "source_id": "standard.tech-stack",
+      "kind": "tech_stack",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 80,
+      "required": false,
+      "chars": 1125,
+      "precedence": 5,
+      "provenance": ".rapid-os/standards/tech-stack.md",
+      "path": ".rapid-os/standards/tech-stack.md"
+    },
+    {
+      "source_id": "standard.coding-rules",
+      "kind": "coding_rules",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 633,
+      "precedence": 6,
+      "provenance": ".rapid-os/standards/coding-rules.md",
+      "path": ".rapid-os/standards/coding-rules.md"
+    },
+    {
+      "source_id": "spec.endurecer-la-resolucion-de-dependencias-de-frontend-y-backend.tasks",
+      "kind": "tasks",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 637,
+      "precedence": 8,
+      "provenance": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/tasks.md",
+      "path": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/tasks.md"
+    },
+    {
+      "source_id": "spec.endurecer-la-resolucion-de-dependencias-de-frontend-y-backend.acceptance",
+      "kind": "acceptance",
+      "selected": false,
+      "reason": "skipped: source exceeds remaining budget",
+      "priority": 50,
+      "required": false,
+      "chars": 1139,
+      "precedence": 9,
+      "provenance": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/acceptance.md",
+      "path": ".rapid-os/specs/endurecer-la-resolucion-de-dependencias-de-frontend-y-backend/revisions/0001/acceptance.md"
+    },
+    {
+      "source_id": "doc.deployment",
+      "kind": "custom",
+      "selected": false,
+      "reason": "skipped: not relevant for hardening mode",
+      "priority": 10,
+      "required": false,
+      "chars": 4977,
+      "precedence": 12,
+      "provenance": "docs/DEPLOYMENT.md",
+      "path": "docs/DEPLOYMENT.md"
+    },
+    {
+      "source_id": "doc.brief",
+      "kind": "product",
+      "selected": false,
+      "reason": "skipped: not relevant for hardening mode",
+      "priority": 80,
+      "required": false,
+      "chars": 1581,
+      "precedence": 14,
+      "provenance": "docs/PRODUCT_BRIEF.md",
+      "path": "docs/PRODUCT_BRIEF.md"
+    },
+    {
+      "source_id": "doc.data-model",
+      "kind": "data_model",
+      "selected": false,
+      "reason": "skipped: not relevant for hardening mode",
+      "priority": 50,
+      "required": false,
+      "chars": 3240,
+      "precedence": 15,
+      "provenance": "docs/DATA_MODEL.md",
+      "path": "docs/DATA_MODEL.md"
+    }
+  ],
+  "conflicts": []
+}

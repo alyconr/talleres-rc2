@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "spec_id": "endurecer-la-resolucion-de-dependencias-de-frontend-y-backend",
+  "revision": 1,
+  "title": "Endurecer la resoluci\u00f3n de dependencias de frontend y backend",
+  "mode": "hardening",
+  "business_objective": "Reducir el riesgo de instalar paquetes reci\u00e9n publicados, de fuentes ex\u00f3ticas o con menor nivel de confianza (cadena de suministro) y desbloquear la CI de seguridad.",
+  "problem_statement": "semgrep p/owasp-top-ten bloquea la CI porque frontend/pnpm-workspace.yaml no declara blockExoticSubdeps: true, minimumReleaseAge: 10080 ni trustPolicy: no-downgrade, que exige la plantilla del stack Angular. La plantilla python-fastapi exige adem\u00e1s exclude-newer = \"7 days\" en [tool.uv] de backend/pyproject.toml, que tampoco est\u00e1.",
+  "scope": [
+    "A\u00f1adir blockExoticSubdeps: true, minimumReleaseAge: 10080 y trustPolicy: no-downgrade a frontend/pnpm-workspace.yaml.",
+    "A\u00f1adir [tool.uv] con exclude-newer = \"7 days\" a backend/pyproject.toml y actualizar backend/uv.lock solo en sus opciones, sin cambiar versiones.",
+    "Verificar que pnpm 12.18.0 (packageManager) y uv admiten los ajustes y que la instalaci\u00f3n con lockfile sigue funcionando."
+  ],
+  "out_of_scope": [
+    "Actualizar versiones de dependencias o de herramientas.",
+    "Cambiar los workflows de CI, archivos .rapid-os/ o a\u00f1adir credenciales."
+  ],
+  "actors_users": [
+    "Mantenedor del proyecto",
+    "Atacante potencial de la cadena de suministro"
+  ],
+  "main_flow": [
+    "El mantenedor instala dependencias con el lockfile versionado.",
+    "pnpm y uv rechazan versiones publicadas hace menos de siete d\u00edas; pnpm adem\u00e1s rechaza subdependencias ex\u00f3ticas y downgrades de confianza.",
+    "La instalaci\u00f3n con lockfile congelado termina sin cambios en las versiones fijadas."
+  ],
+  "edge_cases": [
+    "La versi\u00f3n de pnpm fijada no reconoce una de las claves.",
+    "Una dependencia fijada se public\u00f3 hace menos de siete d\u00edas o baja de nivel de confianza.",
+    "uv marca el lockfile como desactualizado al cambiar exclude-newer."
+  ],
+  "business_rules": [
+    "No se debilita ni se omite la pol\u00edtica para hacer pasar la instalaci\u00f3n.",
+    "No se solicitan ni incorporan credenciales.",
+    "Cada hallazgo se registra con CWE, vector CVSS v4.0 y cita de .rapid-os/standards/security.md."
+  ],
+  "technical_constraints": [
+    "Respeta el stack del proyecto (tech-stack); sin nuevas dependencias.",
+    "Mantener packageManager pnpm@12.18.0 sin cambios.",
+    "No modificar .rapid-os/."
+  ],
+  "affected_paths": [
+    "frontend/pnpm-workspace.yaml",
+    "backend/pyproject.toml",
+    "backend/uv.lock"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "SEC-001 (CWE-829): frontend/pnpm-workspace.yaml declara blockExoticSubdeps: true, minimumReleaseAge: 10080 y trustPolicy: no-downgrade; pnpm 12.18.0 los acepta y pnpm install --frozen-lockfile termina sin modificar pnpm-lock.yaml.",
+    "SEC-002 (CWE-829): backend/pyproject.toml declara exclude-newer = \"7 days\" en [tool.uv]; uv lock --check y uv sync --locked pasan sin cambiar ninguna versi\u00f3n fijada en uv.lock.",
+    "La suite de tests del proyecto sigue pasando.",
+    "No se usan credenciales y no se modifican archivos de .rapid-os/."
+  ],
+  "testing_strategy": [
+    "pnpm config get de las tres claves y pnpm install --frozen-lockfile en frontend/, comparando el lockfile.",
+    "uv lock --check y uv sync --locked en backend/, comparando versiones de uv.lock.",
+    "Suite completa con rapid check en el workspace aislado."
+  ],
+  "implementation_tasks": [
+    "T001: A\u00f1adir las salvaguardas de pnpm a frontend/pnpm-workspace.yaml y validar la instalaci\u00f3n frozen.",
+    "T002: A\u00f1adir exclude-newer a [tool.uv] del backend, refrescar opciones de uv.lock sin cambiar versiones y validar uv sync --locked.",
+    "T003: Ejecutar la suite completa en el workspace aislado."
+  ],
+  "tags": [
+    "dependencies",
+    "security",
+    "supply-chain"
+  ],
+  "findings": [
+    {
+      "id": "SEC-001",
+      "title": "pnpm del frontend instala versiones reci\u00e9n publicadas, subdependencias de fuentes ex\u00f3ticas y downgrades de confianza",
+      "cwe": "CWE-829",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "severity": "high",
+      "standard_ref": "SLSA 1.2"
+    },
+    {
+      "id": "SEC-002",
+      "title": "uv del backend resuelve versiones publicadas en los \u00faltimos siete d\u00edas",
+      "cwe": "CWE-829",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "severity": "high",
+      "standard_ref": "SLSA 1.2"
+    }
+  ],
+  "artifact_digests": {
+    "requirements.md": "db6310730288de0ebe72ed033a790fbf0a5aac11115e37b8d0c2c2f032138a89",
+    "tasks.md": "a928da35d1c973d3a2d2f412683e590c43fcc60c49ccb8aae4dc8f034d77a29f",
+    "acceptance.md": "e095c1f8c51cd21033e67fbfc20c49f21ba6ede4093f687e1d29b9a6f0864739"
+  },
+  "content_digest": "fba046a3583a4da9680108054ca41892286c514f2b4513a463e9298b9dc4a003"
+}

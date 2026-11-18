@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "run_id": "endurecer-la-resolucion-de-dependencias-de-frontend-r1-run-001",
+  "spec_id": "endurecer-la-resolucion-de-dependencias-de-frontend-y-backend",
+  "spec_revision": 1,
+  "spec_content_digest": "fba046a3583a4da9680108054ca41892286c514f2b4513a463e9298b9dc4a003",
+  "harness": "claude",
+  "context_digest": "ed470329b237e1f94ee227d399e159c2d58217edf783a2b6ea6ac1b585c9b5b0",
+  "context_manifest_digest": "d5e1f68e33a33c499fa67df046340bb6c1e70a2235df4fcb63f8426e20423f67",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "architectural",
+    "risk": "high",
+    "risk_signals": [
+      {
+        "id": "mode.hardening",
+        "level": "high",
+        "reason": "Spec mode is 'hardening' (architectural/security scope).",
+        "source": "spec.mode"
+      },
+      {
+        "id": "scope.security",
+        "level": "high",
+        "reason": "Security-sensitive scope detected.",
+        "source": "spec.tags"
+      },
+      {
+        "id": "classification.architectural",
+        "level": "high",
+        "reason": "Execution classification is architectural.",
+        "source": "policy.classification"
+      }
+    ],
+    "workspace": "isolated_required",
+    "gates": [
+      {
+        "id": "gate.workspace-isolation",
+        "kind": "workspace_isolation",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "High or critical risk work requires an isolated workspace declaration."
+      },
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.review",
+        "kind": "peer_review",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "High or critical risk execution requires architectural/peer review."
+      },
+      {
+        "id": "gate.security-review",
+        "kind": "security_review",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Security or authentication changes require dedicated security review."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.hardening",
+      "scope.security",
+      "classification.architectural"
+    ]
+  },
+  "classification": "architectural",
+  "risk": "high",
+  "risk_signals": [
+    {
+      "id": "mode.hardening",
+      "level": "high",
+      "reason": "Spec mode is 'hardening' (architectural/security scope).",
+      "source": "spec.mode"
+    },
+    {
+      "id": "scope.security",
+      "level": "high",
+      "reason": "Security-sensitive scope detected.",
+      "source": "spec.tags"
+    },
+    {
+      "id": "classification.architectural",
+      "level": "high",
+      "reason": "Execution classification is architectural.",
+      "source": "policy.classification"
+    }
+  ],
+  "workspace": "isolated_required",
+  "gates": [
+    {
+      "id": "gate.workspace-isolation",
+      "kind": "workspace_isolation",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "High or critical risk work requires an isolated workspace declaration."
+    },
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.review",
+      "kind": "peer_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "High or critical risk execution requires architectural/peer review."
+    },
+    {
+      "id": "gate.security-review",
+      "kind": "security_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Security or authentication changes require dedicated security review."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Añadir las salvaguardas de pnpm a frontend/pnpm-workspace.yaml y validar la instalación frozen."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Añadir exclude-newer a [tool.uv] del backend, refrescar opciones de uv.lock sin cambiar versiones y validar uv sync --locked."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Ejecutar la suite completa en el workspace aislado."
+    }
+  ],
+  "contract_digest": "fb8c076aff837be66ac6077eba7a6faaa1d35c4d881a70a6642f58e3745b425d",
+  "ruleset_version": 3
+}
