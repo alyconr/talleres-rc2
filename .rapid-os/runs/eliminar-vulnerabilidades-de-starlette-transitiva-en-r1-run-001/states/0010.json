@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "revision": 10,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Actualizar FastAPI a una versión permitida por exclude-newer cuyo rango admita Starlette >=1.3.1 y regenerar el lockfile fijado.",
+      "status": "done",
+      "reason": "Completed task T001"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir incompatibilidades de backend causadas por la actualización y verificar el funcionamiento.",
+      "status": "done",
+      "reason": "Completed task T002"
+    },
+    {
+      "id": "T003",
+      "description": "T003: Exportar el lockfile, verificar que pip-audit no detecta vulnerabilidades y ejecutar los checks requeridos.",
+      "status": "done",
+      "reason": "Completed task T003"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.workspace-isolation",
+      "kind": "workspace_isolation",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E001 (isolated worktree)"
+    },
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E003"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.review",
+      "kind": "peer_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.security-review",
+      "kind": "security_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "task.T003.done",
+  "reason": "Completed task T003",
+  "content_digest": "78d2d33105444a25ec3f440dcd04c74d7b1b253ded55e446abcca6a8615fd02d"
+}

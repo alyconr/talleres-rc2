@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "E001",
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 1,
+  "state_digest": "279e99e8062753a5577e823af977ffa964be5cae7b90192e2b21ec713d8773c3",
+  "kind": "workspace",
+  "producer": "rapid:start",
+  "summary": "Workspace isolated in a git worktree",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.workspace-isolation"
+  ],
+  "capability_ids": [
+    "workspace.isolated"
+  ],
+  "payload": {
+    "mode": "isolated"
+  },
+  "artifacts": [],
+  "content_digest": "ef238d6f89254e3cb62c2729e89bd362cd21ec0125228a5796838fa6029a2264"
+}

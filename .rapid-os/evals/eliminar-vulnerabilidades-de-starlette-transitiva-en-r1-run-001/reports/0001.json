@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 15,
+  "state_digest": "2656826145e4675ed76006db79f271e60873b243502ccfc6c36b7d108f92a904",
+  "evidence_set_digest": "666be609d53553d3835f70b9b95e2052faad95bc5a009ed5d2ac5ae402f2d22a",
+  "ruleset_version": 3,
+  "ruleset_digest": "c8a2e5af48f4cba8b5c142faea7909794e86bbb2059594fbfe2a88f095bc9356",
+  "extra_capability_ids": [],
+  "assertions": [
+    {
+      "id": "run.lifecycle",
+      "category": "lifecycle",
+      "subject_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Run reached terminal status 'finished'.",
+      "evidence_ids": []
+    },
+    {
+      "id": "task.T001.evidence",
+      "category": "task",
+      "subject_id": "T001",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T001' completion is backed by execution evidence (E004).",
+      "evidence_ids": [
+        "E004"
+      ]
+    },
+    {
+      "id": "task.T002.evidence",
+      "category": "task",
+      "subject_id": "T002",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T002' completion is backed by execution evidence (E005, E006).",
+      "evidence_ids": [
+        "E005",
+        "E006"
+      ]
+    },
+    {
+      "id": "task.T003.evidence",
+      "category": "task",
+      "subject_id": "T003",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T003' completion is backed by execution evidence (E007, E008, E009).",
+      "evidence_ids": [
+        "E007",
+        "E008",
+        "E009"
+      ]
+    },
+    {
+      "id": "gate.gate.workspace-isolation.evidence",
+      "category": "gate",
+      "subject_id": "gate.workspace-isolation",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.workspace-isolation' is acknowledged and verified by evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "gate.gate.baseline.evidence",
+      "category": "gate",
+      "subject_id": "gate.baseline",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.baseline' is acknowledged and verified by evidence (E002, E003).",
+      "evidence_ids": [
+        "E002",
+        "E003"
+      ]
+    },
+    {
+      "id": "gate.gate.tests.evidence",
+      "category": "gate",
+      "subject_id": "gate.tests",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.tests' is acknowledged and verified by evidence (E010, E011, E012, E013).",
+      "evidence_ids": [
+        "E010",
+        "E011",
+        "E012",
+        "E013"
+      ]
+    },
+    {
+      "id": "gate.gate.review.evidence",
+      "category": "gate",
+      "subject_id": "gate.review",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.review' is acknowledged and verified by evidence (E015).",
+      "evidence_ids": [
+        "E015"
+      ]
+    },
+    {
+      "id": "gate.gate.security-review.evidence",
+      "category": "gate",
+      "subject_id": "gate.security-review",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.security-review' is acknowledged and verified by evidence (E016).",
+      "evidence_ids": [
+        "E016"
+      ]
+    },
+    {
+      "id": "gate.gate.final-verification.evidence",
+      "category": "gate",
+      "subject_id": "gate.final-verification",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.final-verification' is acknowledged and verified by evidence (E014).",
+      "evidence_ids": [
+        "E014"
+      ]
+    },
+    {
+      "id": "capability.context.consume.observed",
+      "category": "capability",
+      "subject_id": "context.consume",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'context.consume' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.read.observed",
+      "category": "capability",
+      "subject_id": "repository.read",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'repository.read' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.write.observed",
+      "category": "capability",
+      "subject_id": "repository.write",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'repository.write' (contract.tasks) observed in evidence (E017).",
+      "evidence_ids": [
+        "E017"
+      ]
+    },
+    {
+      "id": "capability.tests.execute.observed",
+      "category": "capability",
+      "subject_id": "tests.execute",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'tests.execute' (contract.gate.tests) observed in evidence (E002, E003, E004, E005, E006, E008, E009, E010, E011, E012, E013).",
+      "evidence_ids": [
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013"
+      ]
+    },
+    {
+      "id": "capability.workspace.isolated.observed",
+      "category": "capability",
+      "subject_id": "workspace.isolated",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'workspace.isolated' (contract.workspace) observed in evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "id": "hardening.findings",
+      "category": "task",
+      "subject_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Cada uno de los 5 hallazgos está citado por un criterio de aceptación con evidencia de tarea.",
+      "evidence_ids": [
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009"
+      ]
+    }
+  ],
+  "verdict": "pass",
+  "report_digest": "3987d2e633310537bd4702f679486a4e1ce93fb222c7793850d2c28916a95701"
+}

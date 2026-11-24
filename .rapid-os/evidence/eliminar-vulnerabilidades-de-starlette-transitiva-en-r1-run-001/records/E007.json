@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E007",
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 9,
+  "state_digest": "75b012c624bcd0246878f3d13f98564259a7786a356cda98968230aa800c8f6a",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'uvx --from pip-audit==2.10.1 pip-audit --disable-pip -r r...' passed (exit 0)",
+  "task_ids": [
+    "T003"
+  ],
+  "gate_ids": [],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "uvx --from pip-audit==2.10.1 pip-audit --disable-pip -r r...",
+    "exit_code": 0,
+    "tree": "45a7a03ac02ccad5265ea5a957d06a32f36914ad44edf79e25c6fc5c49e46ba3"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001/artifacts/E007/6.log",
+      "sha256": "9b72a79558b6c11c7279dd43741fe40c1a6704c8443cdd1dca91f7c99a837004",
+      "size_bytes": 107,
+      "source": ".rapid-os/scratch/checks/eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001/6.log"
+    }
+  ],
+  "content_digest": "e0b52e87f14c5d99a552cde74355594bd04984abbfc46adc32896501136eb48e"
+}

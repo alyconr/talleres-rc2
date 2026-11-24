@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "revision": 2,
+  "status": "prepared",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Actualizar FastAPI a una versión permitida por exclude-newer cuyo rango admita Starlette >=1.3.1 y regenerar el lockfile fijado.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir incompatibilidades de backend causadas por la actualización y verificar el funcionamiento.",
+      "status": "pending",
+      "reason": ""
+    },
+    {
+      "id": "T003",
+      "description": "T003: Exportar el lockfile, verificar que pip-audit no detecta vulnerabilidades y ejecutar los checks requeridos.",
+      "status": "pending",
+      "reason": ""
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.workspace-isolation",
+      "kind": "workspace_isolation",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E001 (isolated worktree)"
+    },
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.review",
+      "kind": "peer_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.security-review",
+      "kind": "security_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    }
+  ],
+  "change_kind": "gate.gate.workspace-isolation.acknowledged",
+  "reason": "verified by E001 (isolated worktree)",
+  "content_digest": "999169b0963f2e4388aca6df28c94f959ed29a20acd37dc77f00f48449f0ce65"
+}

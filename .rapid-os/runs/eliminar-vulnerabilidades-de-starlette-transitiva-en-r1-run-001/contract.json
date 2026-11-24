@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "spec_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-backend",
+  "spec_revision": 1,
+  "spec_content_digest": "130a41b80736f2edfc23c1ce5c3a352d8873a2cc14365cec87895e3dc7b64ece",
+  "harness": "codex",
+  "context_digest": "62d76eeeebde8e6da25d338478f77e0a0e231a916d26cfbdcdf16e7d3d719ecd",
+  "context_manifest_digest": "d6f85f92b1b6db7b86b620cc45c4eb98d990495ad1d7d2894bfd981e0afa628d",
+  "project_model_digest": "08a41305cbc247788f5383661891c231ceb45348351323e8caa49d7c6cd923a0",
+  "policy_source": "default",
+  "policy_digest": "e61a5704803d1dd1406f784d52549ae4237f5d37686d4c53fe96358aede335cf",
+  "decision": {
+    "classification": "architectural",
+    "risk": "high",
+    "risk_signals": [
+      {
+        "id": "mode.hardening",
+        "level": "high",
+        "reason": "Spec mode is 'hardening' (architectural/security scope).",
+        "source": "spec.mode"
+      },
+      {
+        "id": "scope.security",
+        "level": "high",
+        "reason": "Security-sensitive scope detected.",
+        "source": "spec.tags"
+      },
+      {
+        "id": "classification.architectural",
+        "level": "high",
+        "reason": "Execution classification is architectural.",
+        "source": "policy.classification"
+      }
+    ],
+    "workspace": "isolated_required",
+    "gates": [
+      {
+        "id": "gate.workspace-isolation",
+        "kind": "workspace_isolation",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "High or critical risk work requires an isolated workspace declaration."
+      },
+      {
+        "id": "gate.baseline",
+        "kind": "baseline_check",
+        "phase": "pre_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Verify repository baseline health before executing changes."
+      },
+      {
+        "id": "gate.tests",
+        "kind": "implementation_tests",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "Implementation changes require test verification before completion."
+      },
+      {
+        "id": "gate.review",
+        "kind": "peer_review",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": true,
+        "reason": "High or critical risk execution requires architectural/peer review."
+      },
+      {
+        "id": "gate.security-review",
+        "kind": "security_review",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "Security or authentication changes require dedicated security review."
+      },
+      {
+        "id": "gate.final-verification",
+        "kind": "final_verification",
+        "phase": "post_execution",
+        "required": true,
+        "waivable": false,
+        "reason": "All executions require final contractual verification."
+      }
+    ],
+    "reasons": [
+      "mode.hardening",
+      "scope.security",
+      "classification.architectural"
+    ]
+  },
+  "classification": "architectural",
+  "risk": "high",
+  "risk_signals": [
+    {
+      "id": "mode.hardening",
+      "level": "high",
+      "reason": "Spec mode is 'hardening' (architectural/security scope).",
+      "source": "spec.mode"
+    },
+    {
+      "id": "scope.security",
+      "level": "high",
+      "reason": "Security-sensitive scope detected.",
+      "source": "spec.tags"
+    },
+    {
+      "id": "classification.architectural",
+      "level": "high",
+      "reason": "Execution classification is architectural.",
+      "source": "policy.classification"
+    }
+  ],
+  "workspace": "isolated_required",
+  "gates": [
+    {
+      "id": "gate.workspace-isolation",
+      "kind": "workspace_isolation",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "High or critical risk work requires an isolated workspace declaration."
+    },
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Verify repository baseline health before executing changes."
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "Implementation changes require test verification before completion."
+    },
+    {
+      "id": "gate.review",
+      "kind": "peer_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "reason": "High or critical risk execution requires architectural/peer review."
+    },
+    {
+      "id": "gate.security-review",
+      "kind": "security_review",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "Security or authentication changes require dedicated security review."
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "reason": "All executions require final contractual verification."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Actualizar FastAPI a una versión permitida por exclude-newer cuyo rango admita Starlette >=1.3.1 y regenerar el lockfile fijado."
+    },
+    {
+      "id": "T002",
+      "description": "T002: Corregir incompatibilidades de backend causadas por la actualización y verificar el funcionamiento."
+    },
+    {
+      "id": "T003",
+      "description": "T003: Exportar el lockfile, verificar que pip-audit no detecta vulnerabilidades y ejecutar los checks requeridos."
+    }
+  ],
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "ruleset_version": 3
+}

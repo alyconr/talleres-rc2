@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "spec_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-backend",
+  "spec_revision": 1,
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "current_state_revision": 15
+}

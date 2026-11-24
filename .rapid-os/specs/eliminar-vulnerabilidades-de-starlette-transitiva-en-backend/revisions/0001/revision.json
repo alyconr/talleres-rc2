@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "spec_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-backend",
+  "revision": 1,
+  "title": "Eliminar vulnerabilidades de Starlette transitiva en backend",
+  "mode": "hardening",
+  "business_objective": "Reducir la superficie de ataque del backend actualizando FastAPI y Starlette a versiones corregidas y mantener una resoluci\u00f3n reproducible de dependencias.",
+  "problem_statement": "pip-audit detecta cinco avisos de Starlette 0.50.0, dependencia transitiva de FastAPI 0.128.0. La restricci\u00f3n de FastAPI impide alcanzar Starlette 1.3.1 o posterior, versi\u00f3n que corrige todos los avisos indicados.",
+  "scope": [
+    "Actualizar FastAPI a una versi\u00f3n compatible con Starlette 1.3.1 o posterior y fijar las dependencias del backend.",
+    "Respetar el exclude-newer de [tool.uv] al actualizar y regenerar backend/uv.lock.",
+    "Resolver y corregir incompatibilidades introducidas por la actualizaci\u00f3n dentro del run.",
+    "Exportar backend/uv.lock e inspeccionar la exportaci\u00f3n con pip-audit.",
+    "Registrar los cinco hallazgos de Starlette con CWE, vector CVSS v4.0, severidad y est\u00e1ndar aplicable."
+  ],
+  "out_of_scope": [
+    "Cambios funcionales ajenos a la actualizaci\u00f3n de dependencias del backend.",
+    "Cambios a la pol\u00edtica exclude-newer o a est\u00e1ndares de Rapid OS."
+  ],
+  "actors_users": [
+    "Equipo de desarrollo y mantenimiento del backend",
+    "Atacante remoto que env\u00eda solicitudes HTTP malformadas o abusivas"
+  ],
+  "main_flow": [
+    "Resolver una versi\u00f3n de FastAPI que permita Starlette >=1.3.1 sin ignorar exclude-newer.",
+    "Actualizar y fijar dependencias en pyproject.toml y uv.lock.",
+    "Corregir incompatibilidades de la aplicaci\u00f3n si aparecen.",
+    "Exportar el lockfile y comprobar la exportaci\u00f3n con pip-audit.",
+    "Ejecutar verificaciones del proyecto y revisar la evidencia de los hallazgos."
+  ],
+  "edge_cases": [
+    "FastAPI mantiene un l\u00edmite superior de Starlette que excluye la versi\u00f3n corregida.",
+    "exclude-newer impide resolver una versi\u00f3n reci\u00e9n publicada de FastAPI o Starlette.",
+    "La versi\u00f3n compatible de FastAPI cambia el comportamiento o las interfaces usadas por el backend.",
+    "pip-audit encuentra vulnerabilidades adicionales en el conjunto de dependencias exportado."
+  ],
+  "business_rules": [
+    "Ninguna vulnerabilidad reportada en las versiones afectadas de Starlette puede permanecer en el lockfile final.",
+    "Las dependencias deben conservarse fijadas en el lockfile y la resoluci\u00f3n debe respetar [tool.uv].exclude-newer = \"7 days\".",
+    "Los hallazgos de seguridad incluyen CWE, vector CVSS v4.0, severidad y referencia est\u00e1ndar conforme a OWASP A03:2025 y la regla de hallazgos de seguridad del proyecto."
+  ],
+  "technical_constraints": [
+    "Backend Python 3.13, FastAPI async y uv; conservar los l\u00edmites existentes de Python y el resto del stack.",
+    "No cambiar [tool.uv].exclude-newer = \"7 days\" ni fijar una versi\u00f3n publicada durante los siete d\u00edas anteriores a la resoluci\u00f3n.",
+    "Los avisos oficiales de GitHub para PYSEC-2026-161, PYSEC-2026-2280, PYSEC-2026-2281, PYSEC-2026-248 y PYSEC-2026-249 publican CWEs e impactos y puntuaciones CVSS 3.1; para cumplir el est\u00e1ndar local CVSS v4.0 se registran vectores v4 derivados de esos impactos. Para CVE-2026-54282 y CVE-2026-54283 se contrastan adem\u00e1s vectores v4 del aviso de SUSE.",
+    "Fuentes: https://github.com/advisories/GHSA-86qp-5c8j-p5mr ; https://github.com/advisories/GHSA-x746-7m8f-x49c ; https://github.com/advisories/GHSA-wqp7-x3pw-xc5r ; https://github.com/advisories/GHSA-jp82-jpqv-5vv3 ; https://github.com/advisories/GHSA-82w8-qh3p-5jfq ; https://www.suse.com/security/cve/CVE-2026-54282.html ; https://www.suse.com/security/cve/CVE-2026-54283.html",
+    "La spec y la evidencia no deben contener credenciales ni secretos."
+  ],
+  "affected_paths": [
+    "backend/pyproject.toml",
+    "backend/uv.lock",
+    "backend/app",
+    "backend/tests"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "AC-SEC-161: Starlette resuelta queda en 1.3.1 o posterior y corrige PYSEC-2026-161 (CWE-444; CVSS v4.0 6.9 Medium; CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N).",
+    "AC-SEC-2280: Starlette resuelta corrige PYSEC-2026-2280 (CWE-470; CVSS v4.0 6.9 Medium; CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N).",
+    "AC-SEC-2281: Starlette resuelta corrige PYSEC-2026-2281 (CWE-918; CVSS v4.0 8.7 High; CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N).",
+    "AC-SEC-248: Starlette resuelta corrige PYSEC-2026-248 (CWE-20; CVSS v4.0 6.3 Medium; CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N).",
+    "AC-SEC-249: Starlette resuelta corrige PYSEC-2026-249 (CWE-770; CVSS v4.0 8.7 High; CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N).",
+    "La resoluci\u00f3n actualizada conserva el exclude-newer de siete d\u00edas, queda fijada en backend/uv.lock y el lockfile exportado auditado con pip-audit no tiene vulnerabilidades.",
+    "La suite configurada del backend pasa, incluyendo las pruebas de integraci\u00f3n aplicables; cualquier incompatibilidad causada por la actualizaci\u00f3n queda corregida."
+  ],
+  "testing_strategy": [
+    "Ejecutar rapid check para los tests configurados del proyecto.",
+    "Exportar backend/uv.lock a un archivo temporal de requirements y ejecutar pip-audit sobre esa exportaci\u00f3n; guardar salida y c\u00f3digo de retorno como evidencia del run.",
+    "Comprobar que la resoluci\u00f3n usa Starlette >=1.3.1, que FastAPI permite esa versi\u00f3n y que exclude-newer permanece intacto.",
+    "Ejecutar rapid arch check si el run lo exige; no introducir cambios de arquitectura."
+  ],
+  "implementation_tasks": [
+    "T001: Actualizar FastAPI a una versi\u00f3n permitida por exclude-newer cuyo rango admita Starlette >=1.3.1 y regenerar el lockfile fijado.",
+    "T002: Corregir incompatibilidades de backend causadas por la actualizaci\u00f3n y verificar el funcionamiento.",
+    "T003: Exportar el lockfile, verificar que pip-audit no detecta vulnerabilidades y ejecutar los checks requeridos."
+  ],
+  "tags": [
+    "dependencies",
+    "security",
+    "supply-chain"
+  ],
+  "findings": [
+    {
+      "id": "PYSEC-2026-161",
+      "title": "Validaci\u00f3n Host ausente permite envenenar request.url.path",
+      "cwe": "CWE-444",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP A03:2025"
+    },
+    {
+      "id": "PYSEC-2026-2280",
+      "title": "M\u00e9todos HTTP arbitrarios seleccionan atributos de HTTPEndpoint",
+      "cwe": "CWE-470",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP A03:2025"
+    },
+    {
+      "id": "PYSEC-2026-2281",
+      "title": "Resoluci\u00f3n de rutas UNC en Windows filtra credenciales NTLMv2",
+      "cwe": "CWE-918",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "severity": "high",
+      "standard_ref": "OWASP A03:2025"
+    },
+    {
+      "id": "PYSEC-2026-248",
+      "title": "Ruta sin barra inicial puede envenenar request.url.hostname",
+      "cwe": "CWE-20",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "severity": "medium",
+      "standard_ref": "OWASP A03:2025"
+    },
+    {
+      "id": "PYSEC-2026-249",
+      "title": "L\u00edmites ignorados al analizar formularios urlencoded permiten DoS",
+      "cwe": "CWE-770",
+      "cvss_v4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+      "severity": "high",
+      "standard_ref": "OWASP A03:2025"
+    }
+  ],
+  "artifact_digests": {
+    "requirements.md": "75cc6d6cef3791c874b2e9f7edd892fd47b45894afe897aab3a368f75bb3789b",
+    "tasks.md": "4f4a40c1fa5fe902ae27a8706958cd42b7ff45222bf7aa26b60e8d732a9f3cfe",
+    "acceptance.md": "5fe69d7862f7897707d9567ef5fb0a3f8ab59e8f95d46fe8b58f6da7f6337221"
+  },
+  "content_digest": "130a41b80736f2edfc23c1ce5c3a352d8873a2cc14365cec87895e3dc7b64ece"
+}

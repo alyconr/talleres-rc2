@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "E002",
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 2,
+  "state_digest": "999169b0963f2e4388aca6df28c94f959ed29a20acd37dc77f00f48449f0ce65",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (44 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.baseline"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 44,
+    "failed": 0,
+    "skipped": 7,
+    "tree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "counted": true,
+    "test_command": true,
+    "argv_digest": "356ecbf4f57330d9500d6fbca051441ac037f8b1b39156ff47105b39ceda68e9",
+    "components": [
+      {
+        "command": "uv run --directory backend pytest",
+        "passed": 42,
+        "failed": 0,
+        "skipped": 7,
+        "exit_code": 0,
+        "counted": true
+      },
+      {
+        "command": "pnpm --dir frontend exec ng test --no-watch --no-progress",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "counted": true
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001/artifacts/E002/1.log",
+      "sha256": "fc627f6517bcc69df900596239dce1fb1bd7e927cd58b5e0322943d6c04e73b6",
+      "size_bytes": 4016,
+      "source": ".rapid-os/scratch/checks/eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001/1.log"
+    }
+  ],
+  "content_digest": "503dd2423bd93c3eca1cf2e70c260cc87d68c87969e5c3c816212e8f8ee7e016"
+}

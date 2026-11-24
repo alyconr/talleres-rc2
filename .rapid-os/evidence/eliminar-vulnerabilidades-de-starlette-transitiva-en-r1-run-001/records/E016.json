@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E016",
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 12,
+  "state_digest": "d1e4ec2c7e6ad6a88c9b9dbbb550364a56753b97ac19b6bfd4101a67b5fe8bc5",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.security-review approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.security-review"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "security",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "45a7a03ac02ccad5265ea5a957d06a32f36914ad44edf79e25c6fc5c49e46ba3"
+  },
+  "artifacts": [],
+  "content_digest": "efe877e0feb2859c21e2d6b29c5a4523c75748ea7b0176ebae491c5b495bf8ed"
+}

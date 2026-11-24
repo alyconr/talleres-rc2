@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "E017",
+  "run_id": "eliminar-vulnerabilidades-de-starlette-transitiva-en-r1-run-001",
+  "contract_digest": "1845cd2ada132acc5e3cda6d6253c36079869f1203c088ed7d683c01a4489841",
+  "state_revision": 13,
+  "state_digest": "54e709c53ef9ec30c09ca5be6b0f08a418b8184ce8778bab7f82b91ebcf8cdd0",
+  "kind": "file_change",
+  "producer": "rapid:finish",
+  "summary": "Recorded changes across 2 repository file(s)",
+  "task_ids": [],
+  "gate_ids": [],
+  "capability_ids": [
+    "repository.write"
+  ],
+  "payload": {
+    "paths": [
+      "backend/pyproject.toml",
+      "backend/uv.lock"
+    ]
+  },
+  "artifacts": [],
+  "content_digest": "191afe4be6c2841e5c6e0e8fb4d84903087956b088d9930cac13bd17b6f82f81"
+}
