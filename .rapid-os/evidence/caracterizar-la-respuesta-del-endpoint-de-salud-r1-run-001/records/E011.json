@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "E011",
+  "run_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+  "contract_digest": "73345d3473d8e99fbfba3b2b367649d8ce59e51c3e8d4b6627bb919d9cdef0f2",
+  "state_revision": 7,
+  "state_digest": "228b526e8d7cfd7adf62d755e350f72f6b9a075bd0c4eaec0a680393a919f263",
+  "kind": "review",
+  "producer": "user",
+  "summary": "Gate gate.final-verification approved by alyconr",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.final-verification"
+  ],
+  "capability_ids": [],
+  "payload": {
+    "review_type": "final",
+    "outcome": "approved",
+    "reviewer": "alyconr",
+    "via": "rapid:approve",
+    "tree": "cb8f3927bdda830f0e71844f59c8c56a8c1bfed18051ecd5023deb47a6350d06"
+  },
+  "artifacts": [],
+  "content_digest": "3ee5a40078be9920da77f7ecdae54ce30678cccbcf6c96097a2431bd7bf8e39a"
+}

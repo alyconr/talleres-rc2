@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "run_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+  "revision": 8,
+  "status": "active",
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "T001: Caracterizar GET /health con un test de estado HTTP 200.",
+      "status": "done",
+      "reason": "Completed task T001"
+    },
+    {
+      "id": "T002",
+      "description": "T002: Verificar las pruebas contra la baseline sin cambiar el comportamiento del endpoint.",
+      "status": "done",
+      "reason": "Completed task T002"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.baseline",
+      "kind": "baseline_check",
+      "phase": "pre_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "verified by E002 (rapid:check)"
+    },
+    {
+      "id": "gate.tests",
+      "kind": "implementation_tests",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": true,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.architecture",
+      "kind": "architecture_check",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "pending",
+      "reason": ""
+    },
+    {
+      "id": "gate.final-verification",
+      "kind": "final_verification",
+      "phase": "post_execution",
+      "required": true,
+      "waivable": false,
+      "disposition": "acknowledged",
+      "reason": "Approved by alyconr"
+    }
+  ],
+  "change_kind": "gate.gate.final-verification.acknowledged",
+  "reason": "Approved by alyconr",
+  "content_digest": "3130d6449fffd93334d1574104b4c722b8713bee080c760b72f0d39d4dc58a2f"
+}

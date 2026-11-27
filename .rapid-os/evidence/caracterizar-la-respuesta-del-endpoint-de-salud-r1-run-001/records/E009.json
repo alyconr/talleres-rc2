@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "E009",
+  "run_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+  "contract_digest": "73345d3473d8e99fbfba3b2b367649d8ce59e51c3e8d4b6627bb919d9cdef0f2",
+  "state_revision": 7,
+  "state_digest": "228b526e8d7cfd7adf62d755e350f72f6b9a075bd0c4eaec0a680393a919f263",
+  "kind": "test_result",
+  "producer": "rapid:check",
+  "summary": "Test check 'python -c import shutil, subprocess, sys; codes = [subpro...' passed (45 passed, 0 failed)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.tests"
+  ],
+  "capability_ids": [
+    "tests.execute"
+  ],
+  "payload": {
+    "suite": "python",
+    "exit_code": 0,
+    "passed": 45,
+    "failed": 0,
+    "skipped": 7,
+    "tree": "cb8f3927bdda830f0e71844f59c8c56a8c1bfed18051ecd5023deb47a6350d06",
+    "counted": true,
+    "test_command": true,
+    "argv_digest": "356ecbf4f57330d9500d6fbca051441ac037f8b1b39156ff47105b39ceda68e9",
+    "components": [
+      {
+        "command": "uv run --directory backend pytest",
+        "passed": 43,
+        "failed": 0,
+        "skipped": 7,
+        "exit_code": 0,
+        "counted": true
+      },
+      {
+        "command": "pnpm --dir frontend exec ng test --no-watch --no-progress",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "exit_code": 0,
+        "counted": true
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001/artifacts/E009/8.log",
+      "sha256": "7399cce98f23a31c14b128c131174503f2ff5ba0038009f8e04204a23af3dbd3",
+      "size_bytes": 2105,
+      "source": ".rapid-os/scratch/checks/caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001/8.log"
+    }
+  ],
+  "content_digest": "e32d2f6af9080b37f811c94d63aa7cebd118938d5e6eb51503261d15ee52df3b"
+}

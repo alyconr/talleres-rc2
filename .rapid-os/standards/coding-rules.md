@@ -9,3 +9,4 @@
 2. **Comments:** Only comment complex logic. Self-documenting code is preferred.
 3. **Refactoring:** Postpone refactoring until after the feature is validated by users.
 4. **Base:** La velocidad nunca rebaja la base de seguridad ni la arquitectura modular.
+<!-- rapid-os-standard: coding-rules sha256=3c92cca118489776a9c74b454098d0162d68e9e84b476889730f8876152929db -->

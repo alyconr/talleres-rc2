@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "E008",
+  "run_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+  "contract_digest": "73345d3473d8e99fbfba3b2b367649d8ce59e51c3e8d4b6627bb919d9cdef0f2",
+  "state_revision": 7,
+  "state_digest": "228b526e8d7cfd7adf62d755e350f72f6b9a075bd0c4eaec0a680393a919f263",
+  "kind": "command_result",
+  "producer": "rapid:check",
+  "summary": "Check 'rapid arch check --new-only' passed (exit 0)",
+  "task_ids": [],
+  "gate_ids": [
+    "gate.architecture"
+  ],
+  "capability_ids": [
+    "shell.execute"
+  ],
+  "payload": {
+    "label": "rapid arch check --new-only",
+    "exit_code": 0,
+    "tree": "0f34741c1969b5760d04158baf6b49e0fe3138b220400b36ecbeadc9f4a81e0e"
+  },
+  "artifacts": [
+    {
+      "path": ".rapid-os/evidence/caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001/artifacts/E008/7.log",
+      "sha256": "1a9ae7ef2ebbba8962c9232da81ea5d3017de6472b9aca9aa8a5977b946599e7",
+      "size_bytes": 49,
+      "source": ".rapid-os/scratch/checks/caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001/7.log"
+    }
+  ],
+  "content_digest": "296f9ee1c808809f47e1511d53532f4df378c29872920484813ace5bb504b0bf"
+}

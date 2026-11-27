@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "spec_id": "caracterizar-la-respuesta-del-endpoint-de-salud",
+  "revision": 1,
+  "title": "Caracterizar la respuesta del endpoint de salud",
+  "mode": "refactor",
+  "business_objective": "Aumentar la confianza al mantener el endpoint de salud mediante una comprobaci\u00f3n automatizada de su respuesta HTTP.",
+  "problem_statement": "GET /health carece de una prueba expl\u00edcita que detecte si deja de responder con HTTP 200.",
+  "scope": [
+    "A\u00f1adir un test que invoque GET /health y compruebe el estado HTTP 200."
+  ],
+  "out_of_scope": [
+    "Cambiar la implementaci\u00f3n o el comportamiento del endpoint /health."
+  ],
+  "actors_users": [
+    "Desarrollador que mantiene el backend"
+  ],
+  "main_flow": [
+    "El test realiza una petici\u00f3n GET /health.",
+    "El test verifica que la respuesta tiene estado 200."
+  ],
+  "edge_cases": [
+    "La prueba debe seguir las convenciones existentes para probar endpoints HTTP."
+  ],
+  "business_rules": [
+    "El comportamiento observable no cambia; GET /health responde 200."
+  ],
+  "technical_constraints": [
+    "Usar las dependencias y convenciones de pruebas existentes del backend Python/FastAPI.",
+    "No a\u00f1adir dependencias."
+  ],
+  "affected_paths": [
+    "backend"
+  ],
+  "data_impact": "",
+  "acceptance_criteria": [
+    "Existe un test que comprueba que GET /health devuelve HTTP 200.",
+    "Los tests que pasaban en la baseline siguen pasando y el test nuevo pasa."
+  ],
+  "testing_strategy": [
+    "Ejecutar y registrar la baseline obligatoria antes de los cambios.",
+    "Ejecutar las pruebas mediante el flujo Rapid requerido y verificar el test nuevo."
+  ],
+  "implementation_tasks": [
+    "T001: Caracterizar GET /health con un test de estado HTTP 200.",
+    "T002: Verificar las pruebas contra la baseline sin cambiar el comportamiento del endpoint."
+  ],
+  "tags": [],
+  "findings": [],
+  "artifact_digests": {
+    "requirements.md": "ce913bf15ac8edb6bdb83fd7c2fdeac0a8c71bf646a8024e1e0a3c3439cc57bc",
+    "tasks.md": "ddc7d2137e48a9c67c32dceb5aac5d0e14f872d660c3554891817bab5884b97a",
+    "acceptance.md": "6725a23d8818378623cb562e422900dc1324cbc8c73a351f497b1224f337cb06"
+  },
+  "content_digest": "afc05ca6e28d546df4af2cf60f7436e3e33811c184df69df86663a682dda06ab"
+}

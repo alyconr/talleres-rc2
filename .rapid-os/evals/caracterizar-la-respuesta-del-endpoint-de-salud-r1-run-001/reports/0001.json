@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "run_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+  "contract_digest": "73345d3473d8e99fbfba3b2b367649d8ce59e51c3e8d4b6627bb919d9cdef0f2",
+  "state_revision": 11,
+  "state_digest": "b00869d4dd173fee57da2573195141c3bf0ea72f40176869f783022f09650dae",
+  "evidence_set_digest": "e8e9f7be3ebe300e290541d717fd87382187137b7c631ab37093d918ad42375f",
+  "ruleset_version": 3,
+  "ruleset_digest": "c8a2e5af48f4cba8b5c142faea7909794e86bbb2059594fbfe2a88f095bc9356",
+  "extra_capability_ids": [],
+  "assertions": [
+    {
+      "id": "run.lifecycle",
+      "category": "lifecycle",
+      "subject_id": "caracterizar-la-respuesta-del-endpoint-de-salud-r1-run-001",
+      "required": true,
+      "status": "pass",
+      "reason": "Run reached terminal status 'finished'.",
+      "evidence_ids": []
+    },
+    {
+      "id": "task.T001.evidence",
+      "category": "task",
+      "subject_id": "T001",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T001' completion is backed by execution evidence (E004).",
+      "evidence_ids": [
+        "E004"
+      ]
+    },
+    {
+      "id": "task.T002.evidence",
+      "category": "task",
+      "subject_id": "T002",
+      "required": true,
+      "status": "pass",
+      "reason": "Task 'T002' completion is backed by execution evidence (E005, E006).",
+      "evidence_ids": [
+        "E005",
+        "E006"
+      ]
+    },
+    {
+      "id": "gate.gate.baseline.evidence",
+      "category": "gate",
+      "subject_id": "gate.baseline",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.baseline' is acknowledged and verified by evidence (E002, E003).",
+      "evidence_ids": [
+        "E002",
+        "E003"
+      ]
+    },
+    {
+      "id": "gate.gate.tests.evidence",
+      "category": "gate",
+      "subject_id": "gate.tests",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.tests' is acknowledged and verified by evidence (E007, E009).",
+      "evidence_ids": [
+        "E007",
+        "E009"
+      ]
+    },
+    {
+      "id": "gate.gate.architecture.evidence",
+      "category": "gate",
+      "subject_id": "gate.architecture",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.architecture' is acknowledged and verified by evidence (E008, E010).",
+      "evidence_ids": [
+        "E008",
+        "E010"
+      ]
+    },
+    {
+      "id": "gate.gate.final-verification.evidence",
+      "category": "gate",
+      "subject_id": "gate.final-verification",
+      "required": true,
+      "status": "pass",
+      "reason": "Gate 'gate.final-verification' is acknowledged and verified by evidence (E011).",
+      "evidence_ids": [
+        "E011"
+      ]
+    },
+    {
+      "id": "capability.context.consume.observed",
+      "category": "capability",
+      "subject_id": "context.consume",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'context.consume' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.read.observed",
+      "category": "capability",
+      "subject_id": "repository.read",
+      "required": false,
+      "status": "not_applicable",
+      "reason": "Capability 'repository.read' is not objectively observable by Evidence Engine v1.",
+      "evidence_ids": []
+    },
+    {
+      "id": "capability.repository.write.observed",
+      "category": "capability",
+      "subject_id": "repository.write",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'repository.write' (contract.tasks) observed in evidence (E012).",
+      "evidence_ids": [
+        "E012"
+      ]
+    },
+    {
+      "id": "capability.tests.execute.observed",
+      "category": "capability",
+      "subject_id": "tests.execute",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'tests.execute' (contract.gate.tests) observed in evidence (E002, E003, E004, E005, E006, E007, E009).",
+      "evidence_ids": [
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E009"
+      ]
+    },
+    {
+      "id": "capability.workspace.current.observed",
+      "category": "capability",
+      "subject_id": "workspace.current",
+      "required": true,
+      "status": "pass",
+      "reason": "Required capability 'workspace.current' (contract.workspace) observed in evidence (E001).",
+      "evidence_ids": [
+        "E001"
+      ]
+    }
+  ],
+  "verdict": "pass",
+  "report_digest": "8aca0d7370f11a5138d371a83261d7543f8bdb49ba128fcafbe227b6c4b1596e"
+}
