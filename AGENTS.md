@@ -263,6 +263,8 @@ Estas reglas son obligatorias para todo código nuevo y todo cambio. Cada regla 
 
 - Versiona el lockfile y fija las dependencias a versiones exactas en todos los proyectos. [SLSA 1.2, OWASP A03:2025]
 - Fija las acciones de CI por SHA completo del commit, con la versión en un comentario; nunca por etiqueta ni por rama. [SLSA 1.2, OWASP A03:2025]
+- El gestor de paquetes JavaScript no instala versiones publicadas hace menos de siete días ni dependencias que bajan de nivel de confianza; si el archivo de configuración no existe todavía, créalo con estos ajustes al hacer el scaffold (sin ellos semgrep `p/owasp-top-ten` falla el workflow de seguridad): con pnpm, `pnpm-workspace.yaml` con `minimumReleaseAge: 10080` (minutos), `trustPolicy: no-downgrade` y `blockExoticSubdeps: true` (pnpm 10.26 o posterior); con npm, `.npmrc` con `min-release-age=7` (días; npm 11.10 o posterior); con Yarn, `.yarnrc.yml` con `npmMinimalAgeGate: "7d"` (Yarn 4.10 o posterior). [SLSA 1.2, OWASP A03:2025, CWE-829]
+- uv no resuelve versiones publicadas hace menos de siete días: `exclude-newer = "7 days"` en `[tool.uv]` del `pyproject.toml` (uv 0.9.17 o posterior); añádelo al hacer el scaffold (sin él semgrep `p/owasp-top-ten` falla el workflow de seguridad en cuanto el archivo tiene `[tool.uv]`). [SLSA 1.2, OWASP A03:2025, CWE-829]
 
 ## Hallazgos: CWE y CVSS
 
@@ -290,6 +292,12 @@ NIST SP 800-218 (SSDF 1.1): https://csrc.nist.gov/pubs/sp/800/218/final
 SLSA 1.2: https://slsa.dev/spec/v1.2/
 CVSS v4.0: https://www.first.org/cvss/v4-0/specification-document
 CWE: https://cwe.mitre.org/
+Reglas package_managers de semgrep p/owasp-top-ten: https://semgrep.dev/p/owasp-top-ten
+pnpm (minimumReleaseAge, trustPolicy, blockExoticSubdeps): https://pnpm.io/settings, https://github.com/pnpm/pnpm/releases/tag/v10.16.0, https://github.com/pnpm/pnpm/releases/tag/v10.21.0, https://github.com/pnpm/pnpm/releases/tag/v10.26.0
+npm (min-release-age): https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age
+Yarn (npmMinimalAgeGate): https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate
+uv (exclude-newer): https://docs.astral.sh/uv/concepts/resolution/#dependency-cooldowns
+Bundler (cooldown): https://blog.rubygems.org/2026/06/03/cooldown-let-new-gems-be-vetted.html
 -->
 
 
